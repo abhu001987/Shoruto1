@@ -32,8 +32,8 @@
   </url>
 
   <url>
-    <loc>https:/www.shoruto.com/mock</loc>
-    <priority>0.8</priority>
+    <loc>https://www.shoruto.com/mock</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
@@ -42,7 +42,7 @@
   </url>
 
   <url>
-    <loc>https://www.treedell.com/DailyQuiz</loc>
+    <loc>https://www.shoruto.com/DailyQuiz</loc>
     <priority>0.9</priority>
   </url>
 
