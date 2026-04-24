@@ -1,0 +1,92 @@
+[
+{
+"id":1,
+"title":"Structure of Cell and Its Functions",
+"image":"https://images.unsplash.com/photo-1532187863486-abf9dbad1b69",
+"content":"The cell is the basic unit of life found in all living organisms. It contains organelles like nucleus mitochondria and cytoplasm which perform specific functions. Cells can be prokaryotic or eukaryotic based on structure. Understanding cells is important to study growth reproduction and functioning of organisms making it a key topic in science exams.",
+"hindi":"कोशिका जीवन की मूल इकाई है जो सभी जीवों में पाई जाती है। इसमें नाभिक माइटोकॉन्ड्रिया और साइटोप्लाज्म जैसे अंग होते हैं जो विशेष कार्य करते हैं। कोशिकाएं प्रोकैरियोटिक या यूकैरियोटिक हो सकती हैं और जीवों की संरचना को समझने में महत्वपूर्ण हैं।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":2,
+"title":"Photosynthesis Process in Plants",
+"image":"https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+"content":"Photosynthesis is the process by which green plants prepare food using sunlight carbon dioxide and water. Chlorophyll in leaves captures sunlight and converts it into chemical energy producing glucose and oxygen. This process is essential for life as it provides food and oxygen making it an important concept in biology and exams.",
+"hindi":"प्रकाश संश्लेषण वह प्रक्रिया है जिसमें हरे पौधे सूर्य के प्रकाश कार्बन डाइऑक्साइड और पानी की सहायता से भोजन बनाते हैं। क्लोरोफिल सूर्य के प्रकाश को अवशोषित कर ऊर्जा में बदलता है और ग्लूकोज तथा ऑक्सीजन बनाता है।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":3,
+"title":"Newton Laws of Motion Explained",
+"image":"https://images.unsplash.com/photo-1509228468518-180dd4864904",
+"content":"Newton laws of motion describe the relationship between force and motion. The first law explains inertia the second law relates force mass and acceleration and the third law states every action has an equal and opposite reaction. These laws form the foundation of classical mechanics and are essential for understanding physical motion.",
+"hindi":"न्यूटन के गति के नियम बल और गति के संबंध को समझाते हैं। पहला नियम जड़त्व को दर्शाता है दूसरा बल द्रव्यमान और त्वरण के बीच संबंध बताता है और तीसरा नियम हर क्रिया के बराबर और विपरीत प्रतिक्रिया को दर्शाता है।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":4,
+"title":"Human Digestive System and Its Functions",
+"image":"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+"content":"The human digestive system breaks down food into simpler substances for absorption and energy. It includes organs like mouth stomach liver and intestines. Enzymes play a key role in digestion. Proper functioning of this system is essential for nutrition and health making it an important topic in biology and competitive exams.",
+"hindi":"मानव पाचन तंत्र भोजन को सरल पदार्थों में तोड़कर ऊर्जा प्रदान करता है। इसमें मुंह पेट यकृत और आंतें शामिल हैं। एंजाइम पाचन में महत्वपूर्ण भूमिका निभाते हैं और शरीर के स्वास्थ्य के लिए आवश्यक हैं।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":5,
+"title":"States of Matter and Their Properties",
+"image":"https://images.unsplash.com/photo-1532634896-26909d0d4b6d",
+"content":"Matter exists in three main states solid liquid and gas based on particle arrangement and energy. Solids have fixed shape liquids flow and gases expand to fill space. Changes in state occur due to temperature and pressure. Understanding these properties is important for physics chemistry and daily life applications.",
+"hindi":"पदार्थ तीन अवस्थाओं में पाया जाता है ठोस द्रव और गैस। ठोस का आकार निश्चित होता है द्रव बहता है और गैस फैलती है। तापमान और दबाव के कारण इन अवस्थाओं में परिवर्तन होता है जो विज्ञान के लिए महत्वपूर्ण है।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":6,
+"title":"Electric Current and Ohm Law",
+"image":"https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+"content":"Electric current is the flow of electric charge through a conductor. Ohm law states that current is directly proportional to voltage and inversely proportional to resistance. It is expressed as V equals IR. This concept helps in understanding electrical circuits appliances and energy usage making it an important topic in physics.",
+"hindi":"विद्युत धारा किसी चालक में विद्युत आवेश के प्रवाह को दर्शाती है। ओम का नियम बताता है कि धारा वोल्टेज के समानुपाती और प्रतिरोध के व्युत्क्रमानुपाती होती है। इसे V बराबर IR से व्यक्त किया जाता है और यह भौतिकी का महत्वपूर्ण विषय है।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":7,
+"title":"Respiration in Living Organisms",
+"image":"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+"content":"Respiration is the process by which organisms break down food to release energy. It occurs in cells using oxygen in aerobic respiration or without oxygen in anaerobic respiration. This process produces carbon dioxide and water. It is essential for survival and understanding energy production in living organisms.",
+"hindi":"श्वसन वह प्रक्रिया है जिसमें जीव ऊर्जा प्राप्त करने के लिए भोजन को तोड़ते हैं। यह ऑक्सीजन के साथ या बिना ऑक्सीजन के होता है। इससे कार्बन डाइऑक्साइड और पानी बनता है और यह जीवों के जीवन के लिए आवश्यक है।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":8,
+"title":"Acids Bases and Their Properties",
+"image":"https://images.unsplash.com/photo-1554475901-4538ddfbccc2",
+"content":"Acids and bases are chemical substances with distinct properties. Acids release hydrogen ions while bases release hydroxide ions in solution. They react with each other to form salt and water in neutralization reactions. Understanding their properties and uses is important in chemistry and daily life applications.",
+"hindi":"अम्ल और क्षार रासायनिक पदार्थ हैं जिनके गुण अलग होते हैं। अम्ल हाइड्रोजन आयन छोड़ते हैं जबकि क्षार हाइड्रॉक्साइड आयन छोड़ते हैं। ये आपस में अभिक्रिया कर लवण और जल बनाते हैं और रसायन विज्ञान में महत्वपूर्ण हैं।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":9,
+"title":"Force Work and Energy Concepts",
+"image":"https://images.unsplash.com/photo-1509228468518-180dd4864904",
+"content":"Force is a push or pull that can change the motion of an object. Work is done when a force causes displacement and energy is the capacity to do work. Different forms include kinetic potential and mechanical energy. These concepts are fundamental in physics and help explain motion and daily activities.",
+"hindi":"बल एक धक्का या खींच है जो वस्तु की गति को बदल सकता है। कार्य तब होता है जब बल के कारण विस्थापन होता है और ऊर्जा कार्य करने की क्षमता है। इसके विभिन्न रूप होते हैं जैसे गतिज और स्थितिज ऊर्जा।",
+"category":"science",
+"time":"20 April 2026"
+},
+{
+"id":10,
+"title":"Human Circulatory System Explained",
+"image":"https://images.unsplash.com/photo-1581595219315-a187dd40c322",
+"content":"The human circulatory system transports blood oxygen nutrients and waste products throughout the body. It consists of the heart blood and blood vessels. The heart pumps blood while arteries veins and capillaries carry it. Proper circulation is essential for maintaining body functions and overall health making it important for biology studies.",
+"hindi":"मानव परिसंचरण तंत्र शरीर में रक्त ऑक्सीजन और पोषक तत्वों का परिवहन करता है। इसमें हृदय रक्त और रक्त वाहिकाएं शामिल हैं। हृदय रक्त पंप करता है और धमनियां तथा शिराएं इसे पूरे शरीर में पहुंचाती हैं।",
+"category":"science",
+"time":"20 April 2026"
+}
+]
