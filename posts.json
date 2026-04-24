@@ -1,0 +1,381 @@
+[
+{
+"id":1,
+"title":"Daily Current Affairs Roundup",
+"image":"https://images.unsplash.com/photo-1504711434969-e33886168f5c",
+"content":"A daily overview of major developments in policy, economy, international relations and science.",
+"category":"daily",
+"time":"3 hours ago"
+},
+{
+"id":2,
+"title":"India–Israel Ties: From Tactical Engagement to Structural Partnership",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"India–Israel relations have evolved from cautious engagement to a deep strategic partnership across <span style='color:#ffb347'><b>defence, technology, agriculture and innovation</b></span>. India recognized Israel in <b>1950</b>, while full diplomatic ties were established in <b>1992</b>.<br><br>Trust strengthened during the <span style='color:#4fd1c5'><b>Kargil War (1999)</b></span>, when Israel provided critical military supplies. In <b>2017</b>, relations were elevated to a <span style='color:#ffb347'><b>Strategic Partnership</b></span>, marking deeper cooperation.<br><br>Today, collaboration spans <span style='color:#4fd1c5'><b>AI, cybersecurity, space, agriculture and water technology</b></span>. India imports nearly <b>34% of Israeli arms exports</b>, while trade reached <b>$3.62 billion in 2024-25</b>. New initiatives in <span style='color:#ffb347'><b>critical technologies and innovation</b></span> highlight the partnership’s growing geopolitical and economic significance.",
+"category":"daily",
+"time":"6 hours ago"
+},
+{
+"id":3,
+"title":"Supreme Court Emphasizes Transparency in Governance",
+"image":"https://images.unsplash.com/photo-1589829545856-d10d557cf95f",
+"content":"The Supreme Court recently highlighted the importance of transparency and accountability in government institutions to strengthen democratic governance.",
+"category":"daily",
+"time":"4 hours ago"
+},
+{
+"id":4,
+"title":"AI Revolution in Defence",
+"heroImage":"https://lumenor.ai/cdn-cgi/imagedelivery/F5KOmplEz0rStV2qDKhYag/6936c382-e5cb-42f8-9e37-7b5a22cd7700/tn",
+"ctaText":"Check Now",
+"ctaLink":"https://example.com",
+"music":"https://www.chosic.com/wp-content/uploads/2020/08/keys-of-moon-the-success(chosic.com).mp3",
+"category":"daily",
+"time":"3 hours ago"
+},
+{
+"id":5,
+"title":"India’s Digital Economy Expands Rapidly",
+"image":"https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+"content":"Digital payments and online services are transforming India's economy, improving financial inclusion and enabling easier access to government services.",
+"category":"daily",
+"time":"6 hours ago"
+},
+{
+"id":6,
+"title":"Urban Development and Smart Cities Mission",
+"image":"https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b",
+"content":"The Smart Cities Mission focuses on sustainable urban infrastructure, digital governance and improved quality of life in rapidly growing cities.",
+"category":"daily",
+"time":"9 hours ago"
+},
+{
+"id":7,
+"title":"Inflation Trends in the Indian Economy",
+"image":"https://images.unsplash.com/photo-1554224155-6726b3ff858f",
+"content":"Inflation trends remain an important economic indicator. Policymakers monitor food and fuel prices closely to maintain economic stability.",
+"category":"economy",
+"time":"1 day ago"
+},
+{
+"id":8,
+"title":"AI Revolution in Defence",
+"heroImage":"https://lumenor.ai/cdn-cgi/imagedelivery/F5KOmplEz0rStV2qDKhYag/6936c382-e5cb-42f8-9e37-7b5a22cd7700/tn",
+"ctaText":"Check Now",
+"ctaLink":"https://example.com",
+"music":"https://www.chosic.com/wp-content/uploads/2020/08/keys-of-moon-the-success(chosic.com).mp3",
+"category":"economy",
+"time":"3 hours ago"
+},
+{
+"id":9,
+"title":"Digital Public Infrastructure and Economic Growth",
+"image":"https://images.unsplash.com/photo-1551281044-8f9d9f0d64e7",
+"content":"India’s digital infrastructure including Aadhaar and UPI has become a global model for improving economic participation.",
+"category":"economy",
+"time":"2 days ago"
+},
+{
+"id":10,
+"title":"Agricultural Reforms and Farmer Income",
+"image":"https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
+"content":"Policy reforms aim to improve farmer incomes through better market access, storage infrastructure and crop diversification.",
+"category":"economy",
+"time":"2 days ago"
+},
+{
+"id":14,
+"title":"Editorial: The Importance of Federalism",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"India’s federal structure enables cooperation between the Union and states for effective governance.",
+"category":"editorial",
+"time":"3 days ago"
+},
+{
+"id":14,
+"title":"Editorial: The Importance of Federalism",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"India’s federal structure enables cooperation between the Union and states for effective governance.",
+"category":"editorial",
+"time":"3 days ago"
+},
+{
+"id":14,
+"title":"Editorial: The Importance of Federalism",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"India’s federal structure enables cooperation between the Union and states for effective governance.",
+"category":"editorial",
+"time":"3 days ago"
+},
+{
+"id":14,
+"title":"Editorial: The Importance of Federalism",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"India’s federal structure enables cooperation between the Union and states for effective governance.",
+"category":"editorial",
+"time":"3 days ago"
+},
+{
+"id":15,
+"title":"India’s Forest Conservation Efforts",
+"image":"https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+"content":"Forest conservation programs aim to protect biodiversity while supporting livelihoods for forest dependent communities.",
+"category":"environment",
+"time":"2 days ago"
+},
+{
+"id":16,
+"title":"Climate Change and Extreme Weather Events",
+"image":"https://images.unsplash.com/photo-1503435980610-a51f3ddfee50",
+"content":"Climate change is increasing the frequency of extreme weather events, making climate adaptation policies essential.",
+"category":"environment",
+"time":"2 days ago"
+},
+{
+"id":17,
+"title":"Wetland Protection and Biodiversity",
+"image":"https://images.unsplash.com/photo-1473773508845-188df298d2d1",
+"content":"Wetlands play a crucial role in biodiversity conservation and flood control.",
+"category":"environment",
+"time":"2 days ago"
+},
+{
+"id":18,
+"title":"Plastic Pollution and Sustainable Alternatives",
+"image":"https://images.unsplash.com/photo-1497436072909-60f360e1d4b1",
+"content":"Reducing plastic waste through recycling and sustainable materials is essential for protecting ecosystems.",
+"category":"environment",
+"time":"2 days ago"
+},
+
+{
+"id":19,
+"title":"E-Governance and Digital India",
+"image":"https://images.unsplash.com/photo-1581093458791-9d8e0b9ed9e5",
+"content":"Digital platforms are improving transparency and efficiency in public service delivery.",
+"category":"governance",
+"time":"3 days ago"
+},
+{
+"id":20,
+"title":"Local Governance and Panchayati Raj",
+"image":"https://images.unsplash.com/photo-1541872705-1f73c6400ec9",
+"content":"Local governments play an important role in rural development and democratic participation.",
+"category":"governance",
+"time":"3 days ago"
+},
+{
+"id":21,
+"title":"Civil Services Reforms",
+"image":"https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+"content":"Administrative reforms aim to improve efficiency, accountability and citizen centric governance.",
+"category":"governance",
+"time":"3 days ago"
+},
+{
+"id":22,
+"title":"Public Policy and Welfare Delivery",
+"image":"https://images.unsplash.com/photo-1521791136064-7986c2920216",
+"content":"Effective public policy ensures welfare schemes reach the intended beneficiaries.",
+"category":"governance",
+"time":"3 days ago"
+},
+
+{
+"id":23,
+"title":"The Legacy of the Freedom Movement",
+"image":"https://images.unsplash.com/photo-1564869734811-fb2e13c8f0a4",
+"content":"India’s freedom struggle shaped the values of democracy, justice and equality in the Constitution.",
+"category":"history",
+"time":"4 days ago"
+},
+{
+"id":24,
+"title":"The Role of Women in the Freedom Struggle",
+"image":"https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+"content":"Women leaders played a crucial role in India’s independence movement and social reform movements.",
+"category":"history",
+"time":"4 days ago"
+},
+{
+"id":25,
+"title":"Ancient Indian Universities",
+"image":"https://images.unsplash.com/photo-1529070538774-1843cb3265df",
+"content":"Institutions like Nalanda and Takshashila were major centers of learning in ancient India.",
+"category":"history",
+"time":"4 days ago"
+},
+{
+"id":26,
+"title":"The Cultural Heritage of India",
+"image":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+"content":"India’s diverse cultural traditions reflect centuries of social and intellectual exchange.",
+"category":"history",
+"time":"4 days ago"
+},
+
+{
+"id":27,
+"title":"India’s Relations with the United States",
+"image":"https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f",
+"content":"India and the US continue to strengthen strategic and economic cooperation in the Indo-Pacific region.",
+"category":"i.r",
+"time":"5 days ago"
+},
+{
+"id":28,
+"title":"India and the Quad Partnership",
+"image":"https://images.unsplash.com/photo-1551281044-8f9d9f0d64e7",
+"content":"The Quad partnership promotes cooperation on security, infrastructure and technology in the Indo-Pacific.",
+"category":"i.r",
+"time":"5 days ago"
+},
+{
+"id":29,
+"title":"India’s Neighbourhood First Policy",
+"image":"https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+"content":"India prioritizes cooperation with neighbouring countries to promote regional stability and development.",
+"category":"i.r",
+"time":"5 days ago"
+},
+{
+"id":30,
+"title":"India’s Role in Global Climate Diplomacy",
+"image":"https://images.unsplash.com/photo-1509395176047-4a66953fd231",
+"content":"India plays an active role in international negotiations on climate change and sustainable development.",
+"category":"i.r",
+"time":"5 days ago"
+},
+
+{
+"id":31,
+"title":"Sansad TV Debate: Fake Currency and National Security",
+"image":"https://images.unsplash.com/photo-1556745757-8d76bdb6984b",
+"content":"Experts discussed the impact of counterfeit currency on economic stability and internal security.",
+"category":"sansad tv",
+"time":"5 days ago"
+},
+{
+"id":32,
+"title":"Sansad TV Discussion: Violence Against Women",
+"image":"https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+"content":"The debate focused on strengthening legal mechanisms and social awareness to protect women.",
+"category":"sansad tv",
+"time":"5 days ago"
+},
+{
+"id":33,
+"title":"Sansad TV Dialogue: Electoral Reforms",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"Panelists discussed transparency and reforms needed in the electoral process.",
+"category":"sansad tv",
+"time":"5 days ago"
+},
+{
+"id":34,
+"title":"Sansad TV Insight: Parliamentary Committees",
+"image":"https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+"content":"Parliamentary committees play a key role in reviewing legislation and government policies.",
+"category":"sansad tv",
+"time":"5 days ago"
+},
+
+{
+"id":35,
+"title":"Pradhan Mantri Awas Yojana",
+"image":"https://images.unsplash.com/photo-1484154218962-a197022b5858",
+"content":"This scheme aims to provide affordable housing for urban and rural households.",
+"category":"schemes",
+"time":"6 days ago"
+},
+{
+"id":36,
+"title":"Ayushman Bharat Health Scheme",
+"image":"https://images.unsplash.com/photo-1584515933487-779824d29309",
+"content":"Ayushman Bharat provides health insurance coverage to millions of vulnerable families.",
+"category":"schemes",
+"time":"6 days ago"
+},
+{
+"id":37,
+"title":"Skill India Mission",
+"image":"https://images.unsplash.com/photo-1529070538774-1843cb3265df",
+"content":"The Skill India Mission focuses on developing skills among youth to enhance employability.",
+"category":"schemes",
+"time":"6 days ago"
+},
+{
+"id":38,
+"title":"PM Kisan Samman Nidhi",
+"image":"https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
+"content":"The scheme provides income support to farmers for improving agricultural productivity.",
+"category":"schemes",
+"time":"6 days ago"
+},
+
+{
+"id":39,
+"title":"India’s Space Missions and ISRO Achievements",
+"image":"https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+"content":"ISRO continues to achieve milestones in space exploration and satellite technology.",
+"category":"science",
+"time":"7 days ago"
+},
+{
+"id":40,
+"title":"Artificial Intelligence in Public Services",
+"image":"https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+"content":"AI technologies are increasingly used to improve governance, healthcare and transportation.",
+"category":"science",
+"time":"7 days ago"
+},
+{
+"id":41,
+"title":"India’s Biotechnology Research",
+"image":"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+"content":"Biotechnology innovations are supporting healthcare, agriculture and environmental sustainability.",
+"category":"science",
+"time":"7 days ago"
+},
+{
+"id":42,
+"title":"The Role of Satellites in Weather Forecasting",
+"image":"https://images.unsplash.com/photo-1503435980610-a51f3ddfee50",
+"content":"Satellite data plays a crucial role in predicting weather patterns and disaster management.",
+"category":"science",
+"time":"7 days ago"
+},
+
+{
+"id":43,
+"title":"Women Empowerment and Education",
+"image":"https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+"content":"Education and economic participation are key drivers of women empowerment in India.",
+"category":"social",
+"time":"7 days ago"
+},
+{
+"id":44,
+"title":"Addressing Gender Based Violence",
+"image":"https://images.unsplash.com/photo-1495020689067-958852a7765e",
+"content":"Social awareness and stronger institutions are necessary to reduce gender based violence.",
+"category":"social",
+"time":"7 days ago"
+},
+{
+"id":45,
+"title":"Combating Child Labour",
+"image":"https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+"content":"Efforts continue to eliminate child labour through education, social support and law enforcement.",
+"category":"social",
+"time":"7 days ago"
+},
+{
+"id":46,
+"title":"Community Participation in Social Development",
+"image":"https://images.unsplash.com/photo-1515169067865-5387ec356754",
+"content":"Community initiatives are essential for addressing social issues and promoting inclusive development.",
+"category":"social",
+"time":"7 days ago"
+}
+]
