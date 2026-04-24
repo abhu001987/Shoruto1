@@ -1,0 +1,92 @@
+[
+{
+"id":1,
+"title":"Structure of the Earth and Its Layers",
+"image":"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+"content":"The Earth is composed of three main layers crust mantle and core. The crust is the outermost layer where we live. The mantle lies beneath and is semi solid while the core is the innermost layer made of iron and nickel. Understanding these layers helps explain earthquakes volcanoes and other geological processes.",
+"hindi":"पृथ्वी तीन मुख्य परतों से बनी है क्रस्ट मेंटल और कोर। क्रस्ट बाहरी परत है जहां हम रहते हैं। मेंटल इसके नीचे होता है और अर्ध ठोस होता है जबकि कोर सबसे अंदर होता है। इन परतों को समझने से भूकंप और ज्वालामुखी जैसी घटनाओं को समझा जा सकता है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":2,
+"title":"Types of Rocks and Rock Cycle",
+"image":"https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+"content":"Rocks are classified into three types igneous sedimentary and metamorphic. Igneous rocks form from cooling magma sedimentary rocks from deposition and metamorphic rocks from transformation under heat and pressure. The rock cycle describes how these rocks change over time. It is important for understanding Earth formation and geological changes.",
+"hindi":"चट्टानें तीन प्रकार की होती हैं आग्नेय अवसादी और कायांतरित। आग्नेय चट्टानें मैग्मा के ठंडा होने से बनती हैं अवसादी जमाव से और कायांतरित गर्मी और दबाव से बनती हैं। रॉक साइकिल इनके परिवर्तन को दर्शाता है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":3,
+"title":"Major Landforms and Their Formation",
+"image":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+"content":"Major landforms include mountains plateaus and plains formed by internal and external forces. Tectonic movements create mountains while erosion and deposition shape plains and valleys. These landforms influence climate agriculture and human settlement. Understanding their formation is essential for geography exams and knowledge of Earth surface processes.",
+"hindi":"मुख्य स्थलाकृतियों में पर्वत पठार और मैदान शामिल हैं जो आंतरिक और बाहरी शक्तियों से बनते हैं। प्लेट विवर्तनिकी से पर्वत बनते हैं जबकि अपरदन और निक्षेपण से मैदान बनते हैं। ये जलवायु और जीवन को प्रभावित करते हैं।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":4,
+"title":"Climate Types and Factors Affecting Climate",
+"image":"https://images.unsplash.com/photo-1464037866556-6812c9d1c72e",
+"content":"Climate refers to the average weather conditions of a place over a long period. Factors affecting climate include latitude altitude distance from sea and ocean currents. Different regions have tropical temperate and polar climates. Understanding climate helps in agriculture settlement and disaster management making it an important exam topic.",
+"hindi":"जलवायु किसी स्थान के दीर्घकालिक मौसम को दर्शाती है। इसे अक्षांश ऊंचाई समुद्र से दूरी और महासागरीय धाराएं प्रभावित करती हैं। विभिन्न क्षेत्रों में उष्णकटिबंधीय समशीतोष्ण और ध्रुवीय जलवायु पाई जाती है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":5,
+"title":"Water Cycle and Its Importance",
+"image":"https://images.unsplash.com/photo-1505761671935-60b3a7427bad",
+"content":"The water cycle describes the continuous movement of water through evaporation condensation and precipitation. It maintains water balance on Earth and supports life. The cycle also influences weather and climate patterns. Understanding the water cycle is important for managing water resources and studying environmental and geographical processes.",
+"hindi":"जल चक्र वाष्पीकरण संघनन और वर्षा की प्रक्रिया से पानी के निरंतर प्रवाह को दर्शाता है। यह पृथ्वी पर जल संतुलन बनाए रखता है और जीवन के लिए आवश्यक है। यह मौसम और जलवायु को भी प्रभावित करता है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":6,
+"title":"Latitude and Longitude System Explained",
+"image":"https://images.unsplash.com/photo-1502920917128-1aa500764b8a",
+"content":"Latitude and longitude are imaginary lines used to locate places on Earth. Latitudes run east to west while longitudes run north to south. The Equator is the main latitude and the Prime Meridian is the main longitude. This system helps in navigation mapping and understanding time zones making it important for geography exams.",
+"hindi":"अक्षांश और देशांतर पृथ्वी पर स्थानों को निर्धारित करने के लिए उपयोग की जाने वाली काल्पनिक रेखाएं हैं। अक्षांश पूर्व से पश्चिम और देशांतर उत्तर से दक्षिण होते हैं। भूमध्य रेखा मुख्य अक्षांश है और प्रधान मध्यान्ह मुख्य देशांतर है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":7,
+"title":"Types of Soils and Their Distribution",
+"image":"https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
+"content":"Soils are classified into types like alluvial black red and laterite based on their composition and formation. Alluvial soil is fertile and found in plains while black soil is suitable for cotton. Soil distribution affects agriculture and economy. Understanding soil types helps in crop planning and sustainable land use practices.",
+"hindi":"मिट्टी के प्रकारों में जलोढ़ काली लाल और लेटराइट शामिल हैं जो उनकी संरचना पर आधारित हैं। जलोढ़ मिट्टी उपजाऊ होती है जबकि काली मिट्टी कपास के लिए उपयुक्त होती है। मिट्टी का वितरण कृषि को प्रभावित करता है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":8,
+"title":"Monsoon System in India",
+"image":"https://images.unsplash.com/photo-1502082553048-f009c37129b9",
+"content":"The monsoon system in India is a seasonal wind pattern bringing heavy rainfall. It is influenced by temperature differences between land and sea. The southwest monsoon provides most of the rainfall while the northeast monsoon affects southern India. Monsoons are crucial for agriculture water supply and economy making them important for exams.",
+"hindi":"भारत में मानसून एक मौसमी पवन प्रणाली है जो वर्षा लाती है। यह भूमि और समुद्र के तापमान अंतर से प्रभावित होती है। दक्षिण पश्चिम मानसून मुख्य वर्षा देता है जबकि उत्तर पूर्व मानसून दक्षिण भारत को प्रभावित करता है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":9,
+"title":"Natural Vegetation of India",
+"image":"https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+"content":"Natural vegetation refers to plant life that grows without human interference. India has diverse vegetation types including tropical forests deserts and grasslands due to varied climate and relief. Vegetation supports biodiversity and ecological balance. Understanding vegetation patterns is important for environment conservation and geography exams.",
+"hindi":"प्राकृतिक वनस्पति वह पौधों का जीवन है जो बिना मानव हस्तक्षेप के उगता है। भारत में उष्णकटिबंधीय वन मरुस्थल और घासभूमि जैसी विविध वनस्पति पाई जाती है। यह पारिस्थितिक संतुलन बनाए रखती है।",
+"category":"Geography",
+"time":"20 April 2026"
+},
+{
+"id":10,
+"title":"Plate Tectonics and Earth Movements",
+"image":"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+"content":"Plate tectonics theory explains the movement of Earth lithospheric plates. These movements cause earthquakes volcanoes and formation of mountains. Plates may converge diverge or slide past each other. Understanding tectonic activity helps in disaster management and studying geological changes making it an important concept in geography exams.",
+"hindi":"प्लेट विवर्तनिकी सिद्धांत पृथ्वी की प्लेटों की गति को समझाता है। इन गतियों से भूकंप ज्वालामुखी और पर्वत बनते हैं। प्लेटें आपस में टकराती अलग होती या खिसकती हैं। इसे समझना भूगोल के लिए महत्वपूर्ण है।",
+"category":"Geography",
+"time":"20 April 2026"
+}
+]
