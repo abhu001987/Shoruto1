@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(180deg, #0f2027, #203a43);
+      color: white;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .timer {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .question {
+      background: white;
+      color: black;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+    }
+textarea {
+  width: 100%;
+  min-height: 140px;
+  height: calc(100vh - 300px);  /* 🔥 auto fit screen */
+  max-height: 400px;
+  border-radius: 12px;
+  border: none;
+  padding: 12px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .speak, .submit {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 12px 20px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+/* 🎤 START - RICH GREEN */
+.speak {
+    background: linear-gradient(
+        135deg,
+        rgba(76, 175, 80, 0.6),
+        rgba(76, 175, 80, 0.25)
+    );
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* 🚀 SUBMIT - PROPER ORANGE (NOT BROWN) */
+.submit {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 140, 0, 0.7),
+        rgba(255, 140, 0, 0.3)
+    );
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.45);
+}
+
+/* ✨ HOVER */
+.speak:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.submit:hover {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* 💎 SHINE */
+.speak::before, .submit::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.05)
+    );
+}
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-box {
+      background: #1c2b33;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    .result { padding: 15px; }
+
+    .circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 8px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: auto;
+    }
+
+    .grid {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .box {
+      flex: 1;
+      background: #1c2b33;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .q-card {
+      background: #1c2b33;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    .bottom-tips {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.bottom-tips p {
+  margin: 4px 0;
+  color: #ddd;
+}
+  </style>
+</head>
+
+<body>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Instructions</h3>
+    <p>90 sec per question</p>
+    <p>Use Chrome for voice</p>
+    <button onclick="startInterview()">Start</button>
+  </div>
+</div>
+
+<div class="app">
+
+  <div class="top-bar">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+    <div class="timer" id="timer">⏱️ 90</div>
+  </div>
+
+  <div class="question" id="question">Loading...</div>
+
+  <textarea id="answer" placeholder="Speak or type..."></textarea>
+
+  <div class="buttons">
+    <button class="speak" onclick="toggleListening()" id="micBtn">🎤 Start</button>
+    <button class="submit" onclick="submitAnswer()">Submit</button>
+  </div>
+
+</div>
+<div class="bottom-tips">
+ <p>• Assess self-awareness </p>
+ <p>• Express your thoughts </p>
+ <p>• Evaluation may not be 100% accurate </p>
+ <p></div>
+<script>
+
+let questions=[];
+let current=0;
+let count=1;
+
+let totalScore=0;
+let maxScore=0;
+
+let answersLog=[];
+
+let timer,timeLeft=90;
+
+let recognition;
+let isListening=false;
+let finalTranscript="";
+
+// LOAD
+fetch("questions.json")
+.then(r=>r.json())
+.then(d=>questions=d);
+
+// START
+function startInterview(){
+  popup.style.display="none";
+  loadQuestion(0);
+}
+
+
+// BACK
+function goBack(){
+  window.location.href="https://treedell.com/";
+}
+
+// TIMER
+function startTimer(){
+  clearInterval(timer);
+  timeLeft=90;
+
+  timer=setInterval(()=>{
+    document.getElementById("timer").innerText="⏱️ "+timeLeft;
+    timeLeft--;
+    if(timeLeft<0) submitAnswer();
+  },1000);
+}
+
+// LOAD
+function loadQuestion(i){
+  finalTranscript="";
+  answer.value="";
+  question.innerText=questions[i].q;
+  startTimer();
+}
+
+// SPEECH (RESTORED + SAFE FIX)
+function toggleListening(){
+
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+
+  if(!SR){
+    alert("Use Chrome");
+    return;
+  }
+
+  if(!isListening){
+
+    recognition=new SR();
+    recognition.interimResults=true;
+
+    recognition.onresult=function(e){
+
+      let interim="";
+
+      for(let i=e.resultIndex;i<e.results.length;i++){
+        let t=e.results[i][0].transcript.trim();
+
+        if(e.results[i].isFinal){
+
+          
+          // ✅ ONLY FIX ADDED (prevents duplicate spam)
+          if(!finalTranscript.endsWith(t)){
+            finalTranscript+=t+" ";
+          }
+
+        } else {
+          interim+=t;
+        }
+      }
+
+      answer.value=finalTranscript+interim;
+    };
+
+    // 🔁 KEEP THIS (IMPORTANT FOR MOBILE)
+    recognition.onend=function(){
+      if(isListening) recognition.start();
+    };
+
+    recognition.start();
+    isListening=true;
+    micBtn.innerText="🔴 Listening";
+
+  } else {
+    isListening=false;
+    recognition.stop();
+    micBtn.innerText="🎤 Start";
+  }
+}
+
+// SCORE
+function cleanText(text){
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function evaluate(ans, keywords){
+
+  let cleanAns = cleanText(ans).replace(/\s/g,"");
+
+  let matched = [];
+
+  keywords.forEach(k => {
+
+    let cleanKey = cleanText(k).replace(/\s/g,"");
+
+    if(cleanAns.includes(cleanKey)){
+      matched.push(k);
+    }
+
+  });
+
+  return {
+    score: matched.length,
+    missing: keywords.filter(k => !matched.includes(k))
+  };
+}
+// SUBMIT
+function submitAnswer(){
+
+  clearInterval(timer);
+
+  if(recognition){
+    recognition.stop();
+    isListening=false;
+  }
+
+  let ans=answer.value;
+  let q=questions[current];
+
+  let res=evaluate(ans,q.keywords);
+
+  totalScore+=res.score;
+  maxScore+=q.keywords.length;
+
+  answersLog.push({
+    q:q.q,
+    ans:ans,
+    model:q.model,
+    score:res.score,
+    total:q.keywords.length,
+    missing:res.missing
+  });
+
+  count++;
+
+  if(count>10){
+    showResult();
+    return;
+  }
+
+  current=Math.floor(Math.random()*questions.length);
+  loadQuestion(current);
+}
+
+// RESULT
+function showResult(){
+
+  let percent=Math.round((totalScore/maxScore)*100);
+
+  let html=`<div class="result">
+    <div class="circle">${percent}%</div>
+
+    <div class="grid">
+      <div class="box">${totalScore}<br>Points</div>
+      <div class="box">${percent}%<br>Accuracy</div>
+    </div>
+
+    <h3>Analysis</h3>
+  `;
+
+  answersLog.forEach(a=>{
+   html+=`
+<div class="q-card">
+  <b>Q:</b> ${a.q}<br><br>
+  <b>Your Answer:</b><br> ${a.ans || "No answer"}<br><br>
+  <b>Ideal Answer:</b><br> ${a.model || "N/A"}
+</div>`;
+  });
+
+  html+="</div>";
+
+  document.body.innerHTML=html;
+}
+
+</script>
+
+</body>
+</html>
