@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Treedell – Daily Current Affairs for UPSC, PCS & Banking Exams</title>
+<meta name="description" content="Treedell provides daily current affairs, quizzes, and study material for UPSC, PCS, Banking, and competitive exams. Learn smart with short and exam-focused content.">
+<link rel="canonical" href="https://www.treedell.com/">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+  
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f2027">
+
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
+
+html,body{
+  height:100%;
+}
+
+body{
+  background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+  background-attachment: fixed;
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 20px;
+position:sticky;
+top:0;
+z-index:1000;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+}
+
+.menu{font-size:24px;cursor:pointer;}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+left:-260px;
+width:260px;
+height:100%;
+background:#203a43;
+transition:.35s;
+z-index:2000;
+}
+
+.sidebar.open{left:0;}
+
+.sidebar-header{
+display:flex;
+justify-content:space-between;
+padding:16px;
+border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.close-btn{cursor:pointer;font-size:20px;}
+
+.sidebar a{
+display:block;
+padding:15px 20px;
+text-decoration:none;
+color:white;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar a:hover{background:#2c5364;}
+
+/* Convert App Box */
+
+.install-box{
+  margin:6px;
+  padding:6px 8px;
+  border-radius:6px;
+  background:#ff6a00;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* Popup */
+
+.install-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:3000;
+}
+
+.install-content{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+text-align:center;
+width:80%;
+max-width:320px;
+}
+
+.install-content button{
+padding:10px 20px;
+border:none;
+border-radius:6px;
+background:#ff6a00;
+color:white;
+margin:5px;
+cursor:pointer;
+}
+
+.cancel-btn{background:gray;}
+
+/* FEATURED */
+
+.featured{
+  padding:15px 20px;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+
+.quiz{
+  color:#ff6a00;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* SLIDER */
+
+.slider{position:relative;overflow:hidden;border-radius:12px;}
+
+.slides{display:flex;transition:transform .35s ease;}
+
+.slide{min-width:100%;position:relative;}
+
+.slide img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+filter:brightness(.8);
+}
+
+.slide span{
+position:absolute;
+bottom:10px;
+left:10px;
+background:rgba(0,0,0,0.6);
+padding:6px 10px;
+border-radius:6px;
+font-size:13px;
+}
+
+.slide a{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+/* slider buttons */
+
+.slider-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+border:none;
+color:white;
+font-size:20px;
+padding:6px 12px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* TOPICS */
+
+.topics{
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin-top:12px;
+}
+
+.topic{
+  text-align:center;
+}
+
+.topic a{
+  text-decoration:none;
+  color:white;
+  display:block;
+}
+
+.topic img{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:white;
+  padding:6px;
+  object-fit:contain;
+  display:block;
+  margin:auto;
+}
+
+.topic p{
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* POSTER */
+
+.poster{
+  margin:20px;
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 6px 18px rgba(0,0,0,0.3);
+}
+
+.poster img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  filter:brightness(.75);
+}
+
+.poster-content{
+  position:absolute;
+  bottom:12px;
+  left:14px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:10px;
+font-size:12px;
+opacity:.8;
+margin-bottom:10px;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+<b>Menu</b>
+<div class="close-btn" onclick="toggleMenu()">✕</div>
+</div>
+
+<a href="/aboutus">About Us</a>
+<a href="/Study_material">Study Material</a>
+<a href="/contactus">Contact Us</a>
+<a href="/privacypolicy">Privacy Policy</a>
+
+<div class="install-box" id="openInstallBox">
+📲 Follow Us
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+<div class="menu" onclick="toggleMenu()">☰</div>
+<h3>Treedell</h3>
+</div>
+
+<!-- FEATURED -->
+
+<section class="featured">
+
+<div class="section-title">
+<h3>Trending Stories</h3>
+<a class="quiz" href="/DailyQuiz">Quiz</a>
+</div>
+
+<div class="slider">
+
+<div class="slides" id="slides">
+
+<div class="slide">
+<img src="/images/Factoryy.jpg">
+<span>AI Impact Study on the Labour Market</span>
+<a href="/AI_Impact_Study_on_the_Labour_Market"></a>
+</div>
+
+<div class="slide">
+<img src="/images/Datashiftt.jpg">
+<span>Fiscal Health Index (FHI) 2026</span>
+<a href="/Fiscal_Health_Index_2026"></a>
+</div>
+
+<div class="slide">
+<img src="/images/Agriculturee.jpg">
+<span>Farm Loan Waivers in India</span>
+<a href="/Farm_Loan_Waivers_in_India"></a>
+</div>
+
+</div>
+
+<button class="slider-btn prev" onclick="prevSlide()">❮</button> <button class="slider-btn next" onclick="nextSlide()">❯</button>
+
+</div>
+
+</section>
+
+<!-- TOPICS -->
+
+<section class="topics">
+
+<h3>Explore By Topics</h3>
+
+<div class="grid">
+
+<div class="topic">
+<a href="/mock">
+<img src="/images/mock-test.png">
+<p>Mock</p>
+</a>
+</div>
+
+<div class="topic"><a href="/posts.html?cat=daily"><img src="/images/daily-current.png"><p>Daily</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=history"><img src="/images/history.png"><p>History</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=governance"><img src="/images/polity.png"><p>Polity</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=Geography"><img src="/images/geography.png"><p>Geography</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=economy"><img src="/images/economy.png"><p>Economy</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=environment"><img src="/images/environment.png"><p>Environment</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=science"><img src="/images/science.png"><p>Science</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=social"><img src="/images/social-issues.png"><p>Society</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=ir"><img src="/images/international-relations.png"><p>I.R</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=schemes"><img src="/images/schemes.png"><p>Schemes</p></a></div>
+
+<div class="topic"><a href="/posts.html?cat=editorial"><img src="/images/editorial.png"><p>Editorial</p></a></div>
+
+</div>
+
+</section>
+
+<!-- POSTER -->
+
+<div class="poster">
+
+<img src="/images/Gandhijii.jpg">
+
+<div class="poster-content">
+  <h4>Mahatma Gandhi</h4>
+  <p>“My life is my message.”</p>
+  <small>Said around 1930 during an interview</small>
+</div>
+
+</div>
+</section>
+
+<footer>Your Current Affairs Partner</footer>
+
+<!-- INSTALL POPUP -->
+<div class="install-popup" id="installPopup">
+  <div class="install-content">
+    <h3>Stay Connected</h3>
+
+    <p>
+      Thanks for visiting! 😊<br><br>
+
+      Follow us for updates, new content, and more.<br>
+      Stay connected and never miss anything!
+    </p>
+
+   <button onclick="window.location.href='https://treedell.com/'">⬅ Go Back</button>
+ <button onclick="window.open('https://instagram.com/yourusername','_blank')">
+  ⭐ Follow Us
+</button>
+    <button class="cancel-btn" onclick="closeInstall()">Close</button>
+  </div>
+</div>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("sidebar").classList.toggle("open");
+}
+
+let index=0;
+
+function updateSlide(){
+document.getElementById("slides").style.transform="translateX(-"+index*100+"%)";
+}
+
+function nextSlide(){index++;if(index>2) index=0;updateSlide();}
+function prevSlide(){index--;if(index<0) index=2;updateSlide();}
+
+document.getElementById("openInstallBox").addEventListener("click", () => {
+  document.getElementById("installPopup").style.display = "flex";
+});
+
+function closeInstall(){
+  document.getElementById("installPopup").style.display = "none";
+}
+
+
+</script>
+
+</body>
+</html>
