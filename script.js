@@ -22,8 +22,22 @@ function loadMore(){
 
   const url = `${baseURL}/${category || "daily"}?page=${currentPage}`
 
-  fetch(url)
-  .then(res => res.json())
+  // ✅ VERSION + CACHE FIX (ONLY ADDITION)
+  const finalURL = url + "&v=" + (localStorage.getItem("version") || "1")
+
+  fetch(finalURL, { cache: "no-store" })
+  .then(res => {
+
+    // ✅ VERSION CHECK (ONLY ADDITION)
+    const newVersion = res.headers.get("X-Version")
+
+    if (newVersion && newVersion !== localStorage.getItem("version")) {
+      localStorage.setItem("version", newVersion)
+      location.reload()
+    }
+
+    return res.json()
+  })
   .then(data => {
 
     if (!data || data.length === 0) {
