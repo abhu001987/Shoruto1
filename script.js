@@ -11,8 +11,11 @@ window.location.href="/"
 
 /* 🚀 FORCE FRESH LOAD (NO CACHE) */
 
-const file = category ? `${category}.json` : "posts.json"
-const url = file + "?v=" + new Date().getTime()
+const API_BASE = "https://orange-violet-4cc8.treedell1996.workers.dev"
+
+const url = category 
+  ? `${API_BASE}/${category}` 
+  : `${API_BASE}/posts`
 
 fetch(url)
 .then(res => res.json())
