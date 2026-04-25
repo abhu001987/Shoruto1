@@ -11,22 +11,21 @@ window.location.href="/"
 
 /* 🚀 FORCE FRESH LOAD (NO CACHE) */
 
-const baseURL = "https://orange-violet-4cc8.treedell1996.workers.dev"
-
-const url = category
-  ? `${baseURL}/${category}`
-  : `${baseURL}/daily`
+const file = category ? `${category}.json` : "posts.json"
+const url = file + "?v=" + new Date().getTime()
 
 fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    allPosts = data
-    loadMore()
-  })
-  .catch(() => {
-    document.getElementById("posts").innerHTML =
-      "<h2 style='padding:40px;text-align:center'>No posts found</h2>"
-  })
+.then(res => res.json())
+.then(data => {
+
+allPosts = data
+loadMore()
+
+})
+.catch(() => {
+document.getElementById("posts").innerHTML =
+"<h2 style='padding:40px;text-align:center'>No posts found</h2>"
+})
 
 function loadMore(){
 
