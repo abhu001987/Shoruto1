@@ -12,9 +12,7 @@ window.location.href="/"
 /* 🚀 FORCE FRESH LOAD (NO CACHE) */
 
 const file = category ? `${category}.json` : "posts.json"
-
-const base = "https://raw.githubusercontent.com/abhu001987/Shoruto1/main/"
-const url = base + file + "?v=" + new Date().getTime()
+const url = file + "?v=" + new Date().getTime()
 
 fetch(url)
 .then(res => res.json())
