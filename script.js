@@ -11,20 +11,23 @@ window.location.href="/"
 
 /* 🚀 FORCE FRESH LOAD (NO CACHE) */
 
-const file = category ? `${category}.json` : "posts.json"
-const url = file + "?v=" + new Date().getTime()
+const baseURL = "https://orange-violet-4cc8.treedell1996.workers.dev"
+
+const url = category
+  ? `${baseURL}/${category}`
+  : `${baseURL}/daily`
 
 fetch(url)
 .then(res => res.json())
 .then(data => {
 
-allPosts = data
-loadMore()
+  allPosts = data
+  loadMore()
 
 })
 .catch(() => {
-document.getElementById("posts").innerHTML =
-"<h2 style='padding:40px;text-align:center'>No posts found</h2>"
+  document.getElementById("posts").innerHTML =
+  "<h2 style='padding:40px;text-align:center'>No posts found</h2>"
 })
 
 function loadMore(){
