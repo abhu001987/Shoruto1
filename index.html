@@ -6,8 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Treedell</title>
-
+<title>Shoruto – Daily Current Affairs for UPSC, PCS & Banking Exams</title>
+<meta name="description" content="Shoruto provides daily current affairs, quizzes, and study material for UPSC, PCS, Banking, and competitive exams. Learn smart with short and exam-focused content.">
+<link rel="canonical" href="https://www.shoruto.com/">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+  
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f2027">
 
@@ -39,16 +43,25 @@ body{
 
 /* HEADER */
 
+/* HEADER */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 10px 15px;
+
   background: linear-gradient(135deg, #0f2027, #203a43);
   color: white;
+
+  backdrop-filter: blur(8px);
 }
 
-/* Left side */
+/* LEFT SIDE */
 .left {
   display: flex;
   align-items: center;
@@ -60,35 +73,38 @@ body{
   cursor: pointer;
 }
 
-/* Logo */
+/* LOGO */
 .logo {
   width: 32px;
   height: 32px;
   border-radius: 8px;
 }
 
-/* Title */
+/* TITLE */
 .left h3 {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
 }
 
-/* Right side */
+/* RIGHT SIDE */
 .right {
   display: flex;
   align-items: center;
 }
 
-/* Refresh Button */
+/* REFRESH BUTTON */
 .refresh-btn {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.4);
   color: white;
+
   padding: 6px 10px;
-  border-radius: 8px;
+  border-radius: 10px;
+
   font-size: 16px;
   cursor: pointer;
+
   transition: 0.2s;
 }
 
@@ -351,9 +367,9 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 </div>
 
 <!-- HEADER -->
-
 <div class="header">
-  <!-- Left Section -->
+  
+  <!-- LEFT -->
   <div class="left">
     <div class="menu" onclick="toggleMenu()">☰</div>
 
@@ -362,12 +378,13 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
     <h3>Shoruto</h3>
   </div>
 
-  <!-- Right Section -->
+  <!-- RIGHT -->
   <div class="right">
     <button class="refresh-btn" onclick="refreshPage()">
       ⟳
     </button>
   </div>
+
 </div>
 
 <!-- FEATURED -->
@@ -375,8 +392,8 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 <section class="featured">
 
 <div class="section-title">
-<h3>Featured Stories</h3>
-<a class="quiz" href="https://myaffiliatepage.com/Currentaffairs">Quiz</a>
+<h3>Trending Stories</h3>
+<a class="quiz" href="/DailyQuiz">Quiz</a>
 </div>
 
 <div class="slider">
@@ -384,21 +401,21 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 <div class="slides" id="slides">
 
 <div class="slide">
-<img src="https://studymate81.wordpress.com/wp-content/uploads/2026/03/nelhmj7rqjwqnb363zwiba.jpg">
-<span>Fiscal Health Index (FHI) 2026</span>
-<a href="https://myaffiliatepage.com/Fiscal_Health_Index_2026?reload=true&t=1773561445678"></a>
-</div>
-
-<div class="slide">
-<img src="https://studymate81.wordpress.com/wp-content/uploads/2026/03/leonardo_kino_xl_just_create_an_image_of_farmland_3.jpg">
-<span>Farm Loan Waivers in India</span>
-<a href="https://myaffiliatepage.com/Farm_Loan_Waivers_in_India?reload=true&t=1773561792583"></a>
-</div>
-
-<div class="slide">
-<img src="https://studymate81.wordpress.com/wp-content/uploads/2026/03/zwa5vwahtymsl9gl7rufxw.png">
+<img src="/images/Factoryy.jpg">
 <span>AI Impact Study on the Labour Market</span>
-<a href="https://myaffiliatepage.com/AI_Impact_Study_on_the_Labour_Market?reload=true&t=1773562117813"></a>
+<a href="/AI_Impact_Study_on_the_Labour_Market"></a>
+</div>
+
+<div class="slide">
+<img src="/images/Datashiftt.jpg">
+<span>Fiscal Health Index (FHI) 2026</span>
+<a href="/Fiscal_Health_Index_2026"></a>
+</div>
+
+<div class="slide">
+<img src="/images/Agriculturee.jpg">
+<span>Farm Loan Waivers in India</span>
+<a href="/Farm_Loan_Waivers_in_India"></a>
 </div>
 
 </div>
@@ -413,38 +430,38 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 
 <section class="topics">
 
-<h3>Filter By Topics</h3>
+<h3>Explore By Topics</h3>
 
 <div class="grid">
 
 <div class="topic">
-<a href="https://myaffiliatepage.com/interview">
-<img src="https://studymate81.wordpress.com/wp-content/uploads/2026/04/untitled_design-removebg-preview.png">
+<a href="/mock">
+<img src="/images/mock-test.png">
 <p>Mock</p>
 </a>
 </div>
 
-<div class="topic"><a href="/posts.html?cat=daily"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/eeef1137-86c7-4c1e-878f-673252c6f3b5-removebg-preview.png"><p>Daily</p></a></div>
+<div class="topic"><a href="/posts.html?cat=daily"><img src="/images/daily-current.png"><p>Daily</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=economy"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/2.png"><p>Economy</p></a></div>
+<div class="topic"><a href="/posts.html?cat=history"><img src="/images/history.png"><p>History</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=editorial"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/4.png"><p>Editorial</p></a></div>
+<div class="topic"><a href="/posts.html?cat=governance"><img src="/images/polity.png"><p>Polity</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=environment"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/3.png"><p>Environment</p></a></div>
+<div class="topic"><a href="/posts.html?cat=Geography"><img src="/images/geography.png"><p>Geography</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=governance"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/5.png"><p>Polity</p></a></div>
+<div class="topic"><a href="/posts.html?cat=economy"><img src="/images/economy.png"><p>Economy</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=history"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/untitled_design__4_-removebg-preview.png"><p>History</p></a></div>
+<div class="topic"><a href="/posts.html?cat=environment"><img src="/images/environment.png"><p>Environment</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=ir"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/12.png"><p>I.R</p></a></div>
+<div class="topic"><a href="/posts.html?cat=science"><img src="/images/science.png"><p>Science</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=schemes"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/6.png"><p>Schemes</p></a></div>
+<div class="topic"><a href="/posts.html?cat=social"><img src="/images/social-issues.png"><p>Society</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=science"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/8.png"><p>Science</p></a></div>
+<div class="topic"><a href="/posts.html?cat=ir"><img src="/images/international-relations.png"><p>I.R</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=social"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/10.png"><p>Social Issues</p></a></div>
+<div class="topic"><a href="/posts.html?cat=schemes"><img src="/images/schemes.png"><p>Schemes</p></a></div>
 
-<div class="topic"><a href="/posts.html?cat=geography"><img src="https://studymate81.wordpress.com/wp-content/uploads/2025/02/untitled-design-5.png"><p>geography</p></a></div>
+<div class="topic"><a href="/posts.html?cat=editorial"><img src="/images/editorial.png"><p>Editorial</p></a></div>
 
 </div>
 
@@ -454,7 +471,7 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 
 <div class="poster">
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRXqSWzCTCOm6CY6Yomk3NsjfngVPtE6K1-g&s">
+<img src="/images/Gandhijii.jpg">
 
 <div class="poster-content">
   <h4>Mahatma Gandhi</h4>
@@ -465,7 +482,7 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
 </div>
 </section>
 
-<footer>Quick reads, smarter insights</footer>
+<footer>Your Current Affairs Partner</footer>
 
 <!-- INSTALL POPUP -->
 <div class="install-popup" id="installPopup">
@@ -479,7 +496,7 @@ background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
       Stay connected and never miss anything!
     </p>
 
-   <button onclick="window.location.href='https://myaffiliatepage.com/'">⬅ Go Back</button>
+   <button onclick="window.location.href='https://shoruto.com/'">⬅ Go Back</button>
  <button onclick="window.open('https://instagram.com/yourusername','_blank')">
   ⭐ Follow Us
 </button>
@@ -513,7 +530,6 @@ function closeInstall(){
 function refreshPage() {
   location.reload();
 }
-
 </script>
 
 </body>
