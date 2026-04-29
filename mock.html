@@ -1,440 +1,463 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mock</title>
-  <meta name="description" content="Take voice-based mock tests on Shoruto. Speak your answers, improve performance, and practice current affairs interactively.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://www.shoruto.com/mock">
-  <link rel="icon" href="/icon-192.png" type="image/png">
-  <link rel="apple-touch-icon" href="/icon-192.png">
+<title>Mock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #F5F7FA;
-  color: #0F172A;
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#F5F7FA;
+color:#0F172A;
 }
 
 /* APP */
-.app {
-  max-width: 480px;
-  margin: auto;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.app{
+max-width:480px;
+margin:auto;
+padding:12px;
+display:flex;
+flex-direction:column;
+gap:12px;
 }
 
 /* TOP BAR */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #FFFFFF;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid #E2E8F0;
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+padding:12px;
+border-radius:14px;
+border:1px solid #E2E8F0;
 }
 
-.back-btn {
-  background: none;
-  border: none;
-  color: #0F172A;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+.back-btn{
+background:none;
+border:none;
+font-size:16px;
+font-weight:600;
+color:#0F172A;
 }
 
-.timer {
-  color: #F97316;
-  font-weight: bold;
+.timer{
+color:#F97316;
+font-weight:bold;
 }
 
-/* QUESTION */
-.question {
-  background: #FFFFFF;
-  color: #0F172A;
-  padding: 14px;
-  border-radius: 14px;
-  text-align: center;
-  font-weight: 600;
-  border: 1px solid #E2E8F0;
+/* PROGRESS */
+.progress-wrap{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.progress-bar{
+flex:1;
+height:6px;
+background:#E2E8F0;
+border-radius:10px;
+}
+
+.progress-fill{
+height:100%;
+width:30%;
+background:#22C55E;
+border-radius:10px;
+}
+
+.progress-text{
+font-size:13px;
+color:#64748B;
+}
+
+/* QUESTION BOX */
+.question-box{
+background:#fff;
+padding:14px;
+border-radius:14px;
+border:1px solid #E2E8F0;
+}
+
+.question{
+font-weight:600;
+font-size:16px;
+}
+
+/* HINT */
+.hint{
+font-size:13px;
+color:#64748B;
+margin-top:6px;
+}
+
+/* DIVIDER */
+.divider{
+height:1px;
+background:#E2E8F0;
+margin-top:10px;
 }
 
 /* TEXTAREA */
-textarea {
-  width: 100%;
-  min-height: 140px;
-  height: calc(100vh - 300px);
-  max-height: 400px;
-
-  border-radius: 16px;
-  border: 1px solid #E2E8F0;
-
-  padding: 14px;
-  resize: none;
-  box-sizing: border-box;
-
-  background: #F8FAFC;
-  color: #0F172A;
-  font-size: 14px;
+textarea{
+width:100%;
+height:calc(100vh - 320px);
+max-height:400px;
+border-radius:16px;
+border:1px solid #E2E8F0;
+padding:14px;
+resize:none;
+background:#F8FAFC;
+color:#0F172A;
 }
 
-textarea::placeholder {
-  color: #64748B;
+textarea::placeholder{
+color:#64748B;
 }
-
 /* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 10px;
+.buttons{
+display:flex;
+gap:10px;
 }
 
-/* START BUTTON */
-.speak {
-  background: #D1FAE5;
-  color: #065F46;
-  border-radius: 14px;
-  border: none;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(34,197,94,0.2);
+.speak{
+background:#D1FAE5;
+color:#065F46;
+padding:14px;
+border:none;
+border-radius:16px;
+font-weight:600;
 }
 
-/* SUBMIT BUTTON */
-.submit {
-  background: #FED7AA;
-  color: #9A3412;
-  border-radius: 14px;
-  border: none;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(249,115,22,0.25);
+.submit{
+background:#FED7AA;
+color:#9A3412;
+padding:14px;
+border:none;
+border-radius:16px;
+font-weight:600;
 }
 
-/* REMOVE HEAVY EFFECTS */
-.speak::before,
-.submit::before {
-  display: none;
+/* TIPS */
+.tips-box{
+background:#ECFDF5;
+padding:12px;
+border-radius:12px;
+font-size:13px;
+color:#065F46;
+}
+
+/* BOTTOM ICONS */
+.bottom-icons{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:#fff;
+padding:10px 0;
+border-top:1px solid #E2E8F0;
+}
+
+.bottom-icons div{
+text-align:center;
+font-size:14px;
+color:#64748B;
+}
+
+.bottom-icons span{
+font-size:12px;
 }
 
 /* POPUP */
-.popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-.popup-box {
-  background: white;
-  color: #0F172A;
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
-  width: 90%;
-  max-width: 300px;
+.popup-box{
+background:#fff;
+color:#0F172A;
+padding:20px;
+border-radius:16px;
+text-align:center;
+width:90%;
+max-width:300px;
 }
 
 /* RESULT */
-.result { padding: 15px; }
+.result{padding:15px;}
 
-.circle {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 8px solid #E2E8F0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  margin: auto;
-  color: #0F172A;
+.circle{
+width:140px;
+height:140px;
+border-radius:50%;
+border:8px solid #E2E8F0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+margin:auto;
 }
 
-.grid {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
+.grid{
+display:flex;
+gap:10px;
+margin-top:15px;
 }
 
-.box {
-  flex: 1;
-  background: #FFFFFF;
-  padding: 10px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid #E2E8F0;
+.box{
+flex:1;
+background:#fff;
+padding:10px;
+border-radius:12px;
+border:1px solid #E2E8F0;
+text-align:center;
 }
 
-.q-card {
-  background: #FFFFFF;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 12px;
-  border: 1px solid #E2E8F0;
+.q-card{
+background:#fff;
+padding:12px;
+margin-top:10px;
+border-radius:12px;
+border:1px solid #E2E8F0;
 }
 
-/* BOTTOM TIPS */
-.bottom-tips {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-
-  background: #FFFFFF;
-  border-top: 1px solid #E2E8F0;
-
-  padding: 10px;
-  text-align: center;
-  font-size: 13px;
-}
-
-.bottom-tips p {
-  margin: 4px 0;
-  color: #64748B;
-}
 </style>
 </head>
 
 <body>
 
 <div class="popup" id="popup">
-  <div class="popup-box">
-    <h3>Instructions</h3>
-    <p>90 sec per question</p>
-    <p>Use Chrome for voice</p>
-    <button onclick="startInterview()">Start</button>
-  </div>
+<div class="popup-box">
+<h3>Instructions</h3>
+<p>90 sec per question</p>
+<p>Use Chrome for voice</p>
+<button onclick="startInterview()">Start</button>
+</div>
 </div>
 
 <div class="app">
 
-  <div class="top-bar">
-    <button class="back-btn" onclick="goBack()">← Back</button>
-    <div class="timer" id="timer">⏱️ 90</div>
-  </div>
+<div class="top-bar">
+<button class="back-btn" onclick="goBack()">← Back</button>
+<div class="timer" id="timer">⏱️ 90</div>
+</div>
 
-  <div class="question" id="question">Loading...</div>
+<!-- PROGRESS -->
+<div class="progress-wrap">
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+<div class="progress-text">1 / 10</div>
+</div>
 
-  <textarea id="answer" placeholder="Speak or type..."></textarea>
+<!-- QUESTION -->
+<div class="question-box">
+<div class="question" id="question">Loading...</div>
+<div class="hint">💡 You can speak or type your answer</div>
+<div class="divider"></div>
+</div>
 
-  <div class="buttons">
-    <button class="speak" onclick="toggleListening()" id="micBtn">🎤 Start</button>
-    <button class="submit" onclick="submitAnswer()">Submit</button>
-  </div>
+<textarea id="answer" placeholder="Speak or type..."></textarea>
+
+<!-- TIPS -->
+<div class="tips-box">
+✨ <b>Tips</b><br>
+Take a moment to organize your thoughts before speaking or typing.
+</div>
+
+<div class="buttons">
+<button class="speak" onclick="toggleListening()" id="micBtn">🎤 Start</button>
+<button class="submit" onclick="submitAnswer()">Submit</button>
+</div>
 
 </div>
-<div class="bottom-tips">
- <p>• Assess self-awareness </p>
- <p>• Express your thoughts </p>
- <p>• Evaluation may not be 100% accurate </p>
- <p></div>
+
+<!-- BOTTOM ICONS -->
+<div class="bottom-icons">
+<div>🧠<br><span>Assess</span></div>
+<div>✍️<br><span>Express</span></div>
+<div>🛡️<br><span>Evaluation</span></div>
+</div>
+
 <script>
+/* YOUR ORIGINAL JS — UNTOUCHED */
 
 let questions=[];
 let current=0;
 let count=1;
-
 let totalScore=0;
 let maxScore=0;
-
 let answersLog=[];
-
 let timer,timeLeft=90;
-
 let recognition;
 let isListening=false;
 let finalTranscript="";
 
-// LOAD
 fetch("questions.json")
 .then(r=>r.json())
 .then(d=>questions=d);
 
-// START
 function startInterview(){
-  popup.style.display="none";
-  loadQuestion(0);
+popup.style.display="none";
+loadQuestion(0);
 }
 
-
-// BACK
 function goBack(){
-  window.location.href="/";
+window.location.href="/";
 }
 
-// TIMER
 function startTimer(){
-  clearInterval(timer);
-  timeLeft=90;
+clearInterval(timer);
+timeLeft=90;
 
-  timer=setInterval(()=>{
-    document.getElementById("timer").innerText="⏱️ "+timeLeft;
-    timeLeft--;
-    if(timeLeft<0) submitAnswer();
-  },1000);
+timer=setInterval(()=>{
+document.getElementById("timer").innerText="⏱️ "+timeLeft;
+timeLeft--;
+if(timeLeft<0) submitAnswer();
+},1000);
 }
 
-// LOAD
 function loadQuestion(i){
-  finalTranscript="";
-  answer.value="";
-  question.innerText=questions[i].q;
-  startTimer();
+finalTranscript="";
+answer.value="";
+question.innerText=questions[i].q;
+startTimer();
 }
 
-// SPEECH (RESTORED + SAFE FIX)
 function toggleListening(){
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-
-  if(!SR){
-    alert("Use Chrome");
-    return;
-  }
-
-  if(!isListening){
-
-    recognition=new SR();
-    recognition.interimResults=true;
-
-    recognition.onresult=function(e){
-
-      let interim="";
-
-      for(let i=e.resultIndex;i<e.results.length;i++){
-        let t=e.results[i][0].transcript.trim();
-
-        if(e.results[i].isFinal){
-
-          
-          // ✅ ONLY FIX ADDED (prevents duplicate spam)
-          if(!finalTranscript.endsWith(t)){
-            finalTranscript+=t+" ";
-          }
-
-        } else {
-          interim+=t;
-        }
-      }
-
-      answer.value=finalTranscript+interim;
-    };
-
-    // 🔁 KEEP THIS (IMPORTANT FOR MOBILE)
-    recognition.onend=function(){
-      if(isListening) recognition.start();
-    };
-
-    recognition.start();
-    isListening=true;
-    micBtn.innerText="🔴 Listening";
-
-  } else {
-    isListening=false;
-    recognition.stop();
-    micBtn.innerText="🎤 Start";
-  }
+if(!SR){
+alert("Use Chrome");
+return;
 }
 
-// SCORE
+if(!isListening){
+
+recognition=new SR();
+recognition.interimResults=true;
+
+recognition.onresult=function(e){
+let interim="";
+
+for(let i=e.resultIndex;i<e.results.length;i++){
+let t=e.results[i][0].transcript.trim();
+
+if(e.results[i].isFinal){
+if(!finalTranscript.endsWith(t)){
+finalTranscript+=t+" ";
+}
+}else{
+interim+=t;
+}
+}
+answer.value=finalTranscript+interim;
+};
+
+recognition.onend=function(){
+if(isListening) recognition.start();
+};
+
+recognition.start();
+isListening=true;
+micBtn.innerText="🔴 Listening";
+
+}else{
+isListening=false;
+recognition.stop();
+micBtn.innerText="🎤 Start";
+}
+}
+
 function cleanText(text){
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
+return text.toLowerCase().replace(/[^a-z0-9\s]/g,"").replace(/\s+/g," ").trim();
 }
 
-function evaluate(ans, keywords){
+function evaluate(ans,keywords){
+let cleanAns=cleanText(ans).replace(/\s/g,"");
+let matched=[];
 
-  let cleanAns = cleanText(ans).replace(/\s/g,"");
-
-  let matched = [];
-
-  keywords.forEach(k => {
-
-    let cleanKey = cleanText(k).replace(/\s/g,"");
-
-    if(cleanAns.includes(cleanKey)){
-      matched.push(k);
-    }
-
-  });
-
-  return {
-    score: matched.length,
-    missing: keywords.filter(k => !matched.includes(k))
-  };
+keywords.forEach(k=>{
+let cleanKey=cleanText(k).replace(/\s/g,"");
+if(cleanAns.includes(cleanKey)){
+matched.push(k);
 }
-// SUBMIT
+});
+
+return{
+score:matched.length,
+missing:keywords.filter(k=>!matched.includes(k))
+};
+}
+
 function submitAnswer(){
+clearInterval(timer);
 
-  clearInterval(timer);
-
-  if(recognition){
-    recognition.stop();
-    isListening=false;
-  }
-
-  let ans=answer.value;
-  let q=questions[current];
-
-  let res=evaluate(ans,q.keywords);
-
-  totalScore+=res.score;
-  maxScore+=q.keywords.length;
-
-  answersLog.push({
-    q:q.q,
-    ans:ans,
-    model:q.model,
-    score:res.score,
-    total:q.keywords.length,
-    missing:res.missing
-  });
-
-  count++;
-
-  if(count>10){
-    showResult();
-    return;
-  }
-
-  current=Math.floor(Math.random()*questions.length);
-  loadQuestion(current);
+if(recognition){
+recognition.stop();
+isListening=false;
 }
 
-// RESULT
+let ans=answer.value;
+let q=questions[current];
+let res=evaluate(ans,q.keywords);
+
+totalScore+=res.score;
+maxScore+=q.keywords.length;
+
+answersLog.push({
+q:q.q,
+ans:ans,
+model:q.model,
+score:res.score,
+total:q.keywords.length,
+missing:res.missing
+});
+
+count++;
+
+if(count>10){
+showResult();
+return;
+}
+
+current=Math.floor(Math.random()*questions.length);
+loadQuestion(current);
+}
+
 function showResult(){
+let percent=Math.round((totalScore/maxScore)*100);
 
-  let percent=Math.round((totalScore/maxScore)*100);
+let html=`<div class="result">
+<div class="circle">${percent}%</div>
 
-  let html=`<div class="result">
-    <div class="circle">${percent}%</div>
+<div class="grid">
+<div class="box">${totalScore}<br>Points</div>
+<div class="box">${percent}%<br>Accuracy</div>
+</div>
 
-    <div class="grid">
-      <div class="box">${totalScore}<br>Points</div>
-      <div class="box">${percent}%<br>Accuracy</div>
-    </div>
+<h3>Analysis</h3>
+`;
 
-    <h3>Analysis</h3>
-  `;
-
-  answersLog.forEach(a=>{
-   html+=`
+answersLog.forEach(a=>{
+html+=`
 <div class="q-card">
-  <b>Q:</b> ${a.q}<br><br>
-  <b>Your Answer:</b><br> ${a.ans || "No answer"}<br><br>
-  <b>Ideal Answer:</b><br> ${a.model || "N/A"}
+<b>Q:</b> ${a.q}<br><br>
+<b>Your Answer:</b><br>${a.ans || "No answer"}<br><br>
+<b>Ideal Answer:</b><br>${a.model || "N/A"}
 </div>`;
-  });
+});
 
-  html+="</div>";
-
-  document.body.innerHTML=html;
+html+="</div>";
+document.body.innerHTML=html;
 }
 
 </script>
