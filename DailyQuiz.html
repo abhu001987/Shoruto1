@@ -27,8 +27,6 @@ color:var(--text);
 
 .main{
 flex:1;
-display:flex;
-flex-direction:column;
 padding-bottom:70px;
 }
 
@@ -37,6 +35,7 @@ padding-bottom:70px;
 display:flex;
 justify-content:space-between;
 padding:16px;
+align-items:center;
 }
 .back{
 background:#0b1f22;
@@ -62,7 +61,6 @@ overflow:hidden;
 .bar{
 height:100%;
 background:var(--green);
-transition:0.3s;
 }
 
 /* CARD */
@@ -72,7 +70,6 @@ padding:18px;
 border-radius:20px;
 background:rgba(22,57,62,0.9);
 border:1px solid var(--border);
-animation:fade 0.3s;
 }
 
 /* CURRENT */
@@ -80,10 +77,11 @@ animation:fade 0.3s;
 display:flex;
 gap:12px;
 align-items:center;
+margin-bottom:10px;
 }
 .icon{
 background:rgba(34,197,94,0.2);
-padding:10px;
+padding:12px;
 border-radius:12px;
 }
 
@@ -95,17 +93,42 @@ margin:15px 0;
 
 /* OPTION */
 .option{
+display:flex;
+justify-content:space-between;
+align-items:center;
 padding:14px;
 margin-bottom:10px;
 border-radius:14px;
 background:#1a3e44;
 cursor:pointer;
-transition:0.2s;
 }
-.option:hover{background:#214b52;}
+
+.left{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.badge{
+background:#2a5258;
+padding:8px 12px;
+border-radius:50%;
+}
+
+.circle{
+width:18px;
+height:18px;
+border-radius:50%;
+border:2px solid #aaa;
+}
+
 .option.selected{
 border:2px solid var(--green);
 background:rgba(34,197,94,0.15);
+}
+.option.selected .circle{
+background:var(--green);
+border:none;
 }
 
 /* TIP */
@@ -136,8 +159,8 @@ background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;
 }
 
-/* BOTTOM */
-.bottom{
+/* FOOTER */
+.footer{
 position:fixed;
 bottom:0;
 width:100%;
@@ -145,6 +168,8 @@ background:#0b1f22;
 padding:12px;
 text-align:center;
 border-top:1px solid var(--border);
+font-size:13px;
+opacity:0.8;
 }
 
 /* RESULT */
@@ -152,8 +177,7 @@ border-top:1px solid var(--border);
 padding:16px;
 }
 
-/* CIRCLE */
-.circle{
+.circle-result{
 width:140px;
 height:140px;
 border-radius:50%;
@@ -164,7 +188,7 @@ justify-content:center;
 position:relative;
 }
 
-.circle::after{
+.circle-result::after{
 content:"";
 position:absolute;
 width:100px;
@@ -179,7 +203,6 @@ z-index:2;
 font-size:22px;
 }
 
-/* RESULT CARD */
 .result-card{
 background:var(--card);
 padding:14px;
@@ -192,11 +215,6 @@ border-radius:14px;
 margin-top:8px;
 font-size:14px;
 color:var(--sub);
-}
-
-@keyframes fade{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1;}
 }
 </style>
 </head>
@@ -216,44 +234,28 @@ to{opacity:1;}
 
 </div>
 
-<div class="bottom">📘 Daily Question for UPSC / BPSC</div>
+<div class="footer">Shoruto - Your shortcut to daily learning</div>
 
 <script>
 const quiz=[
 {
-q:`Which body is responsible for conducting elections in India?`,
-options:[
-"A. Supreme Court",
-"B. Parliament",
-"C. Election Commission of India",
-"D. President of India"
-],
-answer:2,
-exp:`The Election Commission of India is an independent constitutional body responsible for conducting free and fair elections.
-
-It supervises elections to Parliament, State Legislatures, and offices of President and Vice President.
-
-Hence, option C is correct.`
+q:"The Food Price Index is released by which organization?",
+options:["World Bank","IMF","World Economic Forum","FAO"],
+answer:3,
+tip:"Focus on international organizations related to food and agriculture.",
+exp:"FAO releases the Food Price Index."
 },
 {
-q:`Which of the following is a direct tax in India?`,
-options:[
-"A. GST",
-"B. Customs Duty",
-"C. Income Tax",
-"D. Excise Duty"
-],
+q:"Which of the following is a direct tax in India?",
+options:["GST","Customs Duty","Income Tax","Excise Duty"],
 answer:2,
-exp:`Income Tax is a direct tax as it is directly paid by individuals and corporations to the government.
-
-Indirect taxes like GST and customs duty are collected through intermediaries.
-
-Hence, option C is correct.`
+tip:"Direct tax is paid directly by individuals.",
+exp:"Income tax is a direct tax."
 }
 ];
 
 let current=0,answers=[],timer,time=60;
-/* LOAD */
+
 function load(){
 clearInterval(timer);
 time=60;
@@ -277,11 +279,18 @@ let html=`
 `;
 
 q.options.forEach((opt,i)=>{
-html+=`<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">${opt}</div>`;
+html+=`
+<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
+<div class="left">
+<div class="badge">${String.fromCharCode(65+i)}</div>
+<div>${opt}</div>
+</div>
+<div class="circle"></div>
+</div>`;
 });
 
 html+=`
-<div class="tip">💡 Read carefully before selecting</div>
+<div class="tip">💡 ${q.tip}</div>
 
 <div class="buttons">
 <button class="btn prev" onclick="prev()">Previous</button>
@@ -291,13 +300,12 @@ html+=`
 
 quizBox.innerHTML=html;
 }
-
 /* TIMER */
 function startTimer(){
 timer=setInterval(()=>{
 time--;
 document.getElementById("time").innerText=time;
-if(time<=0){next();}
+if(time<=0) next();
 },1000);
 }
 
@@ -328,7 +336,7 @@ load();
 /* RESULT */
 function showResult(){
 let score=0;
-let html=`<div class="result"><h2>🎯 Result</h2>`;
+let html="<div class='result'><h2>🎯 Result</h2>";
 
 quiz.forEach((q,i)=>{
 if(q.answer===answers[i]) score++;
@@ -340,16 +348,14 @@ Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
 ${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
 </span><br>
 Correct: <span class="correct">${q.options[q.answer]}</span>
-
 <div class="exp">📖 ${q.exp}</div>
 </div>`;
 });
 
-/* CIRCLE FIXED */
 let percent=(score/quiz.length)*360;
 
 html+=`
-<div class="circle" id="circle">
+<div class="circle-result" id="circle">
 <div class="score">${score}/${quiz.length}</div>
 </div>
 </div>`;
