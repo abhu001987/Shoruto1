@@ -229,6 +229,14 @@ border-radius:12px;
 border:1px solid #E2E8F0;
 }
 
+@media (max-width: 480px){
+
+  textarea{
+    height: 260px !important;   /* 🔥 increase height only on mobile */
+    max-height: none;
+  }
+
+}
 </style>
 </head>
 
@@ -368,7 +376,7 @@ if(isListening) recognition.start();
 
 recognition.start();
 isListening=true;
-micBtn.innerText="🔴 Stop";
+micBtn.innerText="🔴 Listening";
 
 }else{
 isListening=false;
