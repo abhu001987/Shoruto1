@@ -10,8 +10,8 @@
 <link rel="apple-touch-icon" href="/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-
+<style>  
+  
 *{  
 margin:0;  
 padding:0;  
@@ -21,116 +21,62 @@ font-family:Poppins;
   
 body{  
 background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);  
-color:#f1f5f9;  
+color:white;  
+min-height:100vh;  
+display:flex;  
+align-items:center;  
+justify-content:center;  
 padding:20px;  
 }  
   
-/* TITLE */  
+/* MAIN BOX */  
   
-.title{  
-font-size:30px;  
-text-align:center;  
-margin-bottom:30px;  
-font-weight:600;  
-position:relative;  
-}  
-  
-.title::after{  
-content:"";  
-width:80px;  
-height:3px;  
-background:#ff6a00;  
-display:block;  
-margin:8px auto 0;  
-border-radius:2px;  
-}  
-  
-/* CONTAINER */  
-  
-.container{  
-max-width:700px;  
-margin:auto;  
-}  
-  
-/* CARD */  
-  
-.card{  
+.about-box{  
 background:rgba(255,255,255,0.05);  
-backdrop-filter:blur(12px);  
-border-radius:12px;  
-margin-bottom:18px;  
-overflow:hidden;  
-transition:.3s;  
-box-shadow:0 6px 18px rgba(0,0,0,0.3);  
+backdrop-filter:blur(10px);  
+padding:30px;  
+border-radius:14px;  
+max-width:800px;  
+width:100%;  
+box-shadow:0 8px 25px rgba(0,0,0,0.3);  
 }  
   
-.card:hover{  
-transform:scale(1.02);  
+/* TITLES */  
+  
+h1{  
+margin-bottom:15px;  
 }  
   
-/* SUBJECT HEADER */  
-  
-.subject{  
-padding:15px;  
-display:flex;  
-justify-content:space-between;  
-align-items:center;  
-cursor:pointer;  
-font-size:16px;  
+h2{  
+margin-top:18px;  
+margin-bottom:8px;  
+color:#ff6a00;  
 }  
   
-.subject-left{  
-display:flex;  
-align-items:center;  
-gap:10px;  
-}  
+/* TEXT */  
   
-.icon{  
-font-size:20px;  
-}  
-  
-/* ARROW */  
-  
-.arrow{  
-transition:.3s;  
-}  
-  
-.rotate{  
-transform:rotate(180deg);  
-}  
-  
-/* DROPDOWN */  
-  
-.dropdown{  
-max-height:0;  
-overflow:hidden;  
-transition:max-height .4s ease;  
-background:rgba(0,0,0,0.2);  
-}  
-  
-.dropdown a{  
-display:block;  
-padding:12px 18px;  
-text-decoration:none;  
-color:#f1f5f9;  
+p{  
 font-size:14px;  
-border-left:3px solid transparent;  
-transition:.2s;  
+line-height:1.7;  
+opacity:0.9;  
+margin-bottom:10px;  
 }  
   
-.dropdown a:hover{  
-background:rgba(255,255,255,0.05);  
-border-left:3px solid #ff6a00;  
+ul{  
+margin-left:20px;  
+margin-top:8px;  
 }  
   
-/* ACTIVE CARD */  
-  
-.card.active{  
-border:1px solid rgba(255,255,255,0.1);  
+li{  
+margin:6px 0;  
+font-size:14px;  
 }  
+  
+/* BUTTON */  
+  
 .back{  
 display:inline-block;  
-margin-top:25px;  
+margin-top:20px;  
 background:#ff6a00;  
 padding:10px 16px;  
 border-radius:8px;  
@@ -138,10 +84,10 @@ color:white;
 font-weight:600;  
 text-decoration:none;  
 }  
+  
 .back:hover{  
 opacity:0.9;  
 }
-
 </style>
 </head>
 
