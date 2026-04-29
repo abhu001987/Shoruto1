@@ -78,7 +78,7 @@ function loadMore(){
 
         <img src="${post.image}">
 
-        <div class="back-btn" onclick="goBack()">Back</div>
+        <div class="back-btn" onclick="goBack()">←</div>
 
         ${post.hindi ? `<div class="hindi-btn" onclick='openHindi(${JSON.stringify(post.hindi)}, ${JSON.stringify(post.title)})'>In Hindi</div>` : ""}
 
