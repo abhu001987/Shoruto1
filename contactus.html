@@ -19,9 +19,10 @@ box-sizing:border-box;
 font-family:Poppins;
 }
 
+/* BODY */
 body{
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-color:white;
+background:#f1f5f9;
+color:#0f172a;
 min-height:100vh;
 display:flex;
 align-items:center;
@@ -29,15 +30,19 @@ justify-content:center;
 padding:20px;
 }
 
+/* BOX */
+
 .contact-box{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
+background:#ffffff;
 padding:30px;
 border-radius:14px;
 max-width:700px;
 width:100%;
-box-shadow:0 8px 25px rgba(0,0,0,0.3);
+border:1px solid #e2e8f0;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
 }
+
+/* TEXT */
 
 h1{
 margin-bottom:10px;
@@ -45,7 +50,7 @@ margin-bottom:10px;
 
 p{
 font-size:14px;
-opacity:0.9;
+color:#475569;
 margin-bottom:20px;
 }
 
@@ -53,25 +58,39 @@ label{
 font-size:14px;
 display:block;
 margin-bottom:6px;
+color:#334155;
 }
+
+/* INPUTS */
 
 input, textarea{
 width:100%;
 padding:10px;
-border:none;
 border-radius:8px;
 margin-bottom:14px;
-background:#203a43;
-color:white;
+
+border:1px solid #e2e8f0;
+background:#f8fafc;
+color:#0f172a;
 }
+
+input:focus, textarea:focus{
+outline:none;
+border-color:#f97316;
+background:#ffffff;
+}
+
+/* TEXTAREA */
 
 textarea{
 resize:none;
 height:120px;
 }
 
+/* BUTTON */
+
 button{
-background:#ff6a00;
+background:#f97316;
 border:none;
 padding:10px 18px;
 border-radius:8px;
@@ -84,21 +103,26 @@ button:hover{
 opacity:0.9;
 }
 
+/* EMAIL */
+
 .email{
 margin-top:15px;
 font-size:14px;
+color:#475569;
 }
 
 .email a{
-color:#ff6a00;
+color:#f97316;
 text-decoration:none;
 font-weight:600;
 }
 
+/* BACK BUTTON */
+
 .back{
 display:inline-block;
 margin-top:20px;
-background:#ff6a00;
+background:#f97316;
 padding:10px 16px;
 border-radius:8px;
 color:white;
