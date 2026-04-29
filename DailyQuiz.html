@@ -25,10 +25,11 @@ background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);  
 }  
   
-.main{  
-flex:1;  
-padding-bottom:70px;  
-}  
+.main{
+flex:1;
+padding-bottom:70px;
+overflow-y:auto;   /* ✅ THIS FIXES EVERYTHING */
+} 
   
 /* HEADER */  
 .header{  
