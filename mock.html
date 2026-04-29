@@ -181,24 +181,68 @@ font-size:12px;
 
 /* POPUP */
 .popup{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.7);
-display:flex;
-justify-content:center;
-align-items:center;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  backdrop-filter: blur(6px);
 }
 
 .popup-box{
-background:#fff;
-color:#0F172A;
-padding:20px;
-border-radius:16px;
-text-align:center;
-width:90%;
-max-width:300px;
+  background:#ffffff;
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  width:85%;
+  max-width:320px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  animation: pop 0.3s ease;
 }
 
+@keyframes pop{
+  from{transform:scale(0.9); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+.popup-box h3{
+  margin-bottom:12px;
+  color:#0f172a;
+}
+
+.inst-item{
+  background:#f1f5f9;
+  padding:10px;
+  border-radius:10px;
+  margin:6px 0;
+  font-size:14px;
+  color:#334155;
+}
+
+.inst-item.warn{
+  background:#fff7ed;
+  color:#9a3412;
+  font-weight:500;
+}
+
+.start-btn{
+  margin-top:14px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#22c55e;
+  color:white;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.start-btn:hover{
+  transform:scale(1.03);
+}
 /* RESULT */
 .result{padding:15px;}
 
@@ -250,13 +294,14 @@ border:1px solid #E2E8F0;
 
 <body>
 
-<div class="popup" id="popup">
 <div class="popup-box">
-<h3>Instructions</h3>
-<p>90 sec per question</p>
-<p>Use Chrome for voice</p>
-<button onclick="startInterview()">Start</button>
-</div>
+  <h3>📋 Instructions</h3>
+
+  <div class="inst-item">⏱️ 90 sec per question</div>
+  <div class="inst-item">🎤 Use Chrome for voice</div>
+  <div class="inst-item warn">⚠️ Evaluation may not be 100% accurate</div>
+
+  <button class="start-btn" onclick="startInterview()">Start</button>
 </div>
 
 <div class="app">
