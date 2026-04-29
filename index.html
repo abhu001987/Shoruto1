@@ -21,7 +21,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -33,15 +32,14 @@ html,body{
   height:100%;
 }
 
+/* BODY */
 body{
-  background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-  color:white;
+  background:#f1f5f9;
+  color:#0f172a;
   min-height:100vh;
   overflow-x:hidden;
   background-attachment: fixed;
 }
-
-/* HEADER */
 
 /* HEADER */
 .header {
@@ -55,13 +53,11 @@ body{
 
   padding: 12px 15px;
 
-  /* 👇 Improved gradient (more contrast like your old design) */
-  background: linear-gradient(135deg, #0f2027, #2c5364);
+  background: #ffffff;
+  color: #0f172a;
 
-  color: white;
-
-  /* subtle separation */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 /* LEFT SIDE */
@@ -98,36 +94,32 @@ body{
 
 /* REFRESH BUTTON */
 .refresh-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.4);
-  color: white;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
 
   padding: 6px 10px;
   border-radius: 10px;
 
   font-size: 16px;
   cursor: pointer;
-
   transition: 0.2s;
 }
 
 .refresh-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: #f1f5f9;
 }
-
-.menu{font-size:24px;cursor:pointer;}
-
 /* SIDEBAR */
-
 .sidebar{
 position:fixed;
 top:0;
 left:-260px;
 width:260px;
 height:100%;
-background:#203a43;
+background:#ffffff;
 transition:.35s;
 z-index:2000;
+border-right:1px solid #e2e8f0;
 }
 
 .sidebar.open{left:0;}
@@ -136,7 +128,7 @@ z-index:2000;
 display:flex;
 justify-content:space-between;
 padding:16px;
-border-bottom:1px solid rgba(255,255,255,0.15);
+border-bottom:1px solid #e2e8f0;
 }
 
 .close-btn{cursor:pointer;font-size:20px;}
@@ -145,27 +137,26 @@ border-bottom:1px solid rgba(255,255,255,0.15);
 display:block;
 padding:15px 20px;
 text-decoration:none;
-color:white;
-border-bottom:1px solid rgba(255,255,255,0.08);
+color:#0f172a;
+border-bottom:1px solid #f1f5f9;
 }
 
-.sidebar a:hover{background:#2c5364;}
+.sidebar a:hover{background:#f8fafc;}
 
-/* Convert App Box */
-
+/* INSTALL BOX */
 .install-box{
   margin:6px;
   padding:6px 8px;
   border-radius:6px;
-  background:#ff6a00;
+  background:#f97316;
   text-align:center;
   font-weight:600;
   cursor:pointer;
   font-size:13px;
+  color:white;
 }
 
-/* Popup */
-
+/* POPUP */
 .install-popup{
 position:fixed;
 top:0;
@@ -180,8 +171,8 @@ z-index:3000;
 }
 
 .install-content{
-background:white;
-color:black;
+background:#ffffff;
+color:#0f172a;
 padding:25px;
 border-radius:12px;
 text-align:center;
@@ -193,16 +184,15 @@ max-width:320px;
 padding:10px 20px;
 border:none;
 border-radius:6px;
-background:#ff6a00;
+background:#f97316;
 color:white;
 margin:5px;
 cursor:pointer;
 }
 
-.cancel-btn{background:gray;}
+.cancel-btn{background:#94a3b8;}
 
 /* FEATURED */
-
 .featured{
   padding:15px 20px;
 }
@@ -214,13 +204,12 @@ cursor:pointer;
 }
 
 .quiz{
-  color:#ff6a00;
+  color:#f97316;
   text-decoration:none;
   font-weight:600;
 }
 
 /* SLIDER */
-
 .slider{position:relative;overflow:hidden;border-radius:12px;}
 
 .slides{display:flex;transition:transform .35s ease;}
@@ -232,17 +221,18 @@ width:100%;
 height:200px;
 object-fit:cover;
 border-radius:12px;
-filter:brightness(.8);
+filter:brightness(.9);
 }
 
 .slide span{
 position:absolute;
 bottom:10px;
 left:10px;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.5);
 padding:6px 10px;
 border-radius:6px;
 font-size:13px;
+color:white;
 }
 
 .slide a{
@@ -252,14 +242,12 @@ left:0;
 width:100%;
 height:100%;
 }
-
 /* slider buttons */
-
 .slider-btn{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.4);
 border:none;
 color:white;
 font-size:20px;
@@ -272,7 +260,6 @@ border-radius:6px;
 .next{right:10px}
 
 /* TOPICS */
-
 .topics{
   padding:20px;
 }
@@ -290,7 +277,7 @@ border-radius:6px;
 
 .topic a{
   text-decoration:none;
-  color:white;
+  color:#0f172a;
   display:block;
 }
 
@@ -298,11 +285,12 @@ border-radius:6px;
   width:48px;
   height:48px;
   border-radius:12px;
-  background:white;
+  background:#ffffff;
   padding:6px;
   object-fit:contain;
   display:block;
   margin:auto;
+  border:1px solid #e2e8f0;
 }
 
 .topic p{
@@ -311,38 +299,39 @@ border-radius:6px;
 }
 
 /* POSTER */
-
 .poster{
   margin:20px;
   border-radius:14px;
   overflow:hidden;
   position:relative;
-  box-shadow:0 6px 18px rgba(0,0,0,0.3);
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
 }
 
 .poster img{
   width:100%;
   height:170px;
   object-fit:cover;
-  filter:brightness(.75);
+  filter:brightness(.85);
 }
 
 .poster-content{
   position:absolute;
   bottom:12px;
   left:14px;
+  color:white;
 }
 
 /* FOOTER */
-
 footer{
 text-align:center;
 padding:10px;
 font-size:12px;
-opacity:.8;
+opacity:.7;
 margin-bottom:10px;
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+background:#ffffff;
+border-top:1px solid #e2e8f0;
 }
+
 </style>
 
 </head>
