@@ -3,603 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Daily Quiz for UPSC & Competitive Exams | Shoruto</title>
-<meta name="description" content="Practice daily quizzes for UPSC, Banking, and other exams with explanations to improve your preparation.">
-<link rel="canonical" href="https://www.shoruto.com/DailyQuiz">
-<link rel="icon" href="/icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="/icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Quiz</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
+:root {
+  --bg1:#0f2a2e;
+  --bg2:#123c42;
+  --card:#16393e;
+  --text:#eaf4f4;
+  --sub:#9fb7b9;
+  --green:#22c55e;
+  --orange:#ff7a00;
+  --border:rgba(255,255,255,0.08);
 }
 
-body{
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-color:#f1f5f9;
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
+body {
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:var(--text);
 }
 
-/* BACK BUTTON */
-
-.back-btn{
-position:fixed;
-top:15px;
-left:15px;
-z-index:9999;
-font-size:16px;
-cursor:pointer;
-background:rgba(0,0,0,0.5);
-padding:10px 14px;
-border-radius:10px;
-color:white;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
+/* HEADER */
+.header {
+  display:flex;
+  justify-content:space-between;
+  padding:16px;
 }
 
-.back-btn:hover{
-background:#ff6a00;
+.back {
+  background:#0b1f22;
+  padding:12px;
+  border-radius:14px;
 }
-/* QUIZ BOX */
 
-.quiz-box{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-padding:25px;
-border-radius:14px;
-max-width:700px;
-width:100%;
+.timer-box {
+  border:1px solid var(--border);
+  padding:8px 14px;
+  border-radius:14px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color: var(--green);
+}
+
+/* PROGRESS */
+.progress {
+  height:6px;
+  margin:10px 16px;
+  background:#0b1f22;
+  border-radius:10px;
+  overflow:hidden;
+}
+.bar {
+  height:100%;
+  width:0%;
+  background:var(--green);
+  transition:0.3s;
+}
+
+/* CARD */
+.card {
+  margin:16px;
+  padding:18px;
+  border-radius:20px;
+  background:rgba(22,57,62,0.9);
+  border:1px solid var(--border);
+  animation:fade 0.4s;
+}
+
+/* CURRENT */
+.current {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:10px;
+}
+.current-icon {
+  background:rgba(34,197,94,0.2);
+  padding:10px;
+  border-radius:12px;
 }
 
 /* QUESTION */
-
-#question{
-font-size:16px;
-line-height:1.7;
-margin-bottom:15px;
+.question {
+  font-size:20px;
+  margin:15px 0;
 }
 
 /* OPTIONS */
-
-.option{
-background:#203a43;
-padding:12px;
-border-radius:8px;
-margin:8px 0;
-cursor:pointer;
+.option {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px;
+  margin-bottom:12px;
+  border-radius:14px;
+  background:#1a3e44;
+  cursor:pointer;
+  transition:0.2s;
+}
+.option:hover {
+  background:#214b52;
 }
 
-.option:hover{
-background:#2c5364;
+.left {
+  display:flex;
+  gap:12px;
+  align-items:center;
 }
 
-.correct{ background:#2ecc71 !important; }
-.wrong{ background:#e74c3c !important; }
-
-/* NAV */
-
-.nav{
-display:flex;
-justify-content:space-between;
-margin-top:20px;
+.badge {
+  background:#2a5258;
+  padding:8px 12px;
+  border-radius:50%;
 }
 
-button{
-padding:10px 18px;
-border:none;
-border-radius:8px;
-background:#ff6a00;
-color:white;
-cursor:pointer;
+.circle {
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  border:2px solid #aaa;
 }
 
-/* RESULT UI */
-
-.result{
-display:none;
-text-align:center;
+.option.selected {
+  border:2px solid var(--green);
+  background:rgba(34,197,94,0.15);
+}
+.option.selected .circle {
+  background:var(--green);
+  border:none;
 }
 
-.circle{
-width:150px;
-height:150px;
-border-radius:50%;
-border:10px solid rgba(255,255,255,0.1);
-margin:20px auto;
-position:relative;
+/* TIP */
+.tip {
+  margin:14px 0;
+  color:var(--sub);
+  font-size:14px;
 }
 
-.circle-fill{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-border-radius:50%;
-clip-path:circle(50%);
-background:conic-gradient(#ff6a00 0deg, transparent 0deg);
+/* BUTTONS */
+.buttons {
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
 }
 
-.circle-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:24px;
-font-weight:bold;
+.btn {
+  padding:14px 20px;
+  border-radius:12px;
+  border:none;
+  font-size:15px;
+  cursor:pointer;
 }
 
-.stats{
-margin-top:10px;
+.prev {
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
 }
 
-.review{
-margin-top:20px;
-text-align:left;
+.next {
+  background:linear-gradient(135deg,#ff7a00,#ff9a3c);
+  color:#fff;
 }
 
-.review-item{
-background:rgba(255,255,255,0.05);
-padding:14px;
-margin:12px 0;
-border-radius:10px;
-border-left:4px solid #ff6a00;
-line-height:1.6;
+/* RESULT */
+.result {
+  padding:20px;
 }
 
+.result-card {
+  background:var(--card);
+  padding:16px;
+  margin-bottom:12px;
+  border-radius:14px;
+  animation:fadeUp 0.4s;
+}
+
+.correct { color:#22c55e; }
+.wrong { color:#ff4d4d; }
+
+@keyframes fade {
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1;}
+}
+@keyframes fadeUp {
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1;}
+}
 </style>
 </head>
 
 <body>
 
-<div class="back-btn" onclick="goBack()">←</div>
+<div id="app">
 
-<div class="quiz-box">
-
-<div id="quiz">
-<h2 id="question"></h2>
-<div id="options"></div>
-
-<div class="nav">
-<button onclick="prevQuestion()">Previous</button>
-<button onclick="nextQuestion()">Next</button>
-</div>
+<div class="header">
+  <div class="back">←</div>
+  <div class="timer-box">⏱ <span id="time">60</span>s | <span id="count"></span></div>
 </div>
 
-<div id="result" class="result">
+<div class="progress"><div class="bar" id="bar"></div></div>
 
-<div class="circle">
-<div class="circle-fill" id="circleFill"></div>
-<div class="circle-text" id="percent">0%</div>
-</div>
-
-<h2 id="message"></h2>
-
-<div class="stats">
-<p id="scoreText"></p>
-<p id="accuracyText"></p>
-</div>
-
-<div class="review" id="review"></div>
-
-</div>
+<div class="card" id="quizBox"></div>
 
 </div>
 
 <script>
-
-function goBack(){
-window.location.href="/"
-}
-
-/* QUIZ DATA */
-
 const quiz = [
 {
-q:`The Food Price Index is released by which organization?`,
+q:"The Food Price Index is released by which organization?",
 options:[
-"A. World Bank",
-"B. International Monetary Fund",
-"C. World Economic Forum",
-"D. Food and Agriculture Organization"
+"World Bank",
+"International Monetary Fund",
+"World Economic Forum",
+"Food and Agriculture Organization"
 ],
-answer:3,
-exp:`The Food Price Index is released by the Food and Agriculture Organization (FAO).
-
-It measures monthly changes in international prices of key food commodities like cereals, dairy, and sugar.
-
-Hence, option D is correct.`
+answer:3
 },
-
 {
-q:`The Hubble constant is used to measure:`,
+q:"What is the Jal Jeevan Mission?",
 options:[
-"A. Age of stars",
-"B. Expansion rate of the universe",
-"C. Speed of light in vacuum",
-"D. Density of dark matter"
+"Rural housing scheme",
+"Drinking water supply to rural households",
+"Education reform",
+"Agriculture subsidy"
 ],
-answer:1,
-exp:`The Hubble constant measures the rate at which the universe is expanding.
-
-It is derived from Hubble's law, which states that galaxies move away from us at speeds proportional to their distance.
-
-Hence, option B is correct.`
+answer:1
 },
-  
 {
-q:`The Chambal River, that was recently seen in news, originates from which region?`,
+q:"What is the Jal Jeevan Mission?",
 options:[
-"A. Aravalli Range",
-"B. Satpura Range",
-"C. Janapav Hills",
-"D. Western Ghats"
+"Rural housing scheme",
+"Drinking water supply to rural households",
+"Education reform",
+"Agriculture subsidy"
 ],
-answer:2,
-exp:`The Chambal River originates from Janapav Hills near Mhow in Madhya Pradesh.
-
-It flows through Madhya Pradesh and Rajasthan before joining the Yamuna River.
-
-Hence, option C is correct.`
+answer:1
 },
-
 {
-q:`Where was first BRICS Health Working Group Meeting 2026 held?`,
+q:"What is the Jal Jeevan Mission?",
 options:[
-"A. New Delhi",
-"B. Chennai",
-"C. Hyderabad",
-"D. Bengaluru"
+"Rural housing scheme",
+"Drinking water supply to rural households",
+"Education reform",
+"Agriculture subsidy"
 ],
-answer:0,
-exp:`The first BRICS Health Working Group Meeting 2026 was held in New Delhi.
-
-India chaired the meeting and focused on strengthening cooperation in public health, including disease management and health system resilience.
-
-Hence, option A is correct.`
-},
-
-{
-q:`It is a marginal sea bordered by Myanmar and Thailand to the north and east, the Malay Peninsula and Sumatra to the south, and separated from the Bay of Bengal by India’s Andaman and Nicobar Islands to the west. Its southern end narrows into the Strait of Malacca, a vital global trade corridor linking the Indian Ocean with the Pacific.
-
-Which of the following best fits the above description?`,
-options:[
-"A. Java Sea",
-"B. Andaman Sea",
-"C. South China Sea",
-"D. Laccadive Sea"
-],
-answer:1,
-exp:`The Andaman Sea is a marginal sea of the northeastern Indian Ocean bordered by Myanmar and Thailand to the north and east, and the Malay Peninsula and Sumatra to the south.
-
-It is separated from the Bay of Bengal by the Andaman and Nicobar Islands and connects to the Strait of Malacca, a major global trade route.
-
-Hence, option B is correct.`
-},
-
-{
-q:`What is the name of India’s first dedicated nuclear missile tracking and ocean surveillance ship?`,
-options:[
-"A. INS Dhruv",
-"B. INS Kaveri",
-"C. INS Kavach",
-"D. INS Surya"
-],
-answer:0,
-exp:`INS Dhruv is India’s first dedicated nuclear missile tracking and ocean surveillance ship.
-
-It was commissioned in 2021 and supports missile tracking, electronic intelligence gathering, and ballistic missile defence systems.
-
-Hence, option A is correct.`
-},
-
-{
-q:`Calamaria garoensis, a newly discovered species of burrowing reed snake, was recently spotted in which state?`,
-options:[
-"A. Tripura",
-"B. Meghalaya",
-"C. Assam",
-"D. Manipur"
-],
-answer:1,
-exp:`Calamaria garoensis is a newly discovered burrowing reed snake found in the West Garo Hills of Meghalaya.
-
-It is endemic to the region and belongs to the genus Calamaria, known for small, fossorial, non-venomous snakes.
-
-Hence, option B is correct.`
-},
-
-{
-q:`Which body is responsible for conducting elections in India?`,
-options:[
-"A. Supreme Court",
-"B. Parliament",
-"C. Election Commission of India",
-"D. President of India"
-],
-answer:2,
-exp:`The Election Commission of India is an independent constitutional body responsible for conducting free and fair elections.
-
-It supervises elections to Parliament, State Legislatures, and offices of President and Vice President.
-
-Hence, option C is correct.`
-},
-
-{
-q:`Which of the following is a direct tax in India?`,
-options:[
-"A. GST",
-"B. Customs Duty",
-"C. Income Tax",
-"D. Excise Duty"
-],
-answer:2,
-exp:`Income Tax is a direct tax as it is directly paid by individuals and corporations to the government.
-
-Indirect taxes like GST and customs duty are collected through intermediaries.
-
-Hence, option C is correct.`
-},
-
-{
-q:`The Tropic of Cancer passes through how many Indian states?`,
-options:[
-"A. 6",
-"B. 7",
-"C. 8",
-"D. 9"
-],
-answer:2,
-exp:`The Tropic of Cancer passes through 8 Indian states including Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram.
-
-It divides India into tropical and subtropical regions.
-
-Hence, option C is correct.`
-},
-  
-{
-q:`Which gas is primarily responsible for global warming?`,
-options:[
-"A. Oxygen",
-"B. Nitrogen",
-"C. Carbon Dioxide",
-"D. Hydrogen"
-],
-answer:2,
-exp:`Carbon dioxide is the primary greenhouse gas responsible for global warming.
-
-It is released through burning fossil fuels and deforestation.
-
-Hence, option C is correct.`
-},
-
-{
-q:`Who was the first Governor-General of independent India?`,
-options:[
-"A. Lord Mountbatten",
-"B. C. Rajagopalachari",
-"C. Jawaharlal Nehru",
-"D. Sardar Patel"
-],
-answer:0,
-exp:`Lord Mountbatten was the first Governor-General of independent India from 1947 to 1948.
-
-C. Rajagopalachari was the last Governor-General and the only Indian to hold the position.
-
-Hence, option A is correct.`
-},
-
-{
-q:`Which Schedule of the Indian Constitution deals with Panchayati Raj institutions?`,
-options:[
-"A. 7th Schedule",
-"B. 9th Schedule",
-"C. 10th Schedule",
-"D. 11th Schedule"
-],
-answer:3,
-exp:`The 11th Schedule of the Indian Constitution deals with Panchayati Raj institutions.
-
-It was added by the 73rd Constitutional Amendment Act, 1992 and contains 29 subjects related to local governance.
-
-Hence, option D is correct.`
-},
-
-{
-q:`What is the main objective of the National Food Security Act (NFSA), 2013?`,
-options:[
-"A. Increase agricultural exports",
-"B. Ensure food security to citizens",
-"C. Promote organic farming",
-"D. Reduce food prices globally"
-],
-answer:1,
-exp:`The National Food Security Act, 2013 aims to provide subsidized food grains to a large section of India's population.
-
-It ensures food and nutritional security by making access to food a legal right.
-
-Hence, option B is correct.`
-},
-
-{
-q:`Which plateau is known as the "Roof of the World"?`,
-options:[
-"A. Deccan Plateau",
-"B. Tibetan Plateau",
-"C. Iranian Plateau",
-"D. Anatolian Plateau"
-],
-answer:1,
-exp:`The Tibetan Plateau is known as the "Roof of the World" due to its high elevation.
-
-It is the highest and largest plateau in the world.
-
-Hence, option B is correct.`
-},
-
-{
-q:`Which of the following is a renewable source of energy?`,
-options:[
-"A. Coal",
-"B. Petroleum",
-"C. Natural Gas",
-"D. Solar Energy"
-],
-answer:3,
-exp:`Solar energy is a renewable source as it is continuously available from the sun.
-
-Coal, petroleum, and natural gas are non-renewable fossil fuels.
-
-Hence, option D is correct.`
-},
-
-{
-q:`Who was the founder of the Maurya Empire?`,
-options:[
-"A. Ashoka",
-"B. Chandragupta Maurya",
-"C. Bindusara",
-"D. Harsha"
-],
-answer:1,
-exp:`Chandragupta Maurya founded the Maurya Empire around 321 BCE with the guidance of Chanakya.
-
-It became one of the largest empires in ancient India.
-
-Hence, option B is correct.`
+answer:1
 }
-  
-]
+];
 
-let index=0
-let score=0
-let selected=[]
+let current=0;
+let answers=[];
+let timer;
+let timeLeft = 60;
 
-function loadQuestion(){
+/* LOAD QUESTION */
+function load(){
+  clearInterval(timer);
+  timeLeft = 60;
+  startTimer();
 
-let q=quiz[index]
+  const q=quiz[current];
 
-document.getElementById("question").innerHTML=q.q.replace(/\n/g,"<br>")
+  document.getElementById("count").innerText = (current+1)+" / "+quiz.length;
+  document.getElementById("bar").style.width = ((current+1)/quiz.length)*100+"%";
 
-let html=""
+  let html=`
+    <div class="current">
+      <div class="current-icon">📄</div>
+      <div>
+        <div style="color:#22c55e">Current Question</div>
+        <div>${current+1} / ${quiz.length}</div>
+      </div>
+    </div>
 
-q.options.forEach((opt,i)=>{
-let cls="option"
+    <div class="question">${q.q}</div>
+  `;
 
-if(selected[index]!=null){
-if(i===q.answer) cls+=" correct"
-else if(i===selected[index]) cls+=" wrong"
+  q.options.forEach((opt,i)=>{
+    html+=`
+    <div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
+      <div class="left">
+        <div class="badge">${String.fromCharCode(65+i)}</div>
+        <div>${opt}</div>
+      </div>
+      <div class="circle"></div>
+    </div>`;
+  });
+
+  html+=`
+    <div class="tip">💡 Read carefully before selecting</div>
+
+    <div class="buttons">
+      <button class="btn prev" onclick="prev()">Previous</button>
+      <button class="btn next" onclick="next()">Next</button>
+    </div>
+  `;
+
+  document.getElementById("quizBox").innerHTML = html;
+}
+/* TIMER */
+function startTimer(){
+  document.getElementById("time").innerText = timeLeft;
+
+  timer = setInterval(()=>{
+    timeLeft--;
+    document.getElementById("time").innerText = timeLeft;
+
+    if(timeLeft <= 0){
+      clearInterval(timer);
+      next(); // auto move
+    }
+  },1000);
 }
 
-html+=`<div class="${cls}" onclick="selectAnswer(${i})">${opt}</div>`
-})
-
-document.getElementById("options").innerHTML=html
+/* SELECT */
+function select(i){
+  answers[current]=i;
+  load();
 }
 
-function selectAnswer(i){
-if(selected[index]!=null) return
-selected[index]=i
-if(i===quiz[index].answer) score++
-loadQuestion()
+/* NAV */
+function next(){
+  clearInterval(timer);
+
+  if(current < quiz.length - 1){
+    current++;
+    load();
+  } else {
+    showResult();
+  }
 }
 
-function nextQuestion(){
-if(index<quiz.length-1){
-index++
-loadQuestion()
-}else{
-showResult()
-}
+function prev(){
+  clearInterval(timer);
+
+  if(current > 0){
+    current--;
+    load();
+  }
 }
 
-function prevQuestion(){
-if(index>0){
-index--
-loadQuestion()
-}
-}
-
+/* RESULT */
 function showResult(){
+  let score=0;
+  let html=`<div class="result"><h2>🎯 Result</h2>`;
 
-document.getElementById("quiz").style.display="none"
-document.getElementById("result").style.display="block"
+  quiz.forEach((q,i)=>{
+    let correct = q.answer === answers[i];
+    if(correct) score++;
 
-let percent=Math.round((score/quiz.length)*100)
+    html+=`
+    <div class="result-card">
+      <div><b>Q${i+1}:</b> ${q.q}</div>
+      <div>Your Answer: <span class="${correct?'correct':'wrong'}">
+      ${answers[i]!==undefined ? q.options[answers[i]] : "Not Attempted"}
+      </span></div>
+      <div>Correct: <span class="correct">${q.options[q.answer]}</span></div>
+    </div>`;
+  });
 
-let fill=document.getElementById("circleFill")
-let text=document.getElementById("percent")
+  html+=`<h2>Score: ${score}/${quiz.length}</h2></div>`;
 
-let deg=0
-let target=percent*3.6
-
-let interval=setInterval(()=>{
-deg+=5
-fill.style.background=`conic-gradient(#ff6a00 ${deg}deg, transparent 0deg)`
-text.innerText=Math.min(Math.round(deg/3.6),percent)+"%"
-
-if(deg>=target) clearInterval(interval)
-
-},20)
-
-/* MESSAGE */
-
-let msg="Needs Improvement"
-if(percent>=80) msg="🔥 Excellent!"
-else if(percent>=50) msg="👍 Good Job!"
-
-document.getElementById("message").innerText=msg
-
-document.getElementById("scoreText").innerText=`Score: ${score}/${quiz.length}`
-document.getElementById("accuracyText").innerText=`Accuracy: ${percent}%`
-/* REVIEW */
-
-let reviewHTML=""
-
-quiz.forEach((q,i)=>{
-reviewHTML+=`
-<div class="review-item">
-
-<b>Q${i+1}</b><br><br>
-
-<b>Your Answer:</b><br>
-<span style="color:${selected[i]===q.answer ? '#2ecc71' : '#e74c3c'}">
-${selected[i]!=null ? q.options[selected[i]] : "Not Attempted"}
-</span>
-
-<br><br>
-
-<b>Correct Answer:</b><br>
-<span style="color:#2ecc71">
-${q.options[q.answer]}
-</span>
-
-<br><br>
-
-<b>Explanation:</b><br>
-<span style="color:#f1f5f9">
-${q.exp}
-</span>
-
-</div>
-`
-})
-
-document.getElementById("review").innerHTML=reviewHTML
-
+  document.getElementById("app").innerHTML = html;
 }
 
-loadQuestion()
-
+/* INIT */
+load();
 </script>
 
 </body>
