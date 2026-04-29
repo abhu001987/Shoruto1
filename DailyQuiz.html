@@ -26,10 +26,9 @@ color:var(--text);
 }  
   
 .main{
-flex:1;
-padding-bottom:70px;
-overflow-y:auto;   /* ✅ THIS FIXES EVERYTHING */
-} 
+  flex:1;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
   
 /* HEADER */  
 .header{  
