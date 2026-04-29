@@ -1,197 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quiz</title>
 
 <style>
-:root {
-  --bg1:#0f2a2e;
-  --bg2:#123c42;
-  --card:#16393e;
-  --text:#eaf4f4;
-  --sub:#9fb7b9;
-  --green:#22c55e;
-  --orange:#ff7a00;
-  --border:rgba(255,255,255,0.08);
+:root{
+--bg1:#0f2a2e;
+--bg2:#123c42;
+--card:#16393e;
+--text:#eaf4f4;
+--green:#22c55e;
+--orange:#ff7a00;
+--border:rgba(255,255,255,0.08);
 }
 
-body {
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  color:var(--text);
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,var(--bg1),var(--bg2));
+color:var(--text);
 }
 
 /* HEADER */
-.header {
-  display:flex;
-  justify-content:space-between;
-  padding:16px;
+.header{
+display:flex;
+justify-content:space-between;
+padding:16px;
 }
-
-.back {
-  background:#0b1f22;
-  padding:12px;
-  border-radius:14px;
-}
-
-.timer-box {
-  border:1px solid var(--border);
-  padding:8px 14px;
-  border-radius:14px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-  color: var(--green);
+.timer-box{
+border:1px solid var(--border);
+padding:8px 14px;
+border-radius:14px;
+color:var(--green);
 }
 
 /* PROGRESS */
-.progress {
-  height:6px;
-  margin:10px 16px;
-  background:#0b1f22;
-  border-radius:10px;
-  overflow:hidden;
+.progress{
+height:6px;
+margin:10px 16px;
+background:#0b1f22;
+border-radius:10px;
+overflow:hidden;
 }
-.bar {
-  height:100%;
-  width:0%;
-  background:var(--green);
-  transition:0.3s;
+.bar{
+height:100%;
+background:var(--green);
 }
 
 /* CARD */
-.card {
-  margin:16px;
-  padding:18px;
-  border-radius:20px;
-  background:rgba(22,57,62,0.9);
-  border:1px solid var(--border);
-  animation:fade 0.4s;
-}
-
-/* CURRENT */
-.current {
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-bottom:10px;
-}
-.current-icon {
-  background:rgba(34,197,94,0.2);
-  padding:10px;
-  border-radius:12px;
+.card{
+margin:16px;
+padding:18px;
+border-radius:20px;
+background:rgba(22,57,62,0.9);
+border:1px solid var(--border);
 }
 
 /* QUESTION */
-.question {
-  font-size:20px;
-  margin:15px 0;
+.question{
+font-size:20px;
+margin:10px 0;
 }
 
-/* OPTIONS */
-.option {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:14px;
-  background:#1a3e44;
-  cursor:pointer;
-  transition:0.2s;
+/* OPTION */
+.option{
+display:flex;
+justify-content:space-between;
+padding:14px;
+margin-bottom:10px;
+border-radius:14px;
+background:#1a3e44;
+cursor:pointer;
 }
-.option:hover {
-  background:#214b52;
-}
-
-.left {
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.badge {
-  background:#2a5258;
-  padding:8px 12px;
-  border-radius:50%;
-}
-
-.circle {
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  border:2px solid #aaa;
-}
-
-.option.selected {
-  border:2px solid var(--green);
-  background:rgba(34,197,94,0.15);
-}
-.option.selected .circle {
-  background:var(--green);
-  border:none;
-}
-
-/* TIP */
-.tip {
-  margin:14px 0;
-  color:var(--sub);
-  font-size:14px;
+.option.selected{
+border:2px solid var(--green);
+background:rgba(34,197,94,0.15);
 }
 
 /* BUTTONS */
-.buttons {
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+}
+.btn{
+padding:12px 20px;
+border-radius:12px;
+border:none;
+}
+.next{
+background:linear-gradient(135deg,#ff7a00,#ff9a3c);
+color:white;
+}
+.prev{
+background:transparent;
+border:1px solid var(--border);
+color:white;
 }
 
-.btn {
-  padding:14px 20px;
-  border-radius:12px;
-  border:none;
-  font-size:15px;
-  cursor:pointer;
+/* BOTTOM BAR */
+.bottom-bar{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#0b1f22;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 16px;
+border-top:1px solid var(--border);
 }
-
-.prev {
-  background:transparent;
-  border:1px solid var(--border);
-  color:var(--text);
-}
-
-.next {
-  background:linear-gradient(135deg,#ff7a00,#ff9a3c);
-  color:#fff;
+.arrow{
+background:var(--orange);
+padding:10px 14px;
+border-radius:50%;
+color:white;
 }
 
 /* RESULT */
-.result {
-  padding:20px;
+.result{
+padding:20px;
 }
 
-.result-card {
-  background:var(--card);
-  padding:16px;
-  margin-bottom:12px;
-  border-radius:14px;
-  animation:fadeUp 0.4s;
+/* CIRCLE SCORE */
+.circle{
+width:140px;
+height:140px;
+border-radius:50%;
+border:10px solid #1a3e44;
+margin:20px auto;
+position:relative;
+}
+.fill{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border-radius:50%;
+border:10px solid var(--green);
+clip:rect(0px,140px,140px,70px);
+transform:rotate(0deg);
+transition:1s;
+}
+.score-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:22px;
 }
 
-.correct { color:#22c55e; }
-.wrong { color:#ff4d4d; }
-
-@keyframes fade {
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1;}
+/* RESULT CARD */
+.result-card{
+background:var(--card);
+padding:14px;
+margin-bottom:10px;
+border-radius:14px;
 }
-@keyframes fadeUp {
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1;}
-}
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
 </style>
 </head>
 
@@ -200,8 +170,8 @@ body {
 <div id="app">
 
 <div class="header">
-  <div class="back">←</div>
-  <div class="timer-box">⏱ <span id="time">60</span>s | <span id="count"></span></div>
+<div>←</div>
+<div class="timer-box">⏱ <span id="time">60</span>s | <span id="count"></span></div>
 </div>
 
 <div class="progress"><div class="bar" id="bar"></div></div>
@@ -210,167 +180,114 @@ body {
 
 </div>
 
+<div class="bottom-bar">
+<div>📘 Daily Question for UPSC / BPSC</div>
+<div class="arrow">→</div>
+</div>
+
 <script>
-const quiz = [
+const quiz=[
 {
 q:"The Food Price Index is released by which organization?",
-options:[
-"World Bank",
-"International Monetary Fund",
-"World Economic Forum",
-"Food and Agriculture Organization"
-],
+options:["World Bank","IMF","World Economic Forum","FAO"],
 answer:3
 },
 {
-q:"What is the Jal Jeevan Mission?",
-options:[
-"Rural housing scheme",
-"Drinking water supply to rural households",
-"Education reform",
-"Agriculture subsidy"
-],
-answer:1
-},
-{
-q:"What is the Jal Jeevan Mission?",
-options:[
-"Rural housing scheme",
-"Drinking water supply to rural households",
-"Education reform",
-"Agriculture subsidy"
-],
-answer:1
-},
-{
-q:"What is the Jal Jeevan Mission?",
-options:[
-"Rural housing scheme",
-"Drinking water supply to rural households",
-"Education reform",
-"Agriculture subsidy"
-],
-answer:1
+q:"Which Article of Indian Constitution deals with Right to Equality?",
+options:["Article 14","Article 19","Article 21","Article 32"],
+answer:0
 }
 ];
 
-let current=0;
-let answers=[];
-let timer;
-let timeLeft = 60;
+let current=0,answers=[],timer,time=60;
 
-/* LOAD QUESTION */
+/* LOAD */
 function load(){
-  clearInterval(timer);
-  timeLeft = 60;
-  startTimer();
+clearInterval(timer);
+time=60;
+startTimer();
 
-  const q=quiz[current];
+let q=quiz[current];
+document.getElementById("count").innerText=(current+1)+" / "+quiz.length;
+document.getElementById("bar").style.width=((current+1)/quiz.length)*100+"%";
 
-  document.getElementById("count").innerText = (current+1)+" / "+quiz.length;
-  document.getElementById("bar").style.width = ((current+1)/quiz.length)*100+"%";
+let html=`<div class="question">${q.q}</div>`;
 
-  let html=`
-    <div class="current">
-      <div class="current-icon">📄</div>
-      <div>
-        <div style="color:#22c55e">Current Question</div>
-        <div>${current+1} / ${quiz.length}</div>
-      </div>
-    </div>
+q.options.forEach((opt,i)=>{
+html+=`<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
+<span>${String.fromCharCode(65+i)}. ${opt}</span>
+</div>`;
+});
 
-    <div class="question">${q.q}</div>
-  `;
+html+=`
+<div class="buttons">
+<button class="btn prev" onclick="prev()">Previous</button>
+<button class="btn next" onclick="next()">Next</button>
+</div>`;
 
-  q.options.forEach((opt,i)=>{
-    html+=`
-    <div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
-      <div class="left">
-        <div class="badge">${String.fromCharCode(65+i)}</div>
-        <div>${opt}</div>
-      </div>
-      <div class="circle"></div>
-    </div>`;
-  });
-
-  html+=`
-    <div class="tip">💡 Read carefully before selecting</div>
-
-    <div class="buttons">
-      <button class="btn prev" onclick="prev()">Previous</button>
-      <button class="btn next" onclick="next()">Next</button>
-    </div>
-  `;
-
-  document.getElementById("quizBox").innerHTML = html;
+quizBox.innerHTML=html;
 }
+
 /* TIMER */
 function startTimer(){
-  document.getElementById("time").innerText = timeLeft;
-
-  timer = setInterval(()=>{
-    timeLeft--;
-    document.getElementById("time").innerText = timeLeft;
-
-    if(timeLeft <= 0){
-      clearInterval(timer);
-      next(); // auto move
-    }
-  },1000);
+timer=setInterval(()=>{
+time--;
+document.getElementById("time").innerText=time;
+if(time<=0){next();}
+},1000);
 }
 
 /* SELECT */
 function select(i){
-  answers[current]=i;
-  load();
+answers[current]=i;
+load();
 }
 
 /* NAV */
 function next(){
-  clearInterval(timer);
-
-  if(current < quiz.length - 1){
-    current++;
-    load();
-  } else {
-    showResult();
-  }
+clearInterval(timer);
+if(current<quiz.length-1){current++;load();}
+else showResult();
 }
-
 function prev(){
-  clearInterval(timer);
-
-  if(current > 0){
-    current--;
-    load();
-  }
+clearInterval(timer);
+if(current>0){current--;load();}
 }
-
 /* RESULT */
 function showResult(){
-  let score=0;
-  let html=`<div class="result"><h2>🎯 Result</h2>`;
+let score=0;
+let html=`<div class="result"><h2>🎯 Result</h2>`;
 
-  quiz.forEach((q,i)=>{
-    let correct = q.answer === answers[i];
-    if(correct) score++;
+quiz.forEach((q,i)=>{
+if(q.answer===answers[i]) score++;
 
-    html+=`
-    <div class="result-card">
-      <div><b>Q${i+1}:</b> ${q.q}</div>
-      <div>Your Answer: <span class="${correct?'correct':'wrong'}">
-      ${answers[i]!==undefined ? q.options[answers[i]] : "Not Attempted"}
-      </span></div>
-      <div>Correct: <span class="correct">${q.options[q.answer]}</span></div>
-    </div>`;
-  });
+html+=`
+<div class="result-card">
+<div><b>Q${i+1}</b> ${q.q}</div>
+<div>Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
+${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
+</span></div>
+<div>Correct: <span class="correct">${q.options[q.answer]}</span></div>
+</div>`;
+});
 
-  html+=`<h2>Score: ${score}/${quiz.length}</h2></div>`;
+/* CIRCLE */
+let percent=(score/quiz.length)*360;
 
-  document.getElementById("app").innerHTML = html;
+html+=`
+<div class="circle">
+<div class="fill" id="fill"></div>
+<div class="score-text">${score}/${quiz.length}</div>
+</div>
+</div>`;
+
+app.innerHTML=html;
+
+setTimeout(()=>{
+document.getElementById("fill").style.transform="rotate("+percent+"deg)";
+},100);
 }
 
-/* INIT */
 load();
 </script>
 
