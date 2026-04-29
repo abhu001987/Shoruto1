@@ -17,9 +17,19 @@
 
 body{
 margin:0;
+min-height:100vh;
+display:flex;
+flex-direction:column;
 font-family:Poppins,sans-serif;
 background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);
+}
+
+.main{
+flex:1;
+display:flex;
+flex-direction:column;
+padding-bottom:70px;
 }
 
 /* HEADER */
@@ -27,7 +37,6 @@ color:var(--text);
 display:flex;
 justify-content:space-between;
 padding:16px;
-align-items:center;
 }
 .back{
 background:#0b1f22;
@@ -53,15 +62,17 @@ overflow:hidden;
 .bar{
 height:100%;
 background:var(--green);
+transition:0.3s;
 }
 
 /* CARD */
 .card{
-margin:16px;
+margin:10px 16px;
 padding:18px;
 border-radius:20px;
 background:rgba(22,57,62,0.9);
 border:1px solid var(--border);
+animation:fade 0.3s;
 }
 
 /* CURRENT */
@@ -69,7 +80,6 @@ border:1px solid var(--border);
 display:flex;
 gap:12px;
 align-items:center;
-margin-bottom:10px;
 }
 .icon{
 background:rgba(34,197,94,0.2);
@@ -90,7 +100,9 @@ margin-bottom:10px;
 border-radius:14px;
 background:#1a3e44;
 cursor:pointer;
+transition:0.2s;
 }
+.option:hover{background:#214b52;}
 .option.selected{
 border:2px solid var(--green);
 background:rgba(34,197,94,0.15);
@@ -98,7 +110,7 @@ background:rgba(34,197,94,0.15);
 
 /* TIP */
 .tip{
-margin-top:12px;
+margin-top:10px;
 font-size:14px;
 color:var(--sub);
 }
@@ -107,7 +119,7 @@ color:var(--sub);
 .buttons{
 display:flex;
 justify-content:space-between;
-margin-top:15px;
+margin-top:12px;
 }
 .btn{
 padding:12px 20px;
@@ -124,7 +136,7 @@ background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;
 }
 
-/* BOTTOM BAR */
+/* BOTTOM */
 .bottom{
 position:fixed;
 bottom:0;
@@ -136,48 +148,65 @@ border-top:1px solid var(--border);
 }
 
 /* RESULT */
-.result-card{
-background:var(--card);
-padding:14px;
-margin:10px;
-border-radius:14px;
+.result{
+padding:16px;
 }
-.correct{color:#22c55e;}
-.wrong{color:#ff4d4d;}
 
+/* CIRCLE */
 .circle{
 width:140px;
 height:140px;
 border-radius:50%;
-border:10px solid #1a3e44;
 margin:20px auto;
+display:flex;
+align-items:center;
+justify-content:center;
 position:relative;
 }
-.fill{
+
+.circle::after{
+content:"";
 position:absolute;
-width:100%;
-height:100%;
+width:100px;
+height:100px;
+background:#0f2a2e;
 border-radius:50%;
-border:10px solid var(--green);
-clip:rect(0,140px,140px,70px);
-transform:rotate(0deg);
-transition:1s;
 }
+
 .score{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+position:relative;
+z-index:2;
+font-size:22px;
+}
+
+/* RESULT CARD */
+.result-card{
+background:var(--card);
+padding:14px;
+margin-bottom:12px;
+border-radius:14px;
+}
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
+.exp{
+margin-top:8px;
+font-size:14px;
+color:var(--sub);
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1;}
 }
 </style>
 </head>
 
 <body>
 
-<div id="app">
+<div class="main" id="app">
 
 <div class="header">
-<div class="back" onclick="goBack()">←</div>
+<div class="back" onclick="window.location.href='https://shoruto.com'">←</div>
 <div class="timer">⏱ <span id="time">60</span>s | <span id="count"></span></div>
 </div>
 
@@ -187,30 +216,43 @@ transform:translate(-50%,-50%);
 
 </div>
 
-<div class="bottom">
-📘 Daily Question for UPSC / BPSC
-</div>
+<div class="bottom">📘 Daily Question for UPSC / BPSC</div>
 
 <script>
-function goBack(){
-window.location.href="https://shoruto.com";
-}
-
 const quiz=[
 {
-q:"The Food Price Index is released by which organization?",
-options:["World Bank","IMF","World Economic Forum","FAO"],
-answer:3
+q:`Which body is responsible for conducting elections in India?`,
+options:[
+"A. Supreme Court",
+"B. Parliament",
+"C. Election Commission of India",
+"D. President of India"
+],
+answer:2,
+exp:`The Election Commission of India is an independent constitutional body responsible for conducting free and fair elections.
+
+It supervises elections to Parliament, State Legislatures, and offices of President and Vice President.
+
+Hence, option C is correct.`
 },
 {
-q:"Which Article of Indian Constitution deals with Right to Equality?",
-options:["Article 14","Article 19","Article 21","Article 32"],
-answer:0
+q:`Which of the following is a direct tax in India?`,
+options:[
+"A. GST",
+"B. Customs Duty",
+"C. Income Tax",
+"D. Excise Duty"
+],
+answer:2,
+exp:`Income Tax is a direct tax as it is directly paid by individuals and corporations to the government.
+
+Indirect taxes like GST and customs duty are collected through intermediaries.
+
+Hence, option C is correct.`
 }
 ];
 
 let current=0,answers=[],timer,time=60;
-
 /* LOAD */
 function load(){
 clearInterval(timer);
@@ -218,6 +260,7 @@ time=60;
 startTimer();
 
 let q=quiz[current];
+
 count.innerText=(current+1)+" / "+quiz.length;
 bar.style.width=((current+1)/quiz.length)*100+"%";
 
@@ -234,9 +277,7 @@ let html=`
 `;
 
 q.options.forEach((opt,i)=>{
-html+=`<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
-${String.fromCharCode(65+i)}. ${opt}
-</div>`;
+html+=`<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">${opt}</div>`;
 });
 
 html+=`
@@ -255,9 +296,11 @@ quizBox.innerHTML=html;
 function startTimer(){
 timer=setInterval(()=>{
 time--;
-time<0?next():document.getElementById("time").innerText=time;
+document.getElementById("time").innerText=time;
+if(time<=0){next();}
 },1000);
 }
+
 /* SELECT */
 function select(i){
 answers[current]=i;
@@ -267,43 +310,54 @@ load();
 /* NAV */
 function next(){
 clearInterval(timer);
-if(current<quiz.length-1){current++;load();}
-else result();
+if(current<quiz.length-1){
+current++;
+load();
+}else{
+showResult();
+}
 }
 function prev(){
 clearInterval(timer);
-if(current>0){current--;load();}
+if(current>0){
+current--;
+load();
+}
 }
 
 /* RESULT */
-function result(){
-let score=0,html="<h2 style='text-align:center'>Result</h2>";
+function showResult(){
+let score=0;
+let html=`<div class="result"><h2>🎯 Result</h2>`;
 
 quiz.forEach((q,i)=>{
 if(q.answer===answers[i]) score++;
 
 html+=`
 <div class="result-card">
-<b>Q${i+1}</b> ${q.q}<br>
+<b>Q${i+1}:</b> ${q.q}<br>
 Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
 ${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
 </span><br>
 Correct: <span class="correct">${q.options[q.answer]}</span>
+
+<div class="exp">📖 ${q.exp}</div>
 </div>`;
 });
 
-let deg=(score/quiz.length)*360;
+/* CIRCLE FIXED */
+let percent=(score/quiz.length)*360;
 
 html+=`
-<div class="circle">
-<div class="fill" id="fill"></div>
+<div class="circle" id="circle">
 <div class="score">${score}/${quiz.length}</div>
 </div>
-`;
+</div>`;
 
 app.innerHTML=html;
 
-setTimeout(()=>fill.style.transform="rotate("+deg+"deg)",100);
+document.getElementById("circle").style.background =
+`conic-gradient(#22c55e ${percent}deg, #1a3e44 ${percent}deg)`;
 }
 
 load();
