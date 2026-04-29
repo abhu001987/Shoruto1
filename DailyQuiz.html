@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz</title>
 
 <style>
 :root{
@@ -10,6 +9,7 @@
 --bg2:#123c42;
 --card:#16393e;
 --text:#eaf4f4;
+--sub:#9fb7b9;
 --green:#22c55e;
 --orange:#ff7a00;
 --border:rgba(255,255,255,0.08);
@@ -27,8 +27,15 @@ color:var(--text);
 display:flex;
 justify-content:space-between;
 padding:16px;
+align-items:center;
 }
-.timer-box{
+.back{
+background:#0b1f22;
+padding:12px;
+border-radius:14px;
+cursor:pointer;
+}
+.timer{
 border:1px solid var(--border);
 padding:8px 14px;
 border-radius:14px;
@@ -57,16 +64,27 @@ background:rgba(22,57,62,0.9);
 border:1px solid var(--border);
 }
 
+/* CURRENT */
+.current{
+display:flex;
+gap:12px;
+align-items:center;
+margin-bottom:10px;
+}
+.icon{
+background:rgba(34,197,94,0.2);
+padding:10px;
+border-radius:12px;
+}
+
 /* QUESTION */
 .question{
 font-size:20px;
-margin:10px 0;
+margin:15px 0;
 }
 
 /* OPTION */
 .option{
-display:flex;
-justify-content:space-between;
 padding:14px;
 margin-bottom:10px;
 border-radius:14px;
@@ -78,53 +96,55 @@ border:2px solid var(--green);
 background:rgba(34,197,94,0.15);
 }
 
+/* TIP */
+.tip{
+margin-top:12px;
+font-size:14px;
+color:var(--sub);
+}
+
 /* BUTTONS */
 .buttons{
 display:flex;
 justify-content:space-between;
-margin-top:10px;
+margin-top:15px;
 }
 .btn{
 padding:12px 20px;
 border-radius:12px;
 border:none;
 }
-.next{
-background:linear-gradient(135deg,#ff7a00,#ff9a3c);
-color:white;
-}
 .prev{
 background:transparent;
 border:1px solid var(--border);
 color:white;
 }
-
-/* BOTTOM BAR */
-.bottom-bar{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#0b1f22;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 16px;
-border-top:1px solid var(--border);
-}
-.arrow{
-background:var(--orange);
-padding:10px 14px;
-border-radius:50%;
+.next{
+background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;
 }
 
-/* RESULT */
-.result{
-padding:20px;
+/* BOTTOM BAR */
+.bottom{
+position:fixed;
+bottom:0;
+width:100%;
+background:#0b1f22;
+padding:12px;
+text-align:center;
+border-top:1px solid var(--border);
 }
 
-/* CIRCLE SCORE */
+/* RESULT */
+.result-card{
+background:var(--card);
+padding:14px;
+margin:10px;
+border-radius:14px;
+}
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
+
 .circle{
 width:140px;
 height:140px;
@@ -135,33 +155,20 @@ position:relative;
 }
 .fill{
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
 border-radius:50%;
 border:10px solid var(--green);
-clip:rect(0px,140px,140px,70px);
+clip:rect(0,140px,140px,70px);
 transform:rotate(0deg);
 transition:1s;
 }
-.score-text{
+.score{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:22px;
 }
-
-/* RESULT CARD */
-.result-card{
-background:var(--card);
-padding:14px;
-margin-bottom:10px;
-border-radius:14px;
-}
-.correct{color:#22c55e;}
-.wrong{color:#ff4d4d;}
 </style>
 </head>
 
@@ -170,8 +177,8 @@ border-radius:14px;
 <div id="app">
 
 <div class="header">
-<div>←</div>
-<div class="timer-box">⏱ <span id="time">60</span>s | <span id="count"></span></div>
+<div class="back" onclick="goBack()">←</div>
+<div class="timer">⏱ <span id="time">60</span>s | <span id="count"></span></div>
 </div>
 
 <div class="progress"><div class="bar" id="bar"></div></div>
@@ -180,12 +187,15 @@ border-radius:14px;
 
 </div>
 
-<div class="bottom-bar">
-<div>📘 Daily Question for UPSC / BPSC</div>
-<div class="arrow">→</div>
+<div class="bottom">
+📘 Daily Question for UPSC / BPSC
 </div>
 
 <script>
+function goBack(){
+window.location.href="https://shoruto.com";
+}
+
 const quiz=[
 {
 q:"The Food Price Index is released by which organization?",
@@ -208,22 +218,35 @@ time=60;
 startTimer();
 
 let q=quiz[current];
-document.getElementById("count").innerText=(current+1)+" / "+quiz.length;
-document.getElementById("bar").style.width=((current+1)/quiz.length)*100+"%";
+count.innerText=(current+1)+" / "+quiz.length;
+bar.style.width=((current+1)/quiz.length)*100+"%";
 
-let html=`<div class="question">${q.q}</div>`;
+let html=`
+<div class="current">
+<div class="icon">📄</div>
+<div>
+<div style="color:#22c55e">Current Question</div>
+<div>${current+1} / ${quiz.length}</div>
+</div>
+</div>
+
+<div class="question">${q.q}</div>
+`;
 
 q.options.forEach((opt,i)=>{
 html+=`<div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
-<span>${String.fromCharCode(65+i)}. ${opt}</span>
+${String.fromCharCode(65+i)}. ${opt}
 </div>`;
 });
 
 html+=`
+<div class="tip">💡 Read carefully before selecting</div>
+
 <div class="buttons">
 <button class="btn prev" onclick="prev()">Previous</button>
 <button class="btn next" onclick="next()">Next</button>
-</div>`;
+</div>
+`;
 
 quizBox.innerHTML=html;
 }
@@ -232,11 +255,9 @@ quizBox.innerHTML=html;
 function startTimer(){
 timer=setInterval(()=>{
 time--;
-document.getElementById("time").innerText=time;
-if(time<=0){next();}
+time<0?next():document.getElementById("time").innerText=time;
 },1000);
 }
-
 /* SELECT */
 function select(i){
 answers[current]=i;
@@ -247,45 +268,42 @@ load();
 function next(){
 clearInterval(timer);
 if(current<quiz.length-1){current++;load();}
-else showResult();
+else result();
 }
 function prev(){
 clearInterval(timer);
 if(current>0){current--;load();}
 }
+
 /* RESULT */
-function showResult(){
-let score=0;
-let html=`<div class="result"><h2>🎯 Result</h2>`;
+function result(){
+let score=0,html="<h2 style='text-align:center'>Result</h2>";
 
 quiz.forEach((q,i)=>{
 if(q.answer===answers[i]) score++;
 
 html+=`
 <div class="result-card">
-<div><b>Q${i+1}</b> ${q.q}</div>
-<div>Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
+<b>Q${i+1}</b> ${q.q}<br>
+Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
 ${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
-</span></div>
-<div>Correct: <span class="correct">${q.options[q.answer]}</span></div>
+</span><br>
+Correct: <span class="correct">${q.options[q.answer]}</span>
 </div>`;
 });
 
-/* CIRCLE */
-let percent=(score/quiz.length)*360;
+let deg=(score/quiz.length)*360;
 
 html+=`
 <div class="circle">
 <div class="fill" id="fill"></div>
-<div class="score-text">${score}/${quiz.length}</div>
+<div class="score">${score}/${quiz.length}</div>
 </div>
-</div>`;
+`;
 
 app.innerHTML=html;
 
-setTimeout(()=>{
-document.getElementById("fill").style.transform="rotate("+percent+"deg)";
-},100);
+setTimeout(()=>fill.style.transform="rotate("+deg+"deg)",100);
 }
 
 load();
