@@ -230,35 +230,32 @@ cursor: pointer;
 /* ========================= */
 
 .result{
-padding:15px;
-text-align:center;
+padding:16px;
+animation:fadeIn 0.5s ease;
 }
 
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* GLOW CIRCLE */
 .circle-wrap{
 position:relative;
-width:160px;
-height:160px;
-margin:10px auto;
-}
-
-.circle-svg{
-transform:rotate(-90deg);
-}
-
-.circle-bg{
-stroke:rgba(255,255,255,0.08);
-stroke-width:12;
-fill:none;
+width:170px;
+height:170px;
+margin:20px auto;
 }
 
 .circle-progress{
-stroke:#ff4d4d;
+stroke:url(#grad);
 stroke-width:12;
 fill:none;
 stroke-linecap:round;
 stroke-dasharray:440;
 stroke-dashoffset:440;
-transition:all 1s ease;
+filter:drop-shadow(0 0 10px rgba(255,122,0,0.6));
+transition:1.2s ease;
 }
 
 .score-text{
@@ -266,72 +263,105 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:28px;
+font-size:30px;
 font-weight:bold;
 }
 
+/* STATUS */
 .status{
+text-align:center;
+font-size:18px;
+font-weight:700;
 margin-top:10px;
-font-weight:600;
 }
 
 .subtext{
-font-size:13px;
+text-align:center;
 color:#9fb7b9;
+font-size:13px;
+margin-top:4px;
 }
 
+/* GLASS CARDS */
 .grid{
 display:flex;
-gap:10px;
-margin-top:15px;
+gap:12px;
+margin-top:20px;
 }
 
 .box{
 flex:1;
-padding:14px;
-border-radius:14px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
+padding:16px;
+border-radius:18px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+text-align:center;
 }
 
+/* BREAKDOWN */
 .breakdown{
-margin-top:15px;
-padding:12px;
-border-radius:14px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-text-align:left;
+margin-top:18px;
+padding:16px;
+border-radius:18px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
+.break-row{
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+font-weight:500;
+}
+
+/* ANALYSIS */
 .q-card{
-background:rgba(255,255,255,0.05);
-padding:12px;
-margin-top:10px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,0.08);
-text-align:left;
+background:rgba(255,255,255,0.06);
+padding:14px;
+margin-top:14px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.correct{color:#22c55e;}
-.wrong{color:#ff4d4d;}
+.correct{
+color:#22c55e;
+}
 
+.wrong{
+color:#ff4d4d;
+}
+
+/* BUTTONS */
 .result-buttons{
 display:flex;
 gap:10px;
-margin-top:15px;
+margin-top:20px;
 }
 
 .result-buttons button{
 flex:1;
-padding:12px;
+padding:14px;
+border-radius:14px;
 border:none;
-border-radius:12px;
 font-weight:600;
 }
 
-.retry{background:#203a43;color:white;}
-.home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+.retry{
+background:rgba(255,255,255,0.08);
+color:white;
+}
 
+.home{
+background:linear-gradient(135deg,#ff7a00,#ff9a3c);
+color:white;
+box-shadow:0 6px 20px rgba(255,122,0,0.4);
+}
 </style>
 </head>
 
@@ -539,21 +569,36 @@ function showResult(){
 
 let percent=Math.round((totalScore/maxScore)*100);
 
-let status="Needs Improvement";
+let status="Needs Improvement 😞";
 let color="#ff4d4d";
 
-if(percent>=70){status="Excellent Work 🔥";color="#22c55e";}
-else if(percent>=40){status="Good Try 👍";color="#facc15";}
+if(percent>=70){
+status="Excellent Work 🔥";
+color="#22c55e";
+}else if(percent>=40){
+status="Good Try 👍";
+color="#facc15";
+}
 
 let correct=answersLog.filter(a=>a.score>0).length;
 let wrong=answersLog.filter(a=>a.score===0).length;
+let skipped=answersLog.filter(a=>!a.ans).length;
 
 let html=`<div class="result">
+
 <div class="circle-wrap">
-<svg class="circle-svg" width="160" height="160">
-<circle class="circle-bg" cx="80" cy="80" r="70"></circle>
-<circle class="circle-progress" id="progressCircle" cx="80" cy="80" r="70"></circle>
+<svg width="170" height="170">
+<defs>
+<linearGradient id="grad">
+<stop offset="0%" stop-color="#ff7a00"/>
+<stop offset="100%" stop-color="#ff3c3c"/>
+</linearGradient>
+</defs>
+
+<circle cx="85" cy="85" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
+<circle id="progressCircle" cx="85" cy="85" r="70" class="circle-progress"/>
 </svg>
+
 <div class="score-text">${percent}%</div>
 </div>
 
@@ -566,19 +611,26 @@ let html=`<div class="result">
 </div>
 
 <div class="breakdown">
-<div>✅ Correct: ${correct}</div>
-<div>❌ Wrong: ${wrong}</div>
+<div class="break-row"><span>✅ Correct</span><span>${correct}</span></div>
+<div class="break-row"><span>❌ Wrong</span><span>${wrong}</span></div>
+<div class="break-row"><span>⏭ Skipped</span><span>${skipped}</span></div>
 </div>
 
-<h3>Analysis</h3>
+<h3 style="margin-top:20px;">Analysis</h3>
 `;
 
 answersLog.forEach(a=>{
 html+=`
 <div class="q-card">
 <b>Q:</b> ${a.q}<br><br>
-<div class="wrong"><b>Your Answer:</b><br>${a.ans || "No answer"}</div><br>
-<div class="correct"><b>Correct Answer:</b><br>${a.model || "N/A"}</div>
+
+<div class="wrong">
+<b>Your Answer:</b><br>${a.ans || "No answer"}
+</div><br>
+
+<div class="correct">
+<b>Correct Answer:</b><br>${a.model || "N/A"}
+</div>
 </div>`;
 });
 
@@ -592,6 +644,7 @@ html+=`
 
 document.body.innerHTML=html;
 
+/* animate circle */
 setTimeout(()=>{
 let circle=document.getElementById("progressCircle");
 let offset=440-(440*percent/100);
