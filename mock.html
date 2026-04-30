@@ -229,22 +229,23 @@ cursor: pointer;
 /* 🔥 RESULT UI (UPGRADED) */
 /* ========================= */
 
-.result{
-padding:16px;
-animation:fadeIn 0.5s ease;
+.result-header{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+padding:12px;
+border-radius:14px;
+text-align:center;
+font-weight:600;
+margin-bottom:10px;
+backdrop-filter:blur(10px);
 }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* GLOW CIRCLE */
+/* CIRCLE */
 .circle-wrap{
 position:relative;
 width:170px;
 height:170px;
-margin:20px auto;
+margin:15px auto;
 }
 
 .circle-progress{
@@ -254,7 +255,7 @@ fill:none;
 stroke-linecap:round;
 stroke-dasharray:440;
 stroke-dashoffset:440;
-filter:drop-shadow(0 0 10px rgba(255,122,0,0.6));
+filter:drop-shadow(0 0 12px rgba(255,120,0,0.6));
 transition:1.2s ease;
 }
 
@@ -263,7 +264,7 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:30px;
+font-size:28px;
 font-weight:bold;
 }
 
@@ -277,90 +278,65 @@ margin-top:10px;
 
 .subtext{
 text-align:center;
-color:#9fb7b9;
 font-size:13px;
-margin-top:4px;
+color:#9fb7b9;
 }
 
-/* GLASS CARDS */
+/* CARDS */
 .grid{
 display:flex;
-gap:12px;
-margin-top:20px;
+gap:10px;
+margin-top:15px;
 }
 
 .box{
 flex:1;
-padding:16px;
-border-radius:18px;
+padding:14px;
+border-radius:16px;
 background:rgba(255,255,255,0.06);
-backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,0.1);
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+backdrop-filter:blur(10px);
 text-align:center;
-}
-
-/* BREAKDOWN */
-.breakdown{
-margin-top:18px;
-padding:16px;
-border-radius:18px;
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.1);
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
-}
-
-.break-row{
-display:flex;
-justify-content:space-between;
-margin:8px 0;
-font-weight:500;
 }
 
 /* ANALYSIS */
 .q-card{
-background:rgba(255,255,255,0.06);
+background:rgba(255,255,255,0.05);
 padding:14px;
-margin-top:14px;
-border-radius:16px;
-border:1px solid rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
+margin-top:12px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
 }
 
-.correct{
-color:#22c55e;
+.inner-box{
+margin-top:8px;
+padding:10px;
+border-radius:12px;
+background:rgba(0,0,0,0.25);
 }
 
-.wrong{
-color:#ff4d4d;
-}
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
 
 /* BUTTONS */
 .result-buttons{
 display:flex;
 gap:10px;
-margin-top:20px;
+margin-top:15px;
 }
 
 .result-buttons button{
 flex:1;
-padding:14px;
-border-radius:14px;
+padding:12px;
+border-radius:12px;
 border:none;
 font-weight:600;
 }
 
-.retry{
-background:rgba(255,255,255,0.08);
-color:white;
-}
-
+.retry{background:#203a43;color:white;}
 .home{
 background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;
-box-shadow:0 6px 20px rgba(255,122,0,0.4);
 }
 </style>
 </head>
@@ -580,11 +556,12 @@ status="Good Try 👍";
 color="#facc15";
 }
 
-let correct=answersLog.filter(a=>a.score>0).length;
-let wrong=answersLog.filter(a=>a.score===0).length;
-let skipped=answersLog.filter(a=>!a.ans).length;
+let attempted = answersLog.length;
+let skipped = answersLog.filter(a=>!a.ans).length;
 
 let html=`<div class="result">
+
+<div class="result-header">📊 Result Dashboard</div>
 
 <div class="circle-wrap">
 <svg width="170" height="170">
@@ -610,27 +587,29 @@ let html=`<div class="result">
 <div class="box">🎯<br>${percent}%<br>Accuracy</div>
 </div>
 
-<div class="breakdown">
-<div class="break-row"><span>✅ Correct</span><span>${correct}</span></div>
-<div class="break-row"><span>❌ Wrong</span><span>${wrong}</span></div>
-<div class="break-row"><span>⏭ Skipped</span><span>${skipped}</span></div>
+<div class="grid">
+<div class="box">📄<br>${attempted}<br>Attempted</div>
+<div class="box">⏭<br>${skipped}<br>Skipped</div>
 </div>
 
-<h3 style="margin-top:20px;">Analysis</h3>
+<h3 style="margin-top:15px;">Analysis</h3>
 `;
 
 answersLog.forEach(a=>{
 html+=`
 <div class="q-card">
-<b>Q:</b> ${a.q}<br><br>
+<b>Q:</b> ${a.q}
 
-<div class="wrong">
-<b>Your Answer:</b><br>${a.ans || "No answer"}
-</div><br>
-
-<div class="correct">
-<b>Correct Answer:</b><br>${a.model || "N/A"}
+<div class="inner-box wrong">
+<b>Your Answer:</b><br>
+${a.ans || "No answer"}
 </div>
+
+<div class="inner-box correct">
+<b>Correct Answer:</b><br>
+${a.model || "N/A"}
+</div>
+
 </div>`;
 });
 
@@ -644,7 +623,7 @@ html+=`
 
 document.body.innerHTML=html;
 
-/* animate circle */
+/* ANIMATION */
 setTimeout(()=>{
 let circle=document.getElementById("progressCircle");
 let offset=440-(440*percent/100);
