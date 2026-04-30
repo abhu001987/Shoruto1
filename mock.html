@@ -556,8 +556,8 @@ status="Good Try 👍";
 color="#facc15";
 }
 
-let attempted = answersLog.length;
-let skipped = answersLog.filter(a=>!a.ans).length;
+let attempted = answersLog.filter(a => a.ans && a.ans.trim() !== "").length;
+let skipped = answersLog.filter(a => !a.ans || a.ans.trim() === "").length;
 
 let html=`<div class="result">
 
