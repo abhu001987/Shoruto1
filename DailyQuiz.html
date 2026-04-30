@@ -2,17 +2,6 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shoruto – Daily Quiz & Mock Practice for UPSC</title>
-
-<meta name="description" content="Attempt daily quizzes and mock tests for UPSC preparation on Shoruto. Improve accuracy, track performance, and learn smarter every day.">
-
-<link rel="canonical" href="https://www.shoruto.com/DailyQuiz">
-
-<link rel="icon" href="/icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="/icon-192.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
 
 <style>
 *{box-sizing:border-box;}
@@ -33,17 +22,19 @@ margin:0;
 font-family:Poppins,sans-serif;
 background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);
+display:flex;
+justify-content:center;
 }
 
-/* MAIN */
+/* 🔥 FIXED DESKTOP CENTER */
 .main{
+width:100%;
 max-width:480px;
-margin:auto;
-padding:14px;
-padding-bottom:90px;
+padding:16px;
+padding-bottom:100px;
 }
 
-/* 🔥 GLASS HEADER (LIKE MOCK) */
+/* HEADER */
 .header{
 display:flex;
 justify-content:space-between;
@@ -61,8 +52,10 @@ cursor:pointer;
 }
 
 .timer{
-color:var(--orange);
-font-weight:600;
+border:1px solid var(--border);
+padding:8px 12px;
+border-radius:14px;
+color:var(--green);
 }
 
 /* PROGRESS */
@@ -73,7 +66,10 @@ background:#0b1f22;
 border-radius:10px;
 overflow:hidden;
 }
-.bar{height:100%;background:var(--green);}
+.bar{
+height:100%;
+background:var(--green);
+}
 
 /* CARD */
 .card{
@@ -81,23 +77,44 @@ background:var(--card);
 padding:16px;
 border-radius:16px;
 border:1px solid var(--border);
-backdrop-filter:blur(10px);
+}
+/* CURRENT */
+.current{
+display:flex;
+gap:10px;
+align-items:center;
+margin-bottom:10px;
 }
 
-.question{font-size:18px;font-weight:600;}
+.icon{
+background:rgba(34,197,94,0.2);
+padding:10px;
+border-radius:10px;
+}
 
+/* QUESTION */
+.question{
+font-size:18px;
+margin:10px 0;
+}
+
+/* OPTIONS */
 .option{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:14px;
-margin-top:10px;
+margin-bottom:10px;
 border-radius:14px;
 background:#1a3e44;
 cursor:pointer;
 }
 
-.left{display:flex;gap:10px;align-items:center;}
+.left{
+display:flex;
+gap:10px;
+align-items:center;
+}
 
 .badge{
 background:#2a5258;
@@ -106,7 +123,9 @@ border-radius:50%;
 }
 
 .circle{
-width:18px;height:18px;border-radius:50%;
+width:18px;
+height:18px;
+border-radius:50%;
 border:2px solid #aaa;
 }
 
@@ -118,31 +137,41 @@ background:rgba(34,197,94,0.15);
 background:var(--green);
 border:none;
 }
+
 /* TIP */
 .tip{
-margin-top:12px;
-background:rgba(34,197,94,0.1);
-padding:12px;
-border-radius:12px;
-color:var(--green);
-font-size:13px;
+margin-top:10px;
+font-size:14px;
+color:var(--sub);
 }
 
 /* BUTTONS */
-.buttons{display:flex;gap:10px;margin-top:14px;}
-.btn{
-flex:1;
-padding:14px;
-border:none;
-border-radius:14px;
-font-weight:600;
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:12px;
 }
-.prev{background:rgba(255,255,255,0.05);color:white;}
-.next{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
 
-/* 🔥 RESULT DASHBOARD (UNCHANGED PREMIUM) */
+.btn{
+padding:12px 20px;
+border-radius:12px;
+border:none;
+}
+
+.prev{
+background:transparent;
+border:1px solid var(--border);
+color:white;
+}
+
+.next{
+background:linear-gradient(135deg,#ff7a00,#ff9a3c);
+color:white;
+}
+
+/* RESULT */
 .result-header{
-background:var(--card);
+background:rgba(255,255,255,0.06);
 padding:12px;
 border-radius:14px;
 text-align:center;
@@ -151,8 +180,11 @@ margin-bottom:10px;
 
 .circle-wrap{
 position:relative;
-width:170px;height:170px;margin:15px auto;
+width:170px;
+height:170px;
+margin:15px auto;
 }
+
 .circle-progress{
 stroke:url(#grad);
 stroke-width:12;
@@ -160,51 +192,66 @@ fill:none;
 stroke-linecap:round;
 stroke-dasharray:440;
 stroke-dashoffset:440;
-transition:1.2s ease;
-}
-.score-text{
-position:absolute;
-top:50%;left:50%;
-transform:translate(-50%,-50%);
-font-size:28px;
+transition:1.2s;
 }
 
-.grid{display:flex;gap:10px;margin-top:15px;}
+.score-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:26px;
+font-weight:bold;
+}
+
+.status{text-align:center;margin-top:10px;font-weight:600;}
+.subtext{text-align:center;color:var(--sub);}
+
+.grid{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
 .box{
-flex:1;padding:14px;border-radius:14px;
-background:var(--card);text-align:center;
+flex:1;
+padding:14px;
+border-radius:14px;
+background:rgba(255,255,255,0.06);
+text-align:center;
 }
 
 .q-card{
-background:var(--card);
-padding:14px;margin-top:12px;border-radius:14px;
+background:rgba(255,255,255,0.05);
+padding:14px;
+margin-top:12px;
+border-radius:14px;
 }
+
 .inner{
 margin-top:8px;
 padding:10px;
 background:rgba(0,0,0,0.25);
 border-radius:10px;
 }
+
 .correct{color:#22c55e;}
 .wrong{color:#ff4d4d;}
 
-.result-buttons{display:flex;gap:10px;margin-top:15px;}
+.result-buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
 .result-buttons button{
-flex:1;padding:12px;border-radius:12px;border:none;
+flex:1;
+padding:12px;
+border-radius:12px;
+border:none;
 }
 .retry{background:#203a43;color:white;}
 .home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
 
-/* 🔥 BOTTOM NAV */
-.bottom-nav{
-position:fixed;bottom:0;width:100%;
-display:flex;justify-content:space-around;
-background:#0b1f22;padding:10px 0;
-border-top:1px solid var(--border);
-}
-.bottom-nav div{text-align:center;font-size:14px;color:#9fb7b9;}
-.bottom-nav span{font-size:12px;}
-.bottom-nav div:first-child{color:var(--green);}
 </style>
 </head>
 
@@ -212,13 +259,8 @@ border-top:1px solid var(--border);
 
 <div class="main" id="app"></div>
 
-<div class="bottom-nav">
-<div>🧠<br><span>Assess</span></div>
-<div>✍️<br><span>Express</span></div>
-<div>🛡️<br><span>Evaluation</span></div>
-</div>
-
 <script>
+
 const quiz=[
 {
 q:"The Food Price Index is released by which organization?",
@@ -226,11 +268,19 @@ options:["World Bank","IMF","World Economic Forum","FAO"],
 answer:3,
 tip:"Focus on international organizations related to food and agriculture.",
 exp:"FAO releases the Food Price Index."
+},
+{
+q:"Which tax is direct tax?",
+options:["GST","Customs","Income Tax","Excise"],
+answer:2,
+tip:"Direct tax = paid directly by people.",
+exp:"Income tax is direct tax."
 }
 ];
 
 let current=0,answers=[],timer,time=60;
 
+/* LOAD */
 function load(){
 clearInterval(timer);
 time=60;
@@ -238,10 +288,10 @@ startTimer();
 
 let q=quiz[current];
 
-let html=`
+app.innerHTML=`
 <div class="header">
 <div class="back" onclick="location.reload()">Back</div>
-<div class="timer">⏱ ${time}s | ${current+1}/${quiz.length}</div>
+<div class="timer">⏱ <span id="time">${time}</span>s | ${current+1}/${quiz.length}</div>
 </div>
 
 <div class="progress">
@@ -249,44 +299,55 @@ let html=`
 </div>
 
 <div class="card">
-<div class="question">${q.q}</div>
-`;
 
-q.options.forEach((opt,i)=>{
-html+=`
+<div class="current">
+<div class="icon">📄</div>
+<div>
+<div style="color:#22c55e">Current Question</div>
+<div>${current+1} / ${quiz.length}</div>
+</div>
+</div>
+
+<div class="question">${q.q}</div>
+
+${q.options.map((opt,i)=>`
 <div class="option ${answers[current]==i?'selected':''}" onclick="select(${i})">
 <div class="left">
 <div class="badge">${String.fromCharCode(65+i)}</div>
 <div>${opt}</div>
 </div>
 <div class="circle"></div>
-</div>`;
-});
+</div>`).join("")}
 
-html+=`
-<div class="tip">✨ ${q.tip}</div>
+<div class="tip">💡 ${q.tip}</div>
 
 <div class="buttons">
 <button class="btn prev" onclick="prev()">Previous</button>
 <button class="btn next" onclick="next()">Next</button>
 </div>
+
 </div>
 `;
-
-app.innerHTML=html;
 }
+/* TIMER FIXED */
 function startTimer(){
 timer=setInterval(()=>{
 time--;
-if(time<=0) next();
+document.getElementById("time").innerText=time;
+
+if(time<=0){
+next();
+}
 },1000);
 }
 
+/* SELECT */
 function select(i){
 answers[current]=i;
 load();
 }
 
+/* NAV */
 function next(){
 clearInterval(timer);
 if(current<quiz.length-1){
@@ -305,15 +366,20 @@ load();
 }
 }
 
-/* 🔥 RESULT (UNCHANGED PREMIUM) */
+/* RESULT (UNCHANGED STYLE) */
 function showResult(){
+
+let attempted=answers.filter(a=>a!==undefined).length;
+let skipped=quiz.length-attempted;
+
 let score=0;
 quiz.forEach((q,i)=>{
 if(q.answer===answers[i]) score++;
 });
+
 let percent=Math.round((score/quiz.length)*100);
 
-let html=`<div class="result">
+app.innerHTML=`
 <div class="result-header">📊 Result Dashboard</div>
 
 <div class="circle-wrap">
@@ -325,45 +391,55 @@ let html=`<div class="result">
 </linearGradient>
 </defs>
 <circle cx="85" cy="85" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
-<circle id="progressCircle" cx="85" cy="85" r="70" class="circle-progress"/>
+<circle id="circle" cx="85" cy="85" r="70" class="circle-progress"/>
 </svg>
 <div class="score-text">${percent}%</div>
 </div>
 
+<div class="status">Score: ${score}/${quiz.length}</div>
+<div class="subtext">Keep improving 🚀</div>
+
 <div class="grid">
-<div class="box">${score}<br>Points</div>
-<div class="box">${percent}%<br>Accuracy</div>
+<div class="box">⭐<br>${score}<br>Points</div>
+<div class="box">🎯<br>${percent}%<br>Accuracy</div>
+</div>
+
+<div class="grid">
+<div class="box">📄<br>${attempted}<br>Attempted</div>
+<div class="box">⏭<br>${skipped}<br>Skipped</div>
 </div>
 
 <h3>Analysis</h3>
-`;
 
-quiz.forEach((q,i)=>{
-html+=`
+${quiz.map((q,i)=>`
 <div class="q-card">
 <b>Q${i+1}:</b> ${q.q}
-<div class="inner wrong">Your: ${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}</div>
-<div class="inner correct">Correct: ${q.options[q.answer]}</div>
-</div>`;
-});
 
-html+=`
+<div class="inner wrong">
+<b>Your:</b><br>${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
+</div>
+
+<div class="inner correct">
+<b>Correct:</b><br>${q.options[q.answer]}
+</div>
+</div>
+`).join("")}
+
 <div class="result-buttons">
 <button class="retry" onclick="location.reload()">Retry</button>
-<button class="home" onclick="location.href='https://shoruto.com'">Home</button>
+<button class="home" onclick="window.location.href='https://shoruto.com'">Home</button>
 </div>
-</div>`;
-
-app.innerHTML=html;
+`;
 
 setTimeout(()=>{
-let circle=document.getElementById("progressCircle");
+let circle=document.getElementById("circle");
 let offset=440-(440*percent/100);
 circle.style.strokeDashoffset=offset;
 },100);
 }
 
 load();
+
 </script>
 
 </body>
