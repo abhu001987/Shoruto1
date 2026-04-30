@@ -12,9 +12,14 @@
 <link rel="apple-touch-icon" href="/icon-192.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
 <style>
 
+/* GLOBAL FIX */
+*{
+box-sizing:border-box;
+}
+
+/* BODY */
 body{
 margin:0;
 font-family:Arial;
@@ -23,6 +28,7 @@ color:#f1f5f9;
 min-height:100vh;
 display:flex;
 flex-direction:column;
+overflow-x:hidden;
 }
 
 /* APP */
@@ -35,7 +41,7 @@ display:flex;
 flex-direction:column;
 gap:14px;
 flex:1;
-padding-bottom:80px; /* prevent bottom cut */
+padding-bottom:80px;
 }
 
 /* TOP BAR */
@@ -114,30 +120,30 @@ background:rgba(255,255,255,0.08);
 margin-top:10px;
 }
 
+/* TEXTAREA FIX */
 textarea{
 width:100%;
+max-width:100%;
 height:180px;
 max-height:220px;
 border-radius:16px;
 border:1px solid rgba(255,255,255,0.08);
 padding:14px;
 resize:none;
-box-sizing:border-box;
 background:#0b1f22;
 color:#f1f5f9;
 font-size:14px;
 }
 
-/* BUTTONS */
+/* BUTTONS FIX */
 .buttons{
 display:flex;
-justify-content:space-between;
-width:100%;
+gap:10px;
 margin-top:12px;
 }
 
 .buttons button{
-width:48%;
+flex:1;
 }
 
 /* START BUTTON */
@@ -191,54 +197,54 @@ color:#9fb7b9;
 font-size:12px;
 }
 
-/* POPUP */
+/* POPUP FIX */
 .popup{
-position: fixed;
-inset: 0;
-background: rgba(0,0,0,0.6);
-backdrop-filter: blur(6px);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 999;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(6px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
 }
 
 .popup-box{
 background:#203a43;
 color:#f1f5f9;
-padding: 20px;
-border-radius: 18px;
-width: 85%;
-max-width: 320px;
-text-align: center;
-box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+padding:20px;
+border-radius:18px;
+width:90%;
+max-width:320px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .popup-box h3{
-margin-bottom: 15px;
+margin-bottom:15px;
 }
 
 .inst-item{
-font-size: 14px;
-margin: 8px 0;
-color: #cbd5f5;
+font-size:14px;
+margin:8px 0;
+color:#cbd5f5;
 }
 
 .inst-item.warn{
-color: #ff4d4d;
-font-weight: 500;
+color:#ff4d4d;
+font-weight:500;
 }
 
 .start-btn{
-margin-top: 15px;
-width: 100%;
-padding: 12px;
-border: none;
-border-radius: 12px;
-background: linear-gradient(135deg, #22C55E, #16A34A);
-color: white;
-font-weight: 600;
-cursor: pointer;
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#22C55E,#16A34A);
+color:white;
+font-weight:600;
+cursor:pointer;
 }
 /* ========================= */
 /* 🔥 RESULT UI */
@@ -353,36 +359,37 @@ color:white;
 /* 📱 RESPONSIVE */
 /* ========================= */
 
-@media (min-width: 768px){
+@media (min-width:768px){
 
-  .app{
-    max-width:1000px;
-  }
+.app{
+max-width:1000px;
+}
 
-  .question-box{
-    padding:20px;
-  }
+.question-box{
+padding:20px;
+}
 
-  textarea{
-    height:220px;
-    font-size:15px;
-  }
+textarea{
+height:220px;
+font-size:15px;
+}
 
-  .buttons{
-    gap:20px;
-  }
+.buttons{
+gap:20px;
+}
 
 }
 
-@media (min-width: 1024px){
+@media (min-width:1024px){
 
-  .app{
-    max-width:1200px;
-  }
+.app{
+max-width:1200px;
+}
 
 }
 
-</style>
+</style> 
+
 </head>
 
 <body>
