@@ -26,12 +26,13 @@ display:flex;
 justify-content:center;
 }
 
-/* 🔥 FIXED DESKTOP CENTER */
+/* MAIN FIX */
 .main{
 width:100%;
 max-width:480px;
 padding:16px;
-padding-bottom:100px;
+padding-bottom:90px;
+margin:auto;
 }
 
 /* HEADER */
@@ -78,6 +79,7 @@ padding:16px;
 border-radius:16px;
 border:1px solid var(--border);
 }
+
 /* CURRENT */
 .current{
 display:flex;
@@ -97,7 +99,6 @@ border-radius:10px;
 font-size:18px;
 margin:10px 0;
 }
-
 /* OPTIONS */
 .option{
 display:flex;
@@ -251,13 +252,39 @@ border:none;
 }
 .retry{background:#203a43;color:white;}
 .home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+/* BOTTOM BAR */
+.bottom-icons{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:#0b1f22;
+padding:10px 0;
+border-top:1px solid rgba(255,255,255,0.08);
+}
 
+.bottom-icons div{
+text-align:center;
+font-size:14px;
+color:#9fb7b9;
+}
+.bottom-icons span{
+font-size:12px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="main" id="app"></div>
+
+<div id="bottomBar" class="bottom-icons">
+<div>🧠<br><span>Assess</span></div>
+<div>✍️<br><span>Express</span></div>
+<div>🛡<br><span>Evaluation</span></div>
+</div>
 
 <script>
 
@@ -270,11 +297,11 @@ tip:"Focus on international organizations related to food and agriculture.",
 exp:"FAO releases the Food Price Index."
 },
 {
-q:"Which tax is direct tax?",
-options:["GST","Customs","Income Tax","Excise"],
+q:"Which of the following is a direct tax?",
+options:["GST","Customs Duty","Income Tax","Excise"],
 answer:2,
-tip:"Direct tax = paid directly by people.",
-exp:"Income tax is direct tax."
+tip:"Direct tax is paid directly by individuals.",
+exp:"Income tax is a direct tax."
 }
 ];
 
@@ -282,6 +309,8 @@ let current=0,answers=[],timer,time=60;
 
 /* LOAD */
 function load(){
+document.getElementById("bottomBar").style.display="flex";
+
 clearInterval(timer);
 time=60;
 startTimer();
@@ -329,45 +358,35 @@ ${q.options.map((opt,i)=>`
 </div>
 `;
 }
-/* TIMER FIXED */
+/* TIMER */
 function startTimer(){
 timer=setInterval(()=>{
 time--;
 document.getElementById("time").innerText=time;
-
-if(time<=0){
-next();
-}
+if(time<=0) next();
 },1000);
 }
 
-/* SELECT */
 function select(i){
 answers[current]=i;
 load();
 }
 
-/* NAV */
 function next(){
 clearInterval(timer);
-if(current<quiz.length-1){
-current++;
-load();
-}else{
-showResult();
-}
+if(current<quiz.length-1){current++;load();}
+else showResult();
 }
 
 function prev(){
 clearInterval(timer);
-if(current>0){
-current--;
-load();
-}
+if(current>0){current--;load();}
 }
 
-/* RESULT (UNCHANGED STYLE) */
+/* RESULT */
 function showResult(){
+
+document.getElementById("bottomBar").style.display="none";
 
 let attempted=answers.filter(a=>a!==undefined).length;
 let skipped=quiz.length-attempted;
