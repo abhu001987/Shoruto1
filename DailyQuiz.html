@@ -30,7 +30,6 @@ flex:1;
 padding-bottom:70px;  
 }  
   
-/* HEADER */  
 .header{  
 display:flex;  
 justify-content:space-between;  
@@ -50,7 +49,6 @@ border-radius:14px;
 color:var(--green);  
 }  
   
-/* PROGRESS */  
 .progress{  
 height:6px;  
 margin:10px 16px;  
@@ -63,7 +61,6 @@ height:100%;
 background:var(--green);  
 }  
   
-/* CARD */  
 .card{  
 margin:10px 16px;  
 padding:18px;  
@@ -72,7 +69,6 @@ background:rgba(22,57,62,0.9);
 border:1px solid var(--border);  
 }  
   
-/* CURRENT */  
 .current{  
 display:flex;  
 gap:12px;  
@@ -85,13 +81,11 @@ padding:12px;
 border-radius:12px;  
 }  
   
-/* QUESTION */  
 .question{  
 font-size:20px;  
 margin:15px 0;  
 }  
   
-/* OPTION */  
 .option{  
 display:flex;  
 justify-content:space-between;  
@@ -131,14 +125,12 @@ background:var(--green);
 border:none;  
 }  
   
-/* TIP */  
 .tip{  
 margin-top:10px;  
 font-size:14px;  
 color:var(--sub);  
 }  
   
-/* BUTTONS */  
 .buttons{  
 display:flex;  
 justify-content:space-between;  
@@ -159,7 +151,6 @@ background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;  
 }  
   
-/* FOOTER */  
 .footer{  
 position:fixed;  
 bottom:0;  
@@ -171,69 +162,91 @@ border-top:1px solid var(--border);
 font-size:13px;  
 opacity:0.8;  
 }  
-  
-/* RESULT */  
-.result{  
-padding:16px;  
-}  
-  
-.circle-result{  
-width:140px;  
-height:140px;  
-border-radius:50%;  
-margin:20px auto;  
-display:flex;  
-align-items:center;  
-justify-content:center;  
-position:relative;  
-}  
-  
-.circle-result::after{  
-content:"";  
-position:absolute;  
-width:100px;  
-height:100px;  
-background:#0f2a2e;  
-border-radius:50%;  
-}  
-  
-.score{  
-position:relative;  
-z-index:2;  
-font-size:22px;  
-}  
-  
-.result-card{  
-background:var(--card);  
-padding:14px;  
-margin-bottom:12px;  
-border-radius:14px;  
-}  
-.correct{color:#22c55e;}  
-.wrong{color:#ff4d4d;}  
-.exp{  
-margin-top:8px;  
-font-size:14px;  
-color:var(--sub);  
-}  
+/* ===== 🔥 PREMIUM RESULT ===== */
+
+.result-header{
+background:rgba(255,255,255,0.06);
+padding:12px;
+border-radius:14px;
+text-align:center;
+margin-bottom:10px;
+}
+
+.circle-wrap{
+position:relative;
+width:170px;
+height:170px;
+margin:15px auto;
+}
+
+.circle-progress{
+stroke:url(#grad);
+stroke-width:12;
+fill:none;
+stroke-linecap:round;
+stroke-dasharray:440;
+stroke-dashoffset:440;
+filter:drop-shadow(0 0 12px rgba(255,120,0,0.6));
+transition:1.2s ease;
+}
+
+.score-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:28px;
+}
+
+.status{text-align:center;font-weight:700;margin-top:10px;}
+.subtext{text-align:center;color:var(--sub);font-size:13px;}
+
+.grid{display:flex;gap:10px;margin-top:15px;}
+.box{
+flex:1;
+padding:14px;
+border-radius:14px;
+background:rgba(255,255,255,0.06);
+text-align:center;
+}
+
+.q-card{
+background:rgba(255,255,255,0.05);
+padding:14px;
+margin-top:12px;
+border-radius:14px;
+}
+
+.inner{
+margin-top:8px;
+padding:10px;
+background:rgba(0,0,0,0.25);
+border-radius:10px;
+}
+
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
+
+.result-buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+.result-buttons button{
+flex:1;
+padding:12px;
+border-radius:12px;
+border:none;
+}
+.retry{background:#203a43;color:white;}
+.home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+
 </style> 
 </head>
 
 <body>
 
-<div class="main" id="app">
-
-<div class="header">
-<div class="back" onclick="window.location.href='https://shoruto.com'">Back</div>
-<div class="timer">⏱ <span id="time">60</span>s | <span id="count"></span></div>
-</div>
-
-<div class="progress"><div class="bar" id="bar"></div></div>
-
-<div class="card" id="quizBox"></div>
-
-</div>
-
+<div class="main" id="app"></div>
 <div class="footer">“Small Quiz. Big Progress.”</div>
 
 <script>
@@ -263,18 +276,15 @@ startTimer();
 
 let q=quiz[current];
 
-count.innerText=(current+1)+" / "+quiz.length;
-bar.style.width=((current+1)/quiz.length)*100+"%";
-
 let html=`
-<div class="current">
-<div class="icon">📄</div>
-<div>
-<div style="color:#22c55e">Current Question</div>
-<div>${current+1} / ${quiz.length}</div>
-</div>
+<div class="header">
+<div class="back" onclick="window.location.href='https://shoruto.com'">Back</div>
+<div class="timer">⏱ ${time}s | ${current+1}/${quiz.length}</div>
 </div>
 
+<div class="progress"><div class="bar" style="width:${((current+1)/quiz.length)*100}%"></div></div>
+
+<div class="card">
 <div class="question">${q.q}</div>
 `;
 
@@ -296,74 +306,111 @@ html+=`
 <button class="btn prev" onclick="prev()">Previous</button>
 <button class="btn next" onclick="next()">Next</button>
 </div>
+</div>
 `;
 
-quizBox.innerHTML=html;
+app.innerHTML=html;
 }
-/* TIMER */
+
 function startTimer(){
 timer=setInterval(()=>{
 time--;
-document.getElementById("time").innerText=time;
 if(time<=0) next();
 },1000);
 }
 
-/* SELECT */
 function select(i){
 answers[current]=i;
 load();
 }
 
-/* NAV */
 function next(){
 clearInterval(timer);
-if(current<quiz.length-1){
-current++;
-load();
-}else{
-showResult();
+if(current<quiz.length-1){current++;load();}
+else showResult();
 }
-}
+
 function prev(){
 clearInterval(timer);
-if(current>0){
-current--;
-load();
+if(current>0){current--;load();}
 }
-}
-
-/* RESULT */
+/* 🔥 NEW RESULT */
 function showResult(){
-let score=0;
-let html="<div class='result'><h2>🎯 Result</h2>";
 
+let attempted=answers.filter(a=>a!==undefined).length;
+let skipped=quiz.length-attempted;
+
+let score=0;
 quiz.forEach((q,i)=>{
 if(q.answer===answers[i]) score++;
+});
 
+let percent=Math.round((score/quiz.length)*100);
+
+let html=`<div class="result">
+
+<div class="result-header">📊 Result Dashboard</div>
+
+<div class="circle-wrap">
+<svg width="170" height="170">
+<defs>
+<linearGradient id="grad">
+<stop offset="0%" stop-color="#ff7a00"/>
+<stop offset="100%" stop-color="#ff3c3c"/>
+</linearGradient>
+</defs>
+<circle cx="85" cy="85" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
+<circle id="progressCircle" cx="85" cy="85" r="70" class="circle-progress"/>
+</svg>
+<div class="score-text">${percent}%</div>
+</div>
+
+<div class="status">Score: ${score}/${quiz.length}</div>
+<div class="subtext">Keep improving 🚀</div>
+
+<div class="grid">
+<div class="box">⭐<br>${score}<br>Points</div>
+<div class="box">🎯<br>${percent}%<br>Accuracy</div>
+</div>
+
+<div class="grid">
+<div class="box">📄<br>${attempted}<br>Attempted</div>
+<div class="box">⏭<br>${skipped}<br>Skipped</div>
+</div>
+
+<h3>Analysis</h3>
+`;
+
+quiz.forEach((q,i)=>{
 html+=`
-<div class="result-card">
-<b>Q${i+1}:</b> ${q.q}<br>
-Your: <span class="${q.answer===answers[i]?'correct':'wrong'}">
-${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
-</span><br>
-Correct: <span class="correct">${q.options[q.answer]}</span>
-<div class="exp">📖 ${q.exp}</div>
+<div class="q-card">
+<b>Q${i+1}:</b> ${q.q}
+
+<div class="inner wrong">
+<b>Your:</b><br>${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
+</div>
+
+<div class="inner correct">
+<b>Correct:</b><br>${q.options[q.answer]}
+</div>
 </div>`;
 });
 
-let percent=(score/quiz.length)*360;
-
 html+=`
-<div class="circle-result" id="circle">
-<div class="score">${score}/${quiz.length}</div>
+<div class="result-buttons">
+<button class="retry" onclick="location.reload()">Retry</button>
+<button class="home" onclick="window.location.href='https://shoruto.com'">Home</button>
 </div>
+
 </div>`;
 
 app.innerHTML=html;
 
-document.getElementById("circle").style.background =
-`conic-gradient(#22c55e ${percent}deg, #1a3e44 ${percent}deg)`;
+setTimeout(()=>{
+let circle=document.getElementById("progressCircle");
+let offset=440-(440*percent/100);
+circle.style.strokeDashoffset=offset;
+},100);
 }
 
 load();
