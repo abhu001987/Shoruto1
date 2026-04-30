@@ -15,13 +15,12 @@
   
 
 <style>
-
 *{box-sizing:border-box;}
 
 :root{
 --bg1:#0f2a2e;
 --bg2:#123c42;
---card:#16393e;
+--card:rgba(255,255,255,0.06);
 --text:#eaf4f4;
 --sub:#9fb7b9;
 --green:#22c55e;
@@ -31,88 +30,74 @@
 
 body{
 margin:0;
-min-height:100vh;
-display:flex;
-flex-direction:column;
 font-family:Poppins,sans-serif;
 background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);
 }
 
+/* MAIN */
 .main{
-flex:1;
-padding:16px;
-padding-bottom:90px; /* space for footer */
+max-width:480px;
+margin:auto;
+padding:14px;
+padding-bottom:90px;
 }
 
-/* HEADER */
+/* 🔥 GLASS HEADER (LIKE MOCK) */
 .header{
 display:flex;
 justify-content:space-between;
-padding:16px;
 align-items:center;
+background:var(--card);
+border:1px solid var(--border);
+padding:14px;
+border-radius:16px;
+backdrop-filter:blur(10px);
 }
 
 .back{
-background:#0b1f22;
-padding:12px;
-border-radius:14px;
+font-weight:600;
 cursor:pointer;
 }
 
 .timer{
-border:1px solid var(--border);
-padding:8px 14px;
-border-radius:14px;
-color:var(--green);
+color:var(--orange);
+font-weight:600;
 }
 
 /* PROGRESS */
 .progress{
 height:6px;
-margin:10px 16px;
+margin:12px 0;
 background:#0b1f22;
 border-radius:10px;
 overflow:hidden;
 }
-
-.bar{
-height:100%;
-background:var(--green);
-}
+.bar{height:100%;background:var(--green);}
 
 /* CARD */
 .card{
-margin:10px 16px;
-padding:18px;
-border-radius:20px;
-background:rgba(22,57,62,0.9);
+background:var(--card);
+padding:16px;
+border-radius:16px;
 border:1px solid var(--border);
+backdrop-filter:blur(10px);
 }
 
-/* QUESTION */
-.question{
-font-size:20px;
-margin:15px 0;
-}
+.question{font-size:18px;font-weight:600;}
 
-/* OPTIONS */
 .option{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:14px;
-margin-bottom:10px;
+margin-top:10px;
 border-radius:14px;
 background:#1a3e44;
 cursor:pointer;
 }
 
-.left{
-display:flex;
-gap:12px;
-align-items:center;
-}
+.left{display:flex;gap:10px;align-items:center;}
 
 .badge{
 background:#2a5258;
@@ -121,9 +106,7 @@ border-radius:50%;
 }
 
 .circle{
-width:18px;
-height:18px;
-border-radius:50%;
+width:18px;height:18px;border-radius:50%;
 border:2px solid #aaa;
 }
 
@@ -131,72 +114,97 @@ border:2px solid #aaa;
 border:2px solid var(--green);
 background:rgba(34,197,94,0.15);
 }
-
 .option.selected .circle{
 background:var(--green);
 border:none;
 }
-
 /* TIP */
 .tip{
-margin-top:10px;
-font-size:14px;
-color:var(--sub);
+margin-top:12px;
+background:rgba(34,197,94,0.1);
+padding:12px;
+border-radius:12px;
+color:var(--green);
+font-size:13px;
 }
 
 /* BUTTONS */
-.buttons{
-display:flex;
-justify-content:space-between;
-margin-top:12px;
-}
-
+.buttons{display:flex;gap:10px;margin-top:14px;}
 .btn{
-padding:12px 20px;
-border-radius:12px;
+flex:1;
+padding:14px;
 border:none;
+border-radius:14px;
+font-weight:600;
+}
+.prev{background:rgba(255,255,255,0.05);color:white;}
+.next{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+
+/* 🔥 RESULT DASHBOARD (UNCHANGED PREMIUM) */
+.result-header{
+background:var(--card);
+padding:12px;
+border-radius:14px;
+text-align:center;
+margin-bottom:10px;
 }
 
-.prev{
-background:transparent;
-border:1px solid var(--border);
-color:white;
+.circle-wrap{
+position:relative;
+width:170px;height:170px;margin:15px auto;
+}
+.circle-progress{
+stroke:url(#grad);
+stroke-width:12;
+fill:none;
+stroke-linecap:round;
+stroke-dasharray:440;
+stroke-dashoffset:440;
+transition:1.2s ease;
+}
+.score-text{
+position:absolute;
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+font-size:28px;
 }
 
-.next{
-background:linear-gradient(135deg,#ff7a00,#ff9a3c);
-color:white;
+.grid{display:flex;gap:10px;margin-top:15px;}
+.box{
+flex:1;padding:14px;border-radius:14px;
+background:var(--card);text-align:center;
 }
+
+.q-card{
+background:var(--card);
+padding:14px;margin-top:12px;border-radius:14px;
+}
+.inner{
+margin-top:8px;
+padding:10px;
+background:rgba(0,0,0,0.25);
+border-radius:10px;
+}
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
+
+.result-buttons{display:flex;gap:10px;margin-top:15px;}
+.result-buttons button{
+flex:1;padding:12px;border-radius:12px;border:none;
+}
+.retry{background:#203a43;color:white;}
+.home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
 
 /* 🔥 BOTTOM NAV */
 .bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:#0b1f22;
-padding:10px 0;
-border-top:1px solid rgba(255,255,255,0.08);
-z-index:100;
+position:fixed;bottom:0;width:100%;
+display:flex;justify-content:space-around;
+background:#0b1f22;padding:10px 0;
+border-top:1px solid var(--border);
 }
-
-.bottom-nav div{
-text-align:center;
-font-size:14px;
-color:#9fb7b9;
-}
-
-.bottom-nav span{
-font-size:12px;
-}
-
-/* highlight active */
-.bottom-nav div:first-child{
-color:#22c55e;
-}
-
+.bottom-nav div{text-align:center;font-size:14px;color:#9fb7b9;}
+.bottom-nav span{font-size:12px;}
+.bottom-nav div:first-child{color:var(--green);}
 </style>
 </head>
 
@@ -204,29 +212,23 @@ color:#22c55e;
 
 <div class="main" id="app"></div>
 
-<!-- 🔥 FOOTER -->
 <div class="bottom-nav">
-  <div>🧠<br><span>Assess</span></div>
-  <div>✍️<br><span>Express</span></div>
-  <div>🛡️<br><span>Evaluation</span></div>
+<div>🧠<br><span>Assess</span></div>
+<div>✍️<br><span>Express</span></div>
+<div>🛡️<br><span>Evaluation</span></div>
 </div>
 
 <script>
-
 const quiz=[
 {
 q:"The Food Price Index is released by which organization?",
 options:["World Bank","IMF","World Economic Forum","FAO"],
 answer:3,
-tip:"Focus on international organizations related to food and agriculture."
-},
-{
-q:"Which is a direct tax?",
-options:["GST","Customs Duty","Income Tax","Excise"],
-answer:2,
-tip:"Direct tax is paid directly by individuals."
+tip:"Focus on international organizations related to food and agriculture.",
+exp:"FAO releases the Food Price Index."
 }
 ];
+
 let current=0,answers=[],timer,time=60;
 
 function load(){
@@ -262,7 +264,7 @@ html+=`
 });
 
 html+=`
-<div class="tip">💡 ${q.tip}</div>
+<div class="tip">✨ ${q.tip}</div>
 
 <div class="buttons">
 <button class="btn prev" onclick="prev()">Previous</button>
@@ -273,8 +275,6 @@ html+=`
 
 app.innerHTML=html;
 }
-
-/* TIMER */
 function startTimer(){
 timer=setInterval(()=>{
 time--;
@@ -282,20 +282,18 @@ if(time<=0) next();
 },1000);
 }
 
-/* SELECT */
 function select(i){
 answers[current]=i;
 load();
 }
 
-/* NAV */
 function next(){
 clearInterval(timer);
 if(current<quiz.length-1){
 current++;
 load();
 }else{
-alert("Quiz Completed"); /* your result stays same */
+showResult();
 }
 }
 
@@ -307,8 +305,65 @@ load();
 }
 }
 
-load();
+/* 🔥 RESULT (UNCHANGED PREMIUM) */
+function showResult(){
+let score=0;
+quiz.forEach((q,i)=>{
+if(q.answer===answers[i]) score++;
+});
+let percent=Math.round((score/quiz.length)*100);
 
+let html=`<div class="result">
+<div class="result-header">📊 Result Dashboard</div>
+
+<div class="circle-wrap">
+<svg width="170" height="170">
+<defs>
+<linearGradient id="grad">
+<stop offset="0%" stop-color="#ff7a00"/>
+<stop offset="100%" stop-color="#ff3c3c"/>
+</linearGradient>
+</defs>
+<circle cx="85" cy="85" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
+<circle id="progressCircle" cx="85" cy="85" r="70" class="circle-progress"/>
+</svg>
+<div class="score-text">${percent}%</div>
+</div>
+
+<div class="grid">
+<div class="box">${score}<br>Points</div>
+<div class="box">${percent}%<br>Accuracy</div>
+</div>
+
+<h3>Analysis</h3>
+`;
+
+quiz.forEach((q,i)=>{
+html+=`
+<div class="q-card">
+<b>Q${i+1}:</b> ${q.q}
+<div class="inner wrong">Your: ${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}</div>
+<div class="inner correct">Correct: ${q.options[q.answer]}</div>
+</div>`;
+});
+
+html+=`
+<div class="result-buttons">
+<button class="retry" onclick="location.reload()">Retry</button>
+<button class="home" onclick="location.href='https://shoruto.com'">Home</button>
+</div>
+</div>`;
+
+app.innerHTML=html;
+
+setTimeout(()=>{
+let circle=document.getElementById("progressCircle");
+let offset=440-(440*percent/100);
+circle.style.strokeDashoffset=offset;
+},100);
+}
+
+load();
 </script>
 
 </body>
