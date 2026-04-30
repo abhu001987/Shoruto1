@@ -101,52 +101,48 @@ margin-top:10px;
 }
 
 textarea{
-  width: 100%;
-  height: 180px;
-  max-height: 220px;
-
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-
-  padding: 14px;
-  resize: none;
-  box-sizing: border-box;
-
-  background: #0b1f22;
-  color: #f1f5f9;
-  font-size: 14px;
+width:100%;
+height:180px;
+max-height:220px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.08);
+padding:14px;
+resize:none;
+box-sizing:border-box;
+background:#0b1f22;
+color:#f1f5f9;
+font-size:14px;
 }
-
 /* BUTTONS */
 .buttons{
-  display:flex;
-  justify-content:space-between;
-  width:100%;
-  margin-top:12px;
+display:flex;
+justify-content:space-between;
+width:100%;
+margin-top:12px;
 }
 
 .buttons button{
-  width:48%;
+width:48%;
 }
 
 /* START BUTTON */
 .speak{
-  background:rgba(34,197,94,0.2);
-  color:#22c55e;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  font-weight:600;
+background:rgba(34,197,94,0.2);
+color:#22c55e;
+padding:14px;
+border:none;
+border-radius:16px;
+font-weight:600;
 }
 
 /* SUBMIT BUTTON */
 .submit{
-  background:linear-gradient(135deg,#ff7a00,#ff9a3c);
-  color:white;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  font-weight:600;
+background:linear-gradient(135deg,#ff7a00,#ff9a3c);
+color:white;
+padding:14px;
+border:none;
+border-radius:16px;
+font-weight:600;
 }
 
 /* TIPS */
@@ -182,67 +178,106 @@ font-size:12px;
 
 /* POPUP */
 .popup{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+position: fixed;
+inset: 0;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(6px);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 999;
 }
 
 .popup-box{
-  background:#203a43;
-  color:#f1f5f9;
-  padding: 20px;
-  border-radius: 18px;
-  width: 85%;
-  max-width: 320px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+background:#203a43;
+color:#f1f5f9;
+padding: 20px;
+border-radius: 18px;
+width: 85%;
+max-width: 320px;
+text-align: center;
+box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .popup-box h3{
-  margin-bottom: 15px;
+margin-bottom: 15px;
 }
 
 .inst-item{
-  font-size: 14px;
-  margin: 8px 0;
-  color: #cbd5f5;
+font-size: 14px;
+margin: 8px 0;
+color: #cbd5f5;
 }
 
 .inst-item.warn{
-  color: #ff4d4d;
-  font-weight: 500;
+color: #ff4d4d;
+font-weight: 500;
 }
 
 .start-btn{
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #22C55E, #16A34A);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+margin-top: 15px;
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 12px;
+background: linear-gradient(135deg, #22C55E, #16A34A);
+color: white;
+font-weight: 600;
+cursor: pointer;
+}
+/* ========================= */
+/* 🔥 RESULT UI (UPGRADED) */
+/* ========================= */
+
+.result{
+padding:15px;
+text-align:center;
 }
 
-/* RESULT */
-.result{padding:15px;}
+.circle-wrap{
+position:relative;
+width:160px;
+height:160px;
+margin:10px auto;
+}
 
-.circle{
-width:140px;
-height:140px;
-border-radius:50%;
-border:8px solid rgba(255,255,255,0.1);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-margin:auto;
+.circle-svg{
+transform:rotate(-90deg);
+}
+
+.circle-bg{
+stroke:rgba(255,255,255,0.08);
+stroke-width:12;
+fill:none;
+}
+
+.circle-progress{
+stroke:#ff4d4d;
+stroke-width:12;
+fill:none;
+stroke-linecap:round;
+stroke-dasharray:440;
+stroke-dashoffset:440;
+transition:all 1s ease;
+}
+
+.score-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:28px;
+font-weight:bold;
+}
+
+.status{
+margin-top:10px;
+font-weight:600;
+}
+
+.subtext{
+font-size:13px;
+color:#9fb7b9;
 }
 
 .grid{
@@ -253,11 +288,19 @@ margin-top:15px;
 
 .box{
 flex:1;
+padding:14px;
+border-radius:14px;
 background:rgba(255,255,255,0.05);
-padding:10px;
-border-radius:12px;
 border:1px solid rgba(255,255,255,0.08);
-text-align:center;
+}
+
+.breakdown{
+margin-top:15px;
+padding:12px;
+border-radius:14px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+text-align:left;
 }
 
 .q-card{
@@ -266,33 +309,44 @@ padding:12px;
 margin-top:10px;
 border-radius:12px;
 border:1px solid rgba(255,255,255,0.08);
+text-align:left;
 }
 
-/* MOBILE */
-@media (max-width: 480px){
+.correct{color:#22c55e;}
+.wrong{color:#ff4d4d;}
 
-  textarea{
-    height: 260px !important;
-    max-height: none;
-  }
+.result-buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
 }
+
+.result-buttons button{
+flex:1;
+padding:12px;
+border:none;
+border-radius:12px;
+font-weight:600;
+}
+
+.retry{background:#203a43;color:white;}
+.home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+
 </style>
 </head>
 
 <body>
 
+
+<!-- ORIGINAL BODY CONTENT (UNCHANGED) -->
 <div class="popup" id="popup">
-
-  <div class="popup-box">
-    <h3>📋 Instructions</h3>
-
-    <div class="inst-item">⏱️ 90 sec per question</div>
-    <div class="inst-item">🎤 Use Chrome for voice</div>
-    <div class="inst-item warn">⚠️ Evaluation may not be 100% accurate</div>
-
-    <button class="start-btn" onclick="startInterview()">Start</button>
-  </div>
-
+<div class="popup-box">
+<h3>📋 Instructions</h3>
+<div class="inst-item">⏱️ 90 sec per question</div>
+<div class="inst-item">🎤 Use Chrome for voice</div>
+<div class="inst-item warn">⚠️ Evaluation may not be 100% accurate</div>
+<button class="start-btn" onclick="startInterview()">Start</button>
+</div>
 </div>
 
 <div class="app">
@@ -302,7 +356,6 @@ border:1px solid rgba(255,255,255,0.08);
 <div class="timer" id="timer">⏱️ 90</div>
 </div>
 
-<!-- PROGRESS -->
 <div class="progress-wrap">
 <div class="progress-bar">
 <div class="progress-fill"></div>
@@ -310,7 +363,6 @@ border:1px solid rgba(255,255,255,0.08);
 <div class="progress-text">1 / 10</div>
 </div>
 
-<!-- QUESTION -->
 <div class="question-box">
 <div class="question" id="question">Loading...</div>
 <div class="hint">💡 You can speak or type your answer</div>
@@ -319,7 +371,6 @@ border:1px solid rgba(255,255,255,0.08);
 
 <textarea id="answer" placeholder="Speak or type..."></textarea>
 
-<!-- TIPS -->
 <div class="tips-box">
 ✨ <b>Tips</b><br>
 Take a moment to organize your thoughts before speaking or typing.
@@ -332,7 +383,6 @@ Take a moment to organize your thoughts before speaking or typing.
 
 </div>
 
-<!-- BOTTOM ICONS -->
 <div class="bottom-icons">
 <div>🧠<br><span>Assess</span></div>
 <div>✍️<br><span>Express</span></div>
@@ -340,7 +390,8 @@ Take a moment to organize your thoughts before speaking or typing.
 </div>
 
 <script>
-/* YOUR ORIGINAL JS — UNTOUCHED */
+
+/* ===== YOUR ORIGINAL JS (UNCHANGED EXCEPT RESULT FUNCTION) ===== */
 
 let questions=[];
 let current=0;
@@ -361,7 +412,6 @@ function startInterview(){
 popup.style.display="none";
 loadQuestion(0);
 }
-
 function goBack(){
 window.location.href="/";
 }
@@ -428,7 +478,6 @@ recognition.stop();
 micBtn.innerText="🎤 Start";
 }
 }
-
 function cleanText(text){
 return text.toLowerCase().replace(/[^a-z0-9\s]/g,"").replace(/\s+/g," ").trim();
 }
@@ -485,15 +534,40 @@ current=Math.floor(Math.random()*questions.length);
 loadQuestion(current);
 }
 
+/* 🔥 RESULT FUNCTION UPGRADED ONLY */
 function showResult(){
+
 let percent=Math.round((totalScore/maxScore)*100);
 
+let status="Needs Improvement";
+let color="#ff4d4d";
+
+if(percent>=70){status="Excellent Work 🔥";color="#22c55e";}
+else if(percent>=40){status="Good Try 👍";color="#facc15";}
+
+let correct=answersLog.filter(a=>a.score>0).length;
+let wrong=answersLog.filter(a=>a.score===0).length;
+
 let html=`<div class="result">
-<div class="circle">${percent}%</div>
+<div class="circle-wrap">
+<svg class="circle-svg" width="160" height="160">
+<circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+<circle class="circle-progress" id="progressCircle" cx="80" cy="80" r="70"></circle>
+</svg>
+<div class="score-text">${percent}%</div>
+</div>
+
+<div class="status" style="color:${color}">${status}</div>
+<div class="subtext">Keep improving daily 🚀</div>
 
 <div class="grid">
-<div class="box">${totalScore}<br>Points</div>
-<div class="box">${percent}%<br>Accuracy</div>
+<div class="box">⭐<br>${totalScore}<br>Points</div>
+<div class="box">🎯<br>${percent}%<br>Accuracy</div>
+</div>
+
+<div class="breakdown">
+<div>✅ Correct: ${correct}</div>
+<div>❌ Wrong: ${wrong}</div>
 </div>
 
 <h3>Analysis</h3>
@@ -503,13 +577,27 @@ answersLog.forEach(a=>{
 html+=`
 <div class="q-card">
 <b>Q:</b> ${a.q}<br><br>
-<b>Your Answer:</b><br>${a.ans || "No answer"}<br><br>
-<b>Ideal Answer:</b><br>${a.model || "N/A"}
+<div class="wrong"><b>Your Answer:</b><br>${a.ans || "No answer"}</div><br>
+<div class="correct"><b>Correct Answer:</b><br>${a.model || "N/A"}</div>
 </div>`;
 });
 
-html+="</div>";
+html+=`
+<div class="result-buttons">
+<button class="retry" onclick="location.reload()">Retry</button>
+<button class="home" onclick="goBack()">Home</button>
+</div>
+
+</div>`;
+
 document.body.innerHTML=html;
+
+setTimeout(()=>{
+let circle=document.getElementById("progressCircle");
+let offset=440-(440*percent/100);
+circle.style.strokeDashoffset=offset;
+},100);
+
 }
 
 </script>
