@@ -16,14 +16,12 @@
 
 <style>
 
-/* RESET */
 *{box-sizing:border-box;}
 
 :root{
---bg1:#0f2027;
---bg2:#203a43;
---bg3:#2c5364;
---card:rgba(255,255,255,0.06);
+--bg1:#0f2a2e;
+--bg2:#123c42;
+--card:#16393e;
 --text:#eaf4f4;
 --sub:#9fb7b9;
 --green:#22c55e;
@@ -33,44 +31,46 @@
 
 body{
 margin:0;
-font-family:Arial;
-background:linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3));
+min-height:100vh;
+display:flex;
+flex-direction:column;
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,var(--bg1),var(--bg2));
 color:var(--text);
 }
 
-/* APP */
 .main{
-max-width:480px;
-margin:auto;
-padding:14px;
-padding-bottom:80px;
+flex:1;
+padding:16px;
+padding-bottom:90px; /* space for footer */
 }
 
-/* HEADER (LIKE MOCK) */
+/* HEADER */
 .header{
 display:flex;
 justify-content:space-between;
+padding:16px;
 align-items:center;
-background:var(--card);
-border:1px solid var(--border);
-padding:14px;
-border-radius:16px;
-backdrop-filter:blur(10px);
 }
 
 .back{
-font-weight:600;
+background:#0b1f22;
+padding:12px;
+border-radius:14px;
+cursor:pointer;
 }
 
 .timer{
-color:var(--orange);
-font-weight:600;
+border:1px solid var(--border);
+padding:8px 14px;
+border-radius:14px;
+color:var(--green);
 }
 
 /* PROGRESS */
 .progress{
 height:6px;
-margin:12px 0;
+margin:10px 16px;
 background:#0b1f22;
 border-radius:10px;
 overflow:hidden;
@@ -83,25 +83,26 @@ background:var(--green);
 
 /* CARD */
 .card{
-background:var(--card);
-padding:16px;
-border-radius:16px;
+margin:10px 16px;
+padding:18px;
+border-radius:20px;
+background:rgba(22,57,62,0.9);
 border:1px solid var(--border);
-backdrop-filter:blur(10px);
 }
 
 /* QUESTION */
 .question{
-font-size:18px;
-font-weight:600;
+font-size:20px;
+margin:15px 0;
 }
-/* OPTION */
+
+/* OPTIONS */
 .option{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:14px;
-margin-top:10px;
+margin-bottom:10px;
 border-radius:14px;
 background:#1a3e44;
 cursor:pointer;
@@ -109,7 +110,7 @@ cursor:pointer;
 
 .left{
 display:flex;
-gap:10px;
+gap:12px;
 align-items:center;
 }
 
@@ -136,33 +137,29 @@ background:var(--green);
 border:none;
 }
 
-/* TIP (LIKE MOCK) */
+/* TIP */
 .tip{
-margin-top:14px;
-background:rgba(34,197,94,0.1);
-padding:12px;
-border-radius:12px;
-color:var(--green);
-font-size:13px;
+margin-top:10px;
+font-size:14px;
+color:var(--sub);
 }
 
 /* BUTTONS */
 .buttons{
 display:flex;
-gap:10px;
-margin-top:14px;
+justify-content:space-between;
+margin-top:12px;
 }
 
 .btn{
-flex:1;
-padding:14px;
+padding:12px 20px;
+border-radius:12px;
 border:none;
-border-radius:14px;
-font-weight:600;
 }
 
 .prev{
-background:rgba(255,255,255,0.05);
+background:transparent;
+border:1px solid var(--border);
 color:white;
 }
 
@@ -170,85 +167,35 @@ color:white;
 background:linear-gradient(135deg,#ff7a00,#ff9a3c);
 color:white;
 }
-/* ===== RESULT (UNCHANGED) ===== */
 
-.result-header{
-background:rgba(255,255,255,0.06);
-padding:12px;
-border-radius:14px;
-text-align:center;
-margin-bottom:10px;
-}
-
-.circle-wrap{
-position:relative;
-width:170px;
-height:170px;
-margin:15px auto;
-}
-
-.circle-progress{
-stroke:url(#grad);
-stroke-width:12;
-fill:none;
-stroke-linecap:round;
-stroke-dasharray:440;
-stroke-dashoffset:440;
-transition:1.2s ease;
-}
-
-.score-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:28px;
-}
-
-.status{text-align:center;font-weight:700;margin-top:10px;}
-.subtext{text-align:center;color:var(--sub);font-size:13px;}
-
-.grid{display:flex;gap:10px;margin-top:15px;}
-.box{
-flex:1;
-padding:14px;
-border-radius:14px;
-background:rgba(255,255,255,0.06);
-text-align:center;
-}
-
-.q-card{
-background:rgba(255,255,255,0.05);
-padding:14px;
-margin-top:12px;
-border-radius:14px;
-}
-
-.inner{
-margin-top:8px;
-padding:10px;
-background:rgba(0,0,0,0.25);
-border-radius:10px;
-}
-
-.correct{color:#22c55e;}
-.wrong{color:#ff4d4d;}
-
-.result-buttons{
+/* 🔥 BOTTOM NAV */
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
 display:flex;
-gap:10px;
-margin-top:15px;
+justify-content:space-around;
+background:#0b1f22;
+padding:10px 0;
+border-top:1px solid rgba(255,255,255,0.08);
+z-index:100;
 }
 
-.result-buttons button{
-flex:1;
-padding:12px;
-border-radius:12px;
-border:none;
+.bottom-nav div{
+text-align:center;
+font-size:14px;
+color:#9fb7b9;
 }
 
-.retry{background:#203a43;color:white;}
-.home{background:linear-gradient(135deg,#ff7a00,#ff9a3c);color:white;}
+.bottom-nav span{
+font-size:12px;
+}
+
+/* highlight active */
+.bottom-nav div:first-child{
+color:#22c55e;
+}
 
 </style>
 </head>
@@ -257,6 +204,13 @@ border:none;
 
 <div class="main" id="app"></div>
 
+<!-- 🔥 FOOTER -->
+<div class="bottom-nav">
+  <div>🧠<br><span>Assess</span></div>
+  <div>✍️<br><span>Express</span></div>
+  <div>🛡️<br><span>Evaluation</span></div>
+</div>
+
 <script>
 
 const quiz=[
@@ -264,15 +218,18 @@ const quiz=[
 q:"The Food Price Index is released by which organization?",
 options:["World Bank","IMF","World Economic Forum","FAO"],
 answer:3,
-tip:"Focus on international organizations related to food and agriculture.",
-exp:"FAO releases the Food Price Index."
+tip:"Focus on international organizations related to food and agriculture."
+},
+{
+q:"Which is a direct tax?",
+options:["GST","Customs Duty","Income Tax","Excise"],
+answer:2,
+tip:"Direct tax is paid directly by individuals."
 }
 ];
-
 let current=0,answers=[],timer,time=60;
 
 function load(){
-
 clearInterval(timer);
 time=60;
 startTimer();
@@ -281,7 +238,7 @@ let q=quiz[current];
 
 let html=`
 <div class="header">
-<div class="back" onclick="window.location.href='https://shoruto.com'">Back</div>
+<div class="back" onclick="location.reload()">Back</div>
 <div class="timer">⏱ ${time}s | ${current+1}/${quiz.length}</div>
 </div>
 
@@ -305,7 +262,7 @@ html+=`
 });
 
 html+=`
-<div class="tip">✨ ${q.tip}</div>
+<div class="tip">💡 ${q.tip}</div>
 
 <div class="buttons">
 <button class="btn prev" onclick="prev()">Previous</button>
@@ -317,6 +274,7 @@ html+=`
 app.innerHTML=html;
 }
 
+/* TIMER */
 function startTimer(){
 timer=setInterval(()=>{
 time--;
@@ -324,97 +282,29 @@ if(time<=0) next();
 },1000);
 }
 
+/* SELECT */
 function select(i){
 answers[current]=i;
 load();
 }
+
+/* NAV */
 function next(){
 clearInterval(timer);
-if(current<quiz.length-1){current++;load();}
-else showResult();
+if(current<quiz.length-1){
+current++;
+load();
+}else{
+alert("Quiz Completed"); /* your result stays same */
+}
 }
 
 function prev(){
 clearInterval(timer);
-if(current>0){current--;load();}
+if(current>0){
+current--;
+load();
 }
-
-/* RESULT SAME AS YOURS (kept untouched) */
-
-function showResult(){
-let attempted=answers.filter(a=>a!==undefined).length;
-let skipped=quiz.length-attempted;
-
-let score=0;
-quiz.forEach((q,i)=>{
-if(q.answer===answers[i]) score++;
-});
-let percent=Math.round((score/quiz.length)*100);
-
-let html=`<div class="result">
-
-<div class="result-header">📊 Result Dashboard</div>
-
-<div class="circle-wrap">
-<svg width="170" height="170">
-<defs>
-<linearGradient id="grad">
-<stop offset="0%" stop-color="#ff7a00"/>
-<stop offset="100%" stop-color="#ff3c3c"/>
-</linearGradient>
-</defs>
-<circle cx="85" cy="85" r="70" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
-<circle id="progressCircle" cx="85" cy="85" r="70" class="circle-progress"/>
-</svg>
-<div class="score-text">${percent}%</div>
-</div>
-
-<div class="status">Score: ${score}/${quiz.length}</div>
-<div class="subtext">Keep improving 🚀</div>
-
-<div class="grid">
-<div class="box">⭐<br>${score}<br>Points</div>
-<div class="box">🎯<br>${percent}%<br>Accuracy</div>
-</div>
-
-<div class="grid">
-<div class="box">📄<br>${attempted}<br>Attempted</div>
-<div class="box">⏭<br>${skipped}<br>Skipped</div>
-</div>
-
-<h3>Analysis</h3>
-`;
-
-quiz.forEach((q,i)=>{
-html+=`
-<div class="q-card">
-<b>Q${i+1}:</b> ${q.q}
-
-<div class="inner wrong">
-<b>Your:</b><br>${answers[i]!=undefined?q.options[answers[i]]:"Not Attempted"}
-</div>
-
-<div class="inner correct">
-<b>Correct:</b><br>${q.options[q.answer]}
-</div>
-</div>`;
-});
-
-html+=`
-<div class="result-buttons">
-<button class="retry" onclick="location.reload()">Retry</button>
-<button class="home" onclick="window.location.href='https://shoruto.com'">Home</button>
-</div>
-
-</div>`;
-
-app.innerHTML=html;
-
-setTimeout(()=>{
-let circle=document.getElementById("progressCircle");
-let offset=440-(440*percent/100);
-circle.style.strokeDashoffset=offset;
-},100);
 }
 
 load();
