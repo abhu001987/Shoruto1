@@ -394,17 +394,23 @@ body{
 /* EXPLORE SECTION */
 /* ===================== */
 
+/* ===================== */
+/* EXPLORE SECTION */
+/* ===================== */
+
 .explore{
-  padding:24px 20px;
+  padding:26px 20px;
   margin:0;
 }
 
 /* HEADER */
 .explore-header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:14px;
+  margin-bottom:16px;
+
+  /* 🔥 FIX spacing */
+  justify-content:space-between;
 }
 
 .left-title{
@@ -413,11 +419,11 @@ body{
   gap:10px;
 }
 
-/* BLUE BAR */
+/* BLUE BAR (slightly better glow) */
 .blue-bar{
   width:4px;
   height:18px;
-  background:#3b82f6;
+  background:linear-gradient(#3b82f6,#60a5fa);
   border-radius:3px;
 }
 
@@ -425,16 +431,28 @@ body{
 .left-title h2{
   font-size:20px;
   font-weight:600;
+  letter-spacing:0.3px;
 }
 
-/* VIEW ALL */
+/* VIEW ALL (FIX DISTANCE + STYLE) */
 .view-all{
-  color:#3b82f6;
+  color:#60a5fa;
   cursor:pointer;
   font-size:14px;
+
   display:flex;
   align-items:center;
-  gap:4px;
+  gap:6px;
+
+  margin-left:auto;   /* 🔥 pushes it right */
+  opacity:0.85;
+
+  transition:0.2s;
+}
+
+.view-all:hover{
+  opacity:1;
+  transform:translateX(3px);
 }
 
 .arrow{
@@ -442,18 +460,26 @@ body{
 }
 
 /* ===================== */
-/* GLASS BOX */
+/* GLASS BOX (UPGRADED) */
 /* ===================== */
 
 .explore-box{
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
 
-  border:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:22px;
 
-  padding:18px;
+  padding:20px;
+
+  /* 🔥 subtle depth */
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 /* ===================== */
@@ -462,26 +488,30 @@ body{
 
 .topics-scroll{
   display:flex;
-  gap:16px;
+  gap:18px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   padding-bottom:8px;
 }
 
-/* HIDE SCROLLBAR */
 .topics-scroll::-webkit-scrollbar{
   display:none;
 }
 
 /* ===================== */
-/* TOPIC CARD */
+/* TOPIC CARD (IMPROVED) */
 /* ===================== */
 
 .topic{
-  min-width:95px;
-  height:95px;
+  min-width:100px;
+  height:100px;
 
-  background:rgba(255,255,255,0.05);
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+
   border-radius:18px;
 
   display:flex;
@@ -493,6 +523,8 @@ body{
   cursor:pointer;
 
   transition:all 0.25s ease;
+
+  border:1px solid rgba(255,255,255,0.06);
 }
 
 /* ICON */
@@ -507,10 +539,17 @@ body{
   opacity:0.9;
 }
 
-/* HOVER */
+/* 🔥 HOVER (CLEAN, NOT NEON) */
 .topic:hover{
-  background:rgba(255,255,255,0.12);
-  transform:translateY(-3px);
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+
+  transform:translateY(-4px) scale(1.03);
+
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
 }
 
 /* ===================== */
@@ -561,17 +600,17 @@ body{
 }
 
 /* ===================== */
-/* PC RESPONSIVE */
+/* PC */
 /* ===================== */
 
 @media(min-width:768px){
 
   .explore{
-    padding:24px 20px; /* SAME as trending */
+    padding:26px 20px;
   }
 
   .explore-box{
-    padding:22px;
+    padding:24px;
   }
 
   .topic{
@@ -587,7 +626,7 @@ body{
 }
 
 /* ===================== */
-/* MOBILE FIX */
+/* MOBILE */
 /* ===================== */
 
 @media(max-width:768px){
@@ -1091,7 +1130,7 @@ body{
   margin-top:20px;
 
   /* 👇 ADD THIS LINE */
-  margin-left:-15px;  /* adjust: -2px / -6px if needed */
+  margin-left:-20px;  /* adjust: -2px / -6px if needed */
 }
 
 /* TITLE — EXACT SAME STRUCTURE AS tp-title */
