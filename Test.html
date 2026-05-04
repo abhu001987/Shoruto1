@@ -1082,6 +1082,119 @@ body{
     width:100%;
   }
 }
+/* ========================= */
+/* EXPLORE SECTION (FIXED) */
+/* ========================= */
+
+.explore-section{
+  padding:0 20px;
+  margin-top:20px;
+
+  /* 👇 ADD THIS LINE */
+  margin-left:-15px;  /* adjust: -2px / -6px if needed */
+}
+
+/* TITLE — EXACT SAME STRUCTURE AS tp-title */
+
+.explore-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+
+  /* ❌ REMOVE ANY RIGHT PUSH */
+  justify-content:flex-start;
+}
+
+/* LEFT COLOR BAR */
+
+.explore-bar{
+  width:4px;
+  height:18px;
+  background:#4fc3f7; /* different color */
+  border-radius:3px;
+}
+
+/* IMPORTANT FIX — PREVENT RIGHT SHIFT */
+
+.explore-header h3{
+  margin:0;
+}
+
+/* ========================= */
+/* CARD CONTAINER */
+/* ========================= */
+
+.explore-slider{
+  width:100%;
+
+  display:flex;
+  gap:16px;
+
+  overflow-x:auto;
+
+  /* 🔥 THIS FIXES ALIGNMENT */
+  justify-content:flex-start;
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.explore-card{
+  min-width:220px;
+  height:160px;
+
+  border-radius:16px;
+  padding:18px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  color:#fff;
+  text-decoration:none;
+
+  flex-shrink:0;
+}
+
+/* KEEP COLORS (NO GLOW) */
+
+.explore-card.blue{
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+}
+
+.explore-card.green{
+  background:linear-gradient(135deg,#134e5e,#0c7a5b);
+}
+
+.explore-card.orange{
+  background:linear-gradient(135deg,#ff8008,#ff5e62);
+}
+
+.explore-card.purple{
+  background:linear-gradient(135deg,#41295a,#2f0743);
+}
+
+.explore-card.yellow{
+  background:linear-gradient(135deg,#f7971e,#ffd200);
+}
+
+/* TEXT */
+
+.explore-card h4{
+  margin:6px 0 2px;
+}
+
+.explore-card p{
+  font-size:13px;
+  opacity:0.9;
+}
+
+.explore-card span{
+  font-size:12px;
+  opacity:0.8;
+}
 </style>
 </head>
 
@@ -1407,7 +1520,48 @@ body{
     </div>
 
   </div>
+<div class="explore-section">
 
+  <div class="explore-header">
+    <span class="explore-bar"></span>
+    <h3>Explore More Questions</h3>
+  </div>
+
+  <div class="explore-slider">
+
+    <a href="#" class="explore-card blue">
+      <h4>GS Paper 1</h4>
+      <p>History, Geography, Society</p>
+      <span>25+ Questions</span>
+    </a>
+
+    <a href="#" class="explore-card green">
+      <h4>GS Paper 2</h4>
+      <p>Polity, Governance</p>
+      <span>30+ Questions</span>
+    </a>
+
+    <a href="#" class="explore-card orange">
+      <h4>GS Paper 3</h4>
+      <p>Economy, Environment</p>
+      <span>25+ Questions</span>
+    </a>
+
+    <a href="#" class="explore-card purple">
+      <h4>GS Paper 4</h4>
+      <p>Ethics, Integrity</p>
+      <span>20+ Questions</span>
+    </a>
+
+    <a href="#" class="explore-card yellow">
+      <h4>Essay</h4>
+      <p>Important Topics</p>
+      <span>15+ Questions</span>
+    </a>
+
+  </div>
+
+</div>
 </div>
 </div>
 
