@@ -1,208 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trending Instagram Reels</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trending Reels Dashboard</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family: Arial, sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    body{
-        background:#f4f6f9;
-    }
+body{
+    font-family: Inter, Arial, sans-serif;
+    background:#f5f7fb;
+}
 
-    header{
-        background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);
-        color:white;
-        padding:20px;
-        text-align:center;
-        font-size:28px;
-        font-weight:bold;
-        box-shadow:0 2px 10px rgba(0,0,0,0.2);
-    }
+.header{
+    background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);
+    color:white;
+    padding:24px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
 
-    .container{
-        max-width:1200px;
-        margin:30px auto;
-        padding:20px;
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-        gap:25px;
-    }
+.header h1{
+    font-size:32px;
+}
 
-    .reel-card{
-        background:white;
-        border-radius:16px;
-        overflow:hidden;
-        box-shadow:0 4px 15px rgba(0,0,0,0.1);
-        transition:0.3s;
-    }
+.header p{
+    margin-top:8px;
+    opacity:.9;
+}
 
-    .reel-card:hover{
-        transform:translateY(-5px);
-    }
+.container{
+    max-width:1400px;
+    margin:30px auto;
+    padding:20px;
+}
 
-    .reel-header{
-        background:#fafafa;
-        padding:15px;
-        border-bottom:1px solid #eee;
-        font-weight:600;
-    }
+.reels-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+    gap:24px;
+}
 
-    .reel-preview{
-        height:220px;
-        background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        color:white;
-        font-size:22px;
-        font-weight:bold;
-    }
+.reel-card{
+    background:white;
+    border-radius:16px;
+    padding:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
 
-    .reel-content{
-        padding:15px;
-    }
+.reel-card:hover{
+    transform:translateY(-4px);
+}
 
-    .likes{
-        color:#e91e63;
-        font-size:18px;
-        font-weight:bold;
-        margin-bottom:12px;
-    }
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
 
-    .hashtags{
-        display:flex;
-        flex-wrap:wrap;
-        gap:8px;
-        margin-bottom:15px;
-    }
+.badge{
+    background:#eef2ff;
+    color:#4338ca;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
 
-    .tag{
-        background:#eef2ff;
-        color:#4f46e5;
-        padding:6px 12px;
-        border-radius:20px;
-        font-size:13px;
-    }
+.likes{
+    color:#e11d48;
+    font-weight:700;
+}
 
-    .view-btn{
-        display:block;
-        width:100%;
-        text-align:center;
-        text-decoration:none;
-        background:#0095f6;
-        color:white;
-        padding:12px;
-        border-radius:10px;
-        font-weight:600;
-        transition:0.3s;
-    }
-
-    .view-btn:hover{
-        background:#0077cc;
-    }
+.instagram-media{
+    margin:0 auto !important;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-    🔥 Trending Instagram Reels
-</header>
+<div class="header">
+    <h1>🔥 Trending Instagram Reels</h1>
+    <p>Most Popular Reels Dashboard</p>
+</div>
 
 <div class="container">
 
-    <!-- Reel 3 -->
-    <div class="reel-card">
-        <div class="reel-header">Reel #3</div>
-        <div class="reel-preview">Instagram Reel</div>
-        <div class="reel-content">
-            <div class="likes">❤️ 110,200 Likes</div>
-            <div class="hashtags">
-                <span class="tag">No Hashtags</span>
-            </div>
-            <a href="https://www.instagram.com/p/DX3IjufRJsk/"
-               target="_blank"
-               class="view-btn">
-               View Reel
-            </a>
-        </div>
-    </div>
+    <div class="reels-grid">
 
-    <!-- Reel 4 -->
-    <div class="reel-card">
-        <div class="reel-header">Reel #4</div>
-        <div class="reel-preview">Instagram Reel</div>
-        <div class="reel-content">
-            <div class="likes">❤️ 78,400 Likes</div>
+        <!-- Reel 1 -->
+        <div class="reel-card">
 
-            <div class="hashtags">
-                <span class="tag">#reels</span>
-                <span class="tag">#dhurandhar2</span>
-                <span class="tag">#dhurandharmovie</span>
-                <span class="tag">#viral</span>
-                <span class="tag">#trending</span>
+            <div class="card-header">
+                <div class="badge">Reel #1</div>
+                <div class="likes">❤️ 110.2K</div>
             </div>
 
-            <a href="https://www.instagram.com/p/DWltD1yBYnd/"
-               target="_blank"
-               class="view-btn">
-               View Reel
-            </a>
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DWb-iOOSJQ3/"
+                data-instgrm-version="14">
+            </blockquote>
+
         </div>
-    </div>
 
-    <!-- Reel 5 -->
-    <div class="reel-card">
-        <div class="reel-header">Reel #5</div>
-        <div class="reel-preview">Instagram Reel</div>
-        <div class="reel-content">
-            <div class="likes">❤️ 89,000 Likes</div>
+        <!-- Reel 2 -->
+        <div class="reel-card">
 
-            <div class="hashtags">
-                <span class="tag">#viral</span>
-                <span class="tag">#smartwatch</span>
-                <span class="tag">#trending</span>
+            <div class="card-header">
+                <div class="badge">Reel #2</div>
+                <div class="likes">❤️ 78.4K</div>
             </div>
 
-            <a href="https://www.instagram.com/p/DWqWS4IE7bO/"
-               target="_blank"
-               class="view-btn">
-               View Reel
-            </a>
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DWRb4bQCcVQ/"
+                data-instgrm-version="14">
+            </blockquote>
+
         </div>
-    </div>
 
-    <!-- Reel 6 -->
-    <div class="reel-card">
-        <div class="reel-header">Reel #6</div>
-        <div class="reel-preview">Instagram Reel</div>
-        <div class="reel-content">
-            <div class="likes">❤️ 676,200 Likes</div>
-
-            <div class="hashtags">
-                <span class="tag">#viral</span>
-                <span class="tag">#farahkhan</span>
-                <span class="tag">#reels</span>
-                <span class="tag">#wedding</span>
-                <span class="tag">#trending</span>
-            </div>
-
-            <a href="https://www.instagram.com/p/DWtw5e7ip76/"
-               target="_blank"
-               class="view-btn">
-               View Reel
-            </a>
-        </div>
     </div>
 
 </div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+    if (window.instgrm) {
+        window.instgrm.Embeds.process();
+    }
+});
+</script>
 
 </body>
 </html>
