@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Trending Instagram Reels</title>
 
 <style>
@@ -15,7 +14,7 @@
 }
 
 body{
-    background:#f4f6f9;
+    background:#f3f4f6;
 }
 
 /* HEADER */
@@ -23,39 +22,38 @@ body{
     background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);
     color:white;
     text-align:center;
-    padding:28px;
+    padding:30px;
 }
 
 .header h1{
-    font-size:40px;
+    font-size:42px;
     margin-bottom:8px;
 }
 
 .header p{
-    font-size:18px;
     opacity:.9;
 }
 
 /* CONTAINER */
 .container{
-    max-width:1500px;
+    max-width:1600px;
     margin:auto;
-    padding:30px;
+    padding:25px;
 }
 
 /* GRID */
 .reels-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-    gap:24px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
 }
 
 /* CARD */
 .reel-card{
     background:white;
     border-radius:18px;
-    padding:16px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    padding:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
     transition:.3s;
 }
 
@@ -73,30 +71,48 @@ body{
 .badge{
     background:#eef2ff;
     color:#4338ca;
-    padding:8px 14px;
+    padding:6px 12px;
     border-radius:999px;
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
 }
 
 .likes{
     color:#e11d48;
-    font-size:28px;
+    font-size:20px;
     font-weight:700;
 }
 
-/* SMALLER EMBEDS */
+/* SMALL EMBEDS */
 .instagram-wrapper{
     display:flex;
     justify-content:center;
     overflow:hidden;
-    height:520px; /* controls visible area */
+    height:300px;
+    margin-bottom:10px;
 }
 
 .instagram-media{
-    transform:scale(0.68);
+    transform:scale(0.42);
     transform-origin:top center;
     margin:0 auto !important;
+}
+
+/* HASHTAGS */
+.hashtags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+}
+
+.tag{
+    background:#eef2ff;
+    color:#4338ca;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:600;
 }
 
 /* MOBILE */
@@ -107,11 +123,11 @@ body{
     }
 
     .instagram-wrapper{
-        height:500px;
+        height:260px;
     }
 
     .instagram-media{
-        transform:scale(0.72);
+        transform:scale(0.40);
     }
 }
 </style>
@@ -126,89 +142,117 @@ body{
 
 <div class="container">
 
-    <div class="reels-grid">
+<div class="reels-grid">
 
-        <!-- Reel 1 -->
-        <div class="reel-card">
+    <!-- Reel 1 -->
+    <div class="reel-card">
 
-            <div class="card-header">
-                <div class="badge">Reel #1</div>
-                <div class="likes">❤️ 110.2K</div>
-            </div>
-
-            <div class="instagram-wrapper">
-                <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DZINUqkOx0m/"
-                    data-instgrm-version="14">
-                </blockquote>
-            </div>
-
+        <div class="card-header">
+            <div class="badge">Reel #1</div>
+            <div class="likes">❤️ 110.2K</div>
         </div>
 
-        <!-- Reel 2 -->
-        <div class="reel-card">
-
-            <div class="card-header">
-                <div class="badge">Reel #2</div>
-                <div class="likes">❤️ 78.4K</div>
-            </div>
-
-            <div class="instagram-wrapper">
-                <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DZP6l7hOYCu/"
-                    data-instgrm-version="14">
-                </blockquote>
-            </div>
-
+        <div class="instagram-wrapper">
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DZINUqkOx0m/"
+                data-instgrm-version="14">
+            </blockquote>
         </div>
 
-        <!-- Reel 3 -->
-        <div class="reel-card">
-
-            <div class="card-header">
-                <div class="badge">Reel #3</div>
-                <div class="likes">❤️ 89K</div>
-            </div>
-
-            <div class="instagram-wrapper">
-                <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DWb-iOOSJQ3/"
-                    data-instgrm-version="14">
-                </blockquote>
-            </div>
-
+        <div class="hashtags">
+            <span class="tag">#viral</span>
+            <span class="tag">#trending</span>
+            <span class="tag">#reels</span>
+            <span class="tag">#instagram</span>
         </div>
 
-        <!-- Reel 4 -->
-        <div class="reel-card">
+    </div>
 
-            <div class="card-header">
-                <div class="badge">Reel #4</div>
-                <div class="likes">❤️ 676K</div>
-            </div>
+    <!-- Reel 2 -->
+    <div class="reel-card">
 
-            <div class="instagram-wrapper">
-                <blockquote
-                    class="instagram-media"
-                    data-instgrm-permalink="https://www.instagram.com/reel/DWRb4bQCcVQ/"
-                    data-instgrm-version="14">
-                </blockquote>
-            </div>
+        <div class="card-header">
+            <div class="badge">Reel #2</div>
+            <div class="likes">❤️ 78.4K</div>
+        </div>
 
+        <div class="instagram-wrapper">
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DZP6l7hOYCu/"
+                data-instgrm-version="14">
+            </blockquote>
+        </div>
+
+        <div class="hashtags">
+            <span class="tag">#movies</span>
+            <span class="tag">#viral</span>
+            <span class="tag">#cinema</span>
+            <span class="tag">#trending</span>
+        </div>
+
+    </div>
+
+    <!-- Reel 3 -->
+    <div class="reel-card">
+
+        <div class="card-header">
+            <div class="badge">Reel #3</div>
+            <div class="likes">❤️ 89K</div>
+        </div>
+
+        <div class="instagram-wrapper">
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DWb-iOOSJQ3/"
+                data-instgrm-version="14">
+            </blockquote>
+        </div>
+
+        <div class="hashtags">
+            <span class="tag">#reels</span>
+            <span class="tag">#viral</span>
+            <span class="tag">#explore</span>
+            <span class="tag">#trending</span>
+        </div>
+
+    </div>
+
+    <!-- Reel 4 -->
+    <div class="reel-card">
+
+        <div class="card-header">
+            <div class="badge">Reel #4</div>
+            <div class="likes">❤️ 676K</div>
+        </div>
+
+        <div class="instagram-wrapper">
+            <blockquote
+                class="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DWRb4bQCcVQ/"
+                data-instgrm-version="14">
+            </blockquote>
+        </div>
+
+        <div class="hashtags">
+            <span class="tag">#viral</span>
+            <span class="tag">#reels</span>
+            <span class="tag">#wedding</span>
+            <span class="tag">#trending</span>
         </div>
 
     </div>
 
 </div>
 
+</div>
+
 <script async src="https://www.instagram.com/embed.js"></script>
 
 <script>
-window.addEventListener("load", () => {
-    if (window.instgrm) {
+window.addEventListener('load', () => {
+    if(window.instgrm){
         window.instgrm.Embeds.process();
     }
 });
