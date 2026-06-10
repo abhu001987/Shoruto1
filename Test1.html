@@ -1,262 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trending Instagram Reels</title>
+<div class="stats-section">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
-}
+    <div class="stat-card">
+        <h3>📊 Reels Analyzed</h3>
+        <div class="stat-number">4</div>
+    </div>
 
-body{
-    background:#f3f4f6;
-}
+    <div class="stat-card">
+        <h3>❤️ Total Likes</h3>
+        <div class="stat-number">953.6K</div>
+    </div>
 
-/* HEADER */
-.header{
-    background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);
-    color:white;
-    text-align:center;
-    padding:30px;
-}
-
-.header h1{
-    font-size:42px;
-    margin-bottom:8px;
-}
-
-.header p{
-    opacity:.9;
-}
-
-/* CONTAINER */
-.container{
-    max-width:1600px;
-    margin:auto;
-    padding:25px;
-}
-
-/* GRID */
-.reels-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
-}
-
-/* CARD */
-.reel-card{
-    background:white;
-    border-radius:18px;
-    padding:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.reel-card:hover{
-    transform:translateY(-4px);
-}
-
-.card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:10px;
-}
-
-.badge{
-    background:#eef2ff;
-    color:#4338ca;
-    padding:6px 12px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:600;
-}
-
-.likes{
-    color:#e11d48;
-    font-size:20px;
-    font-weight:700;
-}
-
-/* SMALL EMBEDS */
-.instagram-wrapper{
-    display:flex;
-    justify-content:center;
-    overflow:hidden;
-    height:300px;
-    margin-bottom:10px;
-}
-
-.instagram-media{
-    transform:scale(0.42);
-    transform-origin:top center;
-    margin:0 auto !important;
-}
-
-/* HASHTAGS */
-.hashtags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:10px;
-}
-
-.tag{
-    background:#eef2ff;
-    color:#4338ca;
-    padding:6px 10px;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:600;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-    .header h1{
-        font-size:28px;
-    }
-
-    .instagram-wrapper{
-        height:260px;
-    }
-
-    .instagram-media{
-        transform:scale(0.40);
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">
-    <h1>🔥 Trending Instagram Reels</h1>
-    <p>Most Popular Reels Dashboard</p>
 </div>
 
-<div class="container">
+<div class="hashtags-section">
 
-<div class="reels-grid">
+    <h2>🔥 Trending Hashtags</h2>
 
-    <!-- Reel 1 -->
-    <div class="reel-card">
+    <div class="hashtags-grid">
 
-        <div class="card-header">
-            <div class="badge">Reel #1</div>
-            <div class="likes">❤️ 110.2K</div>
-        </div>
-
-        <div class="instagram-wrapper">
-            <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DZINUqkOx0m/"
-                data-instgrm-version="14">
-            </blockquote>
-        </div>
-
-        <div class="hashtags">
-            <span class="tag">#viral</span>
-            <span class="tag">#trending</span>
-            <span class="tag">#reels</span>
-            <span class="tag">#instagram</span>
-        </div>
-
-    </div>
-
-    <!-- Reel 2 -->
-    <div class="reel-card">
-
-        <div class="card-header">
-            <div class="badge">Reel #2</div>
-            <div class="likes">❤️ 78.4K</div>
-        </div>
-
-        <div class="instagram-wrapper">
-            <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DZP6l7hOYCu/"
-                data-instgrm-version="14">
-            </blockquote>
-        </div>
-
-        <div class="hashtags">
-            <span class="tag">#movies</span>
-            <span class="tag">#viral</span>
-            <span class="tag">#cinema</span>
-            <span class="tag">#trending</span>
-        </div>
-
-    </div>
-
-    <!-- Reel 3 -->
-    <div class="reel-card">
-
-        <div class="card-header">
-            <div class="badge">Reel #3</div>
-            <div class="likes">❤️ 89K</div>
-        </div>
-
-        <div class="instagram-wrapper">
-            <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DWb-iOOSJQ3/"
-                data-instgrm-version="14">
-            </blockquote>
-        </div>
-
-        <div class="hashtags">
-            <span class="tag">#reels</span>
-            <span class="tag">#viral</span>
-            <span class="tag">#explore</span>
-            <span class="tag">#trending</span>
-        </div>
-
-    </div>
-
-    <!-- Reel 4 -->
-    <div class="reel-card">
-
-        <div class="card-header">
-            <div class="badge">Reel #4</div>
-            <div class="likes">❤️ 676K</div>
-        </div>
-
-        <div class="instagram-wrapper">
-            <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DWRb4bQCcVQ/"
-                data-instgrm-version="14">
-            </blockquote>
-        </div>
-
-        <div class="hashtags">
-            <span class="tag">#viral</span>
-            <span class="tag">#reels</span>
-            <span class="tag">#wedding</span>
-            <span class="tag">#trending</span>
-        </div>
+        <span class="trend-tag">#viral</span>
+        <span class="trend-tag">#trending</span>
+        <span class="trend-tag">#reels</span>
+        <span class="trend-tag">#explore</span>
+        <span class="trend-tag">#instagram</span>
+        <span class="trend-tag">#movies</span>
+        <span class="trend-tag">#cinema</span>
+        <span class="trend-tag">#wedding</span>
 
     </div>
 
 </div>
 
+<div class="top-tags">
+
+    <h2>🏆 Most Used Hashtags</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Hashtag</th>
+                <th>Usage</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>#1</td>
+                <td>#viral</td>
+                <td>4 Reels</td>
+            </tr>
+
+            <tr>
+                <td>#2</td>
+                <td>#trending</td>
+                <td>4 Reels</td>
+            </tr>
+
+            <tr>
+                <td>#3</td>
+                <td>#reels</td>
+                <td>3 Reels</td>
+            </tr>
+
+            <tr>
+                <td>#4</td>
+                <td>#movies</td>
+                <td>1 Reel</td>
+            </tr>
+
+            <tr>
+                <td>#5</td>
+                <td>#wedding</td>
+                <td>1 Reel</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
 </div>
-
-<script async src="https://www.instagram.com/embed.js"></script>
-
-<script>
-window.addEventListener('load', () => {
-    if(window.instgrm){
-        window.instgrm.Embeds.process();
-    }
-});
-</script>
-
-</body>
-</html>
